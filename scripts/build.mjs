@@ -285,6 +285,7 @@ function renderPage({ fromOutputFile, title, contentHtml, navHtml }){
       <div class="headerActions">
         <a class="pill" href="${syllabusHref}">Syllabus</a>
         <button id="themeToggle" class="pill" type="button" aria-label="Toggle theme" aria-pressed="false">Theme</button>
+        <button id="aestheticToggle" class="pill" type="button" aria-label="Cycle site style preset" aria-pressed="false">Style</button>
       </div>
     </div>
   </header>

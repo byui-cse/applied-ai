@@ -160,6 +160,76 @@
     });
   }
 
+  // Aesthetic preset toggle (classic + trend presets)
+  const aestheticToggle = document.getElementById('aestheticToggle');
+  const AESTHETICS = [
+    'classic',
+    'nature',
+    'dopamine',
+    'museumcore',
+    'retro',
+    'eighties',
+    'dialup',
+    'femme',
+    'brutal',
+    'hyperreality'
+  ];
+
+  const prettyAestheticName = (a) => {
+    switch(a){
+      case 'classic': return 'Style: Default';
+      case 'nature': return 'Style: Nature';
+      case 'dopamine': return 'Style: Dopamine';
+      case 'museumcore': return 'Style: Museumcore';
+      case 'retro': return 'Style: Retro';
+      case 'eighties': return 'Style: 80s';
+      case 'dialup': return 'Style: Dial-up';
+      case 'femme': return 'Style: Retrofuture';
+      case 'brutal': return 'Style: Brutal';
+      case 'hyperreality': return 'Style: Hyperreality';
+      default: return 'Style';
+    }
+  };
+
+  const applyAesthetic = (aesthetic) => {
+    const value = AESTHETICS.includes(aesthetic) ? aesthetic : 'classic';
+    if(value === 'classic'){
+      delete root.dataset.aesthetic;
+    }else{
+      root.dataset.aesthetic = value;
+    }
+
+    if(aestheticToggle){
+      aestheticToggle.textContent = prettyAestheticName(value);
+    }
+
+    try{
+      localStorage.setItem('aesthetic', value);
+    }catch(e){}
+  };
+
+  const initAesthetic = () => {
+    try{
+      const saved = localStorage.getItem('aesthetic');
+      if(AESTHETICS.includes(saved)){
+        applyAesthetic(saved);
+        return;
+      }
+    }catch(e){}
+    // Default: classic (no data-aesthetic attribute).
+    applyAesthetic('classic');
+  };
+
+  if(aestheticToggle){
+    aestheticToggle.addEventListener('click', () => {
+      const current = root.dataset.aesthetic || 'classic';
+      const idx = Math.max(0, AESTHETICS.indexOf(current));
+      const next = AESTHETICS[(idx + 1) % AESTHETICS.length] || 'classic';
+      applyAesthetic(next);
+    });
+  }
+  try{ initAesthetic(); }catch(e){ try{ console.debug('Aesthetic init failed', e); }catch(_){} }
+
   // Active nav link highlighting
   const normalizePath = (p) => {
     // Normalize paths between directory-style links (".../week-1/") and direct index pages (".../week-1/index.html")
