@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 10: Extensibility - Plugin Contracts for LLM Tools - Applied AI for Software Development</title>
+  <link rel="stylesheet" href="../../../../assets/styles.css" />
+  <script defer src="../../../../assets/app.js"></script>
+</head>
+<body>
+  <a id="skipToContent" class="skipLink" href="#mainContent">Skip to content</a>
+  <header class="siteHeader">
+    <div class="headerInner">
+      <button id="sidebarToggle" class="iconBtn" type="button" aria-label="Toggle navigation" aria-controls="siteNav" aria-expanded="false">☰</button>
+      <div class="brand">
+        <a class="brandLink" href="../../../../index.html">Applied AI for Software Development</a>
+        <span class="brandSub">A 14-week applied course for real-world engineering work</span>
+      </div>
+      <div class="headerActions">
+        <a class="pill" href="../../../../syllabus.html">Syllabus</a>
+        <button id="themeToggle" class="pill" type="button" aria-label="Toggle theme" aria-pressed="false">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" id="siteNav">
+  <div class="sidebarNav"><a class="navLink" data-nav-link="true" href="../../../../index.html" style="margin-bottom:6px;">Course Home</a><div class="navSectionTitle">Phase 1: Brownfield (Legacy Systems)</div><div class="navModuleTitle">1. Context &amp; Efficiency</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../phase-1/module-1/week-1/">Week 1</a><a class="navLink" data-nav-link="true" href="../../../phase-1/module-1/week-2/">Week 2</a></div><div class="navModuleTitle">2. Architectural State</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../phase-1/module-2/week-3/">Week 3</a><a class="navLink" data-nav-link="true" href="../../../phase-1/module-2/week-4/">Week 4</a></div><div class="navModuleTitle">3. Extended Tools</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../phase-1/module-3/week-5/">Week 5</a><a class="navLink" data-nav-link="true" href="../../../phase-1/module-3/week-6/">Week 6</a><a class="navLink" data-nav-link="true" href="../../../phase-1/module-3/week-7/">Week 7</a></div><div class="navSectionTitle">Phase 2: Greenfield (New Systems)</div><div class="navModuleTitle">4. Foundations &amp; Skills</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../module-4/week-8/">Week 8</a><a class="navLink" data-nav-link="true" href="../../module-4/week-9/">Week 9</a></div><div class="navModuleTitle">5. Extensibility</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="./">Week 10</a><a class="navLink" data-nav-link="true" href="../week-11/">Week 11</a></div><div class="navModuleTitle">6. Autonomous Agents</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../module-6/week-12/">Week 12</a><a class="navLink" data-nav-link="true" href="../../module-6/week-13/">Week 13</a></div><div class="navModuleTitle">7. Advanced Workflows</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../module-7/week-14/">Week 14</a></div></div></nav>
+    <main class="content" id="mainContent">
+      <article class="prose">
+        <h1>Week 10: Extensibility - Plugin Contracts for LLM Tools</h1>
+<h2>Learning objectives</h2>
+<ul><li>Define plugin/tool contracts so new capabilities are predictable</li><li>Manage versions and compatibility boundaries</li><li>Add safety constraints so plugins cannot perform unsafe actions</li></ul>
+<h2>Key ideas</h2>
+<ul><li>A plugin contract is an interface: inputs, outputs, errors, and guarantees</li><li>Versioning is how you keep an ecosystem stable as prompts evolve</li><li>Safety boundaries should be explicit, testable, and enforced in workflow</li></ul>
+<h2>Lab: Design a plugin (tool) contract</h2>
+<ol><li>Pick one new capability you want (examples: &quot;code search adapter&quot;, &quot;schema validator&quot;, &quot;test runner wrapper&quot;, &quot;diff summarizer&quot;)</li><li>Write <code>lab/week-10/plugin-contract.md</code> with:</li></ol>
+<ul><li>plugin name and purpose</li><li>input schema (what arguments it accepts)</li><li>output schema (what structured result it returns)</li><li>error modes and how the agent should respond</li><li>safety constraints (what it must never do)</li></ul>
+<ol><li>Add a &quot;versioning policy&quot; section: how breaking changes are introduced</li><li>Define one &quot;fallback behavior&quot; when the plugin fails (what the agent does next)</li></ol>
+<h2>Submission checklist</h2>
+<ul><li><code>plugin-contract.md</code></li><li>One paragraph describing how this plugin reduces tokens or improves reliability</li></ul>
+<h2>Reflection questions</h2>
+<ul><li>What would you treat as &quot;non-negotiable&quot; plugin guarantees?</li><li>How will you test plugin correctness in your workflow?</li></ul>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

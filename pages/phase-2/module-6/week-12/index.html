@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 12: Autonomous Agents - Single-Agent Tool Loops with Guardrails - Applied AI for Software Development</title>
+  <link rel="stylesheet" href="../../../../assets/styles.css" />
+  <script defer src="../../../../assets/app.js"></script>
+</head>
+<body>
+  <a id="skipToContent" class="skipLink" href="#mainContent">Skip to content</a>
+  <header class="siteHeader">
+    <div class="headerInner">
+      <button id="sidebarToggle" class="iconBtn" type="button" aria-label="Toggle navigation" aria-controls="siteNav" aria-expanded="false">☰</button>
+      <div class="brand">
+        <a class="brandLink" href="../../../../index.html">Applied AI for Software Development</a>
+        <span class="brandSub">A 14-week applied course for real-world engineering work</span>
+      </div>
+      <div class="headerActions">
+        <a class="pill" href="../../../../syllabus.html">Syllabus</a>
+        <button id="themeToggle" class="pill" type="button" aria-label="Toggle theme" aria-pressed="false">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" id="siteNav">
+  <div class="sidebarNav"><a class="navLink" data-nav-link="true" href="../../../../index.html" style="margin-bottom:6px;">Course Home</a><div class="navSectionTitle">Phase 1: Brownfield (Legacy Systems)</div><div class="navModuleTitle">1. Context &amp; Efficiency</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../phase-1/module-1/week-1/">Week 1</a><a class="navLink" data-nav-link="true" href="../../../phase-1/module-1/week-2/">Week 2</a></div><div class="navModuleTitle">2. Architectural State</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../phase-1/module-2/week-3/">Week 3</a><a class="navLink" data-nav-link="true" href="../../../phase-1/module-2/week-4/">Week 4</a></div><div class="navModuleTitle">3. Extended Tools</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../phase-1/module-3/week-5/">Week 5</a><a class="navLink" data-nav-link="true" href="../../../phase-1/module-3/week-6/">Week 6</a><a class="navLink" data-nav-link="true" href="../../../phase-1/module-3/week-7/">Week 7</a></div><div class="navSectionTitle">Phase 2: Greenfield (New Systems)</div><div class="navModuleTitle">4. Foundations &amp; Skills</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../module-4/week-8/">Week 8</a><a class="navLink" data-nav-link="true" href="../../module-4/week-9/">Week 9</a></div><div class="navModuleTitle">5. Extensibility</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../module-5/week-10/">Week 10</a><a class="navLink" data-nav-link="true" href="../../module-5/week-11/">Week 11</a></div><div class="navModuleTitle">6. Autonomous Agents</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="./">Week 12</a><a class="navLink" data-nav-link="true" href="../week-13/">Week 13</a></div><div class="navModuleTitle">7. Advanced Workflows</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../module-7/week-14/">Week 14</a></div></div></nav>
+    <main class="content" id="mainContent">
+      <article class="prose">
+        <h1>Week 12: Autonomous Agents - Single-Agent Tool Loops with Guardrails</h1>
+<h2>Learning objectives</h2>
+<ul><li>Design an agent loop that uses tools safely and predictably</li><li>Force structured outputs so results can be verified</li><li>Add guardrails to prevent runaway actions</li></ul>
+<h2>Key ideas</h2>
+<ul><li>An agent is an orchestration pattern: plan -&gt; act -&gt; observe -&gt; refine</li><li>Guardrails should be engineered constraints (limits, schemas, verification steps)</li><li>Structured outputs let you validate without reading everything manually</li></ul>
+<h2>Lab: Agent loop + structured output schema</h2>
+<ol><li>Write <code>lab/week-12/agent-loop.md</code> describing:</li></ol>
+<ul><li>initial planning step</li><li>tool call step(s)</li><li>observation step(s)</li><li>decision step (continue/stop)</li></ul>
+<ol><li>Add guardrails:</li></ol>
+<ul><li>max steps</li><li>max tool calls</li><li>what to do when evidence is insufficient</li></ul>
+<ol><li>Define a structured output schema for the agent (examples: <code>plan</code>, <code>evidence</code>, <code>diff_summary</code>, <code>verification_steps</code>, <code>risk_notes</code>)</li><li>Write one sample agent run transcript (short) showing how the schema would look after success</li></ol>
+<h2>Submission checklist</h2>
+<ul><li><code>agent-loop.md</code></li><li>Structured output schema (embedded or separate)</li><li>One sample &quot;success transcript&quot;</li></ul>
+<h2>Reflection questions</h2>
+<ul><li>Which guardrail is most important for safety vs quality?</li><li>How will you detect infinite loops early?</li></ul>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

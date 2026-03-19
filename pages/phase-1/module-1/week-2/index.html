@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 2: Token Optimization for Large Existing Codebases - Applied AI for Software Development</title>
+  <link rel="stylesheet" href="../../../../assets/styles.css" />
+  <script defer src="../../../../assets/app.js"></script>
+</head>
+<body>
+  <a id="skipToContent" class="skipLink" href="#mainContent">Skip to content</a>
+  <header class="siteHeader">
+    <div class="headerInner">
+      <button id="sidebarToggle" class="iconBtn" type="button" aria-label="Toggle navigation" aria-controls="siteNav" aria-expanded="false">☰</button>
+      <div class="brand">
+        <a class="brandLink" href="../../../../index.html">Applied AI for Software Development</a>
+        <span class="brandSub">A 14-week applied course for real-world engineering work</span>
+      </div>
+      <div class="headerActions">
+        <a class="pill" href="../../../../syllabus.html">Syllabus</a>
+        <button id="themeToggle" class="pill" type="button" aria-label="Toggle theme" aria-pressed="false">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" id="siteNav">
+  <div class="sidebarNav"><a class="navLink" data-nav-link="true" href="../../../../index.html" style="margin-bottom:6px;">Course Home</a><div class="navSectionTitle">Phase 1: Brownfield (Legacy Systems)</div><div class="navModuleTitle">1. Context &amp; Efficiency</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../week-1/">Week 1</a><a class="navLink" data-nav-link="true" href="./">Week 2</a></div><div class="navModuleTitle">2. Architectural State</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../module-2/week-3/">Week 3</a><a class="navLink" data-nav-link="true" href="../../module-2/week-4/">Week 4</a></div><div class="navModuleTitle">3. Extended Tools</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../module-3/week-5/">Week 5</a><a class="navLink" data-nav-link="true" href="../../module-3/week-6/">Week 6</a><a class="navLink" data-nav-link="true" href="../../module-3/week-7/">Week 7</a></div><div class="navSectionTitle">Phase 2: Greenfield (New Systems)</div><div class="navModuleTitle">4. Foundations &amp; Skills</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../phase-2/module-4/week-8/">Week 8</a><a class="navLink" data-nav-link="true" href="../../../phase-2/module-4/week-9/">Week 9</a></div><div class="navModuleTitle">5. Extensibility</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../phase-2/module-5/week-10/">Week 10</a><a class="navLink" data-nav-link="true" href="../../../phase-2/module-5/week-11/">Week 11</a></div><div class="navModuleTitle">6. Autonomous Agents</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../phase-2/module-6/week-12/">Week 12</a><a class="navLink" data-nav-link="true" href="../../../phase-2/module-6/week-13/">Week 13</a></div><div class="navModuleTitle">7. Advanced Workflows</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../phase-2/module-7/week-14/">Week 14</a></div></div></nav>
+    <main class="content" id="mainContent">
+      <article class="prose">
+        <h1>Week 2: Token Optimization for Large Existing Codebases</h1>
+<h2>Learning objectives</h2>
+<ul><li>Chunk a legacy codebase into retrieval-friendly units</li><li>Design search/query strategies that minimize irrelevant context</li><li>Create a simple evaluation rubric for &quot;good enough&quot; AI outputs</li></ul>
+<h2>Key ideas</h2>
+<ul><li>Retrieval should be task-oriented (what you need), not file-oriented (what you found)</li><li>Good chunk boundaries reduce both tokens and ambiguity</li><li>Evaluation is a workflow step, not a final grade</li></ul>
+<h2>Lab: Chunk + retrieve + evaluate</h2>
+<ol><li>Choose a subsystem (10-30 files is enough for the lab) and create <code>lab/week-2/chunk-map.md</code></li><li>Propose 6-12 chunks with: name, where it lives, inclusion rules, and &quot;do not use for&quot; rules</li><li>Write 3 retrieval queries (in natural language) that would fetch the chunks needed for: bugfix, refactor, and new feature</li><li>Perform one &quot;dry run&quot; evaluation: for each query, list the expected chunks and explain why those chunks are sufficient</li><li>Define an evaluation rubric with 3-5 criteria (examples: correctness, minimal changes, clarity of assumptions, test impact)</li></ol>
+<h2>Submission checklist</h2>
+<ul><li><code>chunk-map.md</code></li><li>Retrieval queries (in the same file or linked)</li><li>Evaluation rubric (short and actionable)</li></ul>
+<h2>Reflection questions</h2>
+<ul><li>Which chunk boundary was hardest to define, and why?</li><li>How will you know when retrieval is failing (before the model fails)?</li></ul>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
