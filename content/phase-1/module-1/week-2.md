@@ -1,4 +1,4 @@
-# Week 2: Token Optimization for Large Existing Codebases
+# Week 2: Context & Efficiency - Token Optimization for Large Existing Codebases
 
 ## Learning objectives
 - Chunk a legacy codebase into retrieval-friendly units

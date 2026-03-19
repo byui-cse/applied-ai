@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Week 6 Lab: Context Management (Bounded Diffs with Worktrees) - Applied AI for Software Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="../../../../../assets/styles.css" />
   <script defer src="../../../../../assets/app.js"></script>
 </head>
@@ -19,7 +21,6 @@
       <div class="headerActions">
         <a class="pill" href="../../../../../syllabus.html">Syllabus</a>
         <button id="themeToggle" class="pill" type="button" aria-label="Toggle theme" aria-pressed="false">Theme</button>
-        <button id="aestheticToggle" class="pill" type="button" aria-label="Cycle site style preset" aria-pressed="false">Style</button>
       </div>
     </div>
   </header>
@@ -29,7 +30,8 @@
   <div class="sidebarNav"><a class="navLink" data-nav-link="true" href="../../../../../index.html" style="margin-bottom:6px;">Course Home</a><div class="navSectionTitle">Phase 1: Brownfield (Legacy Systems)</div><div class="navModuleTitle">1. Context &amp; Efficiency</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../module-1/week-1/">Week 1</a><a class="navLink" data-nav-link="true" href="../../../module-1/week-2/">Week 2</a></div><div class="navModuleTitle">2. Architectural State</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../module-2/week-3/">Week 3</a><a class="navLink" data-nav-link="true" href="../../../module-2/week-4/">Week 4</a></div><div class="navModuleTitle">3. Extended Tools</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../week-5/">Week 5</a><a class="navLink" data-nav-link="true" href="../../week-6/">Week 6</a><a class="navLink" data-nav-link="true" href="../../week-7/">Week 7</a></div><div class="navSectionTitle">Phase 2: Greenfield (New Systems)</div><div class="navModuleTitle">4. Foundations &amp; Skills</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-4/week-8/">Week 8</a><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-4/week-9/">Week 9</a></div><div class="navModuleTitle">5. Extensibility</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-5/week-10/">Week 10</a><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-5/week-11/">Week 11</a></div><div class="navModuleTitle">6. Autonomous Agents</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-6/week-12/">Week 12</a><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-6/week-13/">Week 13</a></div><div class="navModuleTitle">7. Advanced Workflows</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-7/week-14/">Week 14</a></div></div></nav>
     <main class="content" id="mainContent">
       <article class="prose">
-        <h1>Week 6 Lab: Context Management (Bounded Diffs with Worktrees)</h1>
+        <h1>Week 6 Lab: Context Management</h1>
+<span class="pageSubtitle">Bounded Diffs with Worktrees</span>
 <p>Worktrees help you avoid context creep by separating experiments into isolated branches. Your context budget should still be explicit: include only what’s needed to make the refactor plan and verification steps correct.</p>
 <h2>Context budget goals</h2>
 <ul><li>Keep each iteration bounded to the intended refactor scope</li><li>Include only the information needed to plan changes and run verification</li><li>Exclude unrelated diffs and large raw outputs; summarize results into the plan</li></ul>

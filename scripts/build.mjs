@@ -199,6 +199,38 @@ function getFirstHeading(md){
   return m ? m[1].trim() : null;
 }
 
+/**
+ * Split an H1 line into a primary title and subtitle for layout:
+ * - Prefer the first " - " (e.g. "Week 1: Module - Topic")
+ * - Else a trailing " (Subtitle)" clause (e.g. labs, "Course Syllabus (14 Weeks)")
+ */
+function splitHeadingTitleAndSubtitle(headingText){
+  if(!headingText) return { main: "", subtitle: null };
+  const t = headingText.trim();
+  const dashSep = /\s-\s/;
+  const dashIdx = t.search(dashSep);
+  if(dashIdx !== -1){
+    const main = t.slice(0, dashIdx).trim();
+    const subtitle = t.slice(dashIdx).replace(dashSep, "").trim();
+    return main && subtitle ? { main, subtitle } : { main: t, subtitle: null };
+  }
+  const openIdx = t.lastIndexOf(" (");
+  if(openIdx !== -1 && t.endsWith(")")){
+    const main = t.slice(0, openIdx).trim();
+    const inner = t.slice(openIdx + 2, -1).trim();
+    if(main && inner) return { main, subtitle: inner };
+  }
+  return { main: t, subtitle: null };
+}
+
+function applyHeadingSplitHtml(html, rawHeading){
+  if(!rawHeading) return html;
+  const { main, subtitle } = splitHeadingTitleAndSubtitle(rawHeading);
+  if(!subtitle) return html;
+  const replacement = `<h1>${inlineMarkdown(main)}</h1>\n<span class="pageSubtitle">${inlineMarkdown(subtitle)}</span>`;
+  return html.replace(/^<h1>[\s\S]*?<\/h1>/, replacement);
+}
+
 function buildNavStructure(weekMarkdownRelPaths){
   // weekMarkdownRelPaths like: phase-1/module-1/week-1.md
   const phaseOrder = ["phase-1", "phase-2"];
@@ -270,6 +302,8 @@ function renderPage({ fromOutputFile, title, contentHtml, navHtml }){
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${escapeHtml(title)}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="${stylesHref}" />
   <script defer src="${appHref}"></script>
 </head>
@@ -285,7 +319,6 @@ function renderPage({ fromOutputFile, title, contentHtml, navHtml }){
       <div class="headerActions">
         <a class="pill" href="${syllabusHref}">Syllabus</a>
         <button id="themeToggle" class="pill" type="button" aria-label="Toggle theme" aria-pressed="false">Theme</button>
-        <button id="aestheticToggle" class="pill" type="button" aria-label="Cycle site style preset" aria-pressed="false">Style</button>
       </div>
     </div>
   </header>
@@ -343,7 +376,15 @@ function buildNavHtml({ fromOutputFile, navData }){
 }
 
 function buildRootPages({ courseHomeMd, syllabusMd, weekFiles }){
-  const renderedHome = markdownToHtml(courseHomeMd);
+  let renderedHome = markdownToHtml(courseHomeMd);
+  const homeHeading = getFirstHeading(courseHomeMd);
+  renderedHome = applyHeadingSplitHtml(renderedHome, homeHeading);
+  if(!splitHeadingTitleAndSubtitle(homeHeading || "").subtitle){
+    renderedHome = renderedHome.replace(
+      /^<h1>[\s\S]*?<\/h1>/,
+      (m) => `${m}\n<span class="pageSubtitle">${escapeHtml(COURSE_SUBTITLE)}</span>`
+    );
+  }
   const homeTitle = `${COURSE_TITLE}`;
   const indexOut = path.join(ROOT, "index.html");
   const navData = buildNavStructure(weekFiles.map((wf) => wf.relPath));
@@ -356,7 +397,8 @@ function buildRootPages({ courseHomeMd, syllabusMd, weekFiles }){
   });
   fs.writeFileSync(indexOut, indexHtml, "utf-8");
 
-  const renderedSyllabus = markdownToHtml(syllabusMd);
+  let renderedSyllabus = markdownToHtml(syllabusMd);
+  renderedSyllabus = applyHeadingSplitHtml(renderedSyllabus, getFirstHeading(syllabusMd));
   const syllabusOut = path.join(ROOT, "syllabus.html");
   const navHtml2 = buildNavHtml({ fromOutputFile: syllabusOut, navData });
   const syllabusHtml = renderPage({
@@ -421,7 +463,8 @@ async function main(){
     const md = fs.readFileSync(wf.absPath, "utf-8");
     const heading = getFirstHeading(md);
     const pageTitle = heading ? `${heading} - ${COURSE_TITLE}` : COURSE_TITLE;
-    const html = markdownToHtml(md);
+    let html = markdownToHtml(md);
+    html = applyHeadingSplitHtml(html, heading);
 
     const outFile = markdownRelToOutput(wf.relPath);
     ensureDir(path.dirname(outFile));
@@ -441,7 +484,8 @@ async function main(){
     const md = fs.readFileSync(lf.absPath, "utf-8");
     const heading = getFirstHeading(md);
     const pageTitle = heading ? `${heading} - ${COURSE_TITLE}` : COURSE_TITLE;
-    const html = markdownToHtml(md);
+    let html = markdownToHtml(md);
+    html = applyHeadingSplitHtml(html, heading);
 
     const outFile = markdownRelToLabOutput(lf.relPath);
     ensureDir(path.dirname(outFile));
