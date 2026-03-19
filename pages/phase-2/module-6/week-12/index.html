@@ -33,16 +33,8 @@
 <ul><li>Design an agent loop that uses tools safely and predictably</li><li>Force structured outputs so results can be verified</li><li>Add guardrails to prevent runaway actions</li></ul>
 <h2>Key ideas</h2>
 <ul><li>An agent is an orchestration pattern: plan -&gt; act -&gt; observe -&gt; refine</li><li>Guardrails should be engineered constraints (limits, schemas, verification steps)</li><li>Structured outputs let you validate without reading everything manually</li></ul>
-<h2>Lab: Agent loop + structured output schema</h2>
-<ol><li>Write <code>lab/week-12/agent-loop.md</code> describing:</li></ol>
-<ul><li>initial planning step</li><li>tool call step(s)</li><li>observation step(s)</li><li>decision step (continue/stop)</li></ul>
-<ol><li>Add guardrails:</li></ol>
-<ul><li>max steps</li><li>max tool calls</li><li>what to do when evidence is insufficient</li></ul>
-<ol><li>Define a structured output schema for the agent (examples: <code>plan</code>, <code>evidence</code>, <code>diff_summary</code>, <code>verification_steps</code>, <code>risk_notes</code>)</li><li>Write one sample agent run transcript (short) showing how the schema would look after success</li></ol>
-<h2>Submission checklist</h2>
-<ul><li><code>agent-loop.md</code></li><li>Structured output schema (embedded or separate)</li><li>One sample &quot;success transcript&quot;</li></ul>
-<h2>Reflection questions</h2>
-<ul><li>Which guardrail is most important for safety vs quality?</li><li>How will you detect infinite loops early?</li></ul>
+<h2>Labs</h2>
+<ul><li><a href="../labs/week-12-context-management/" target="_blank" rel="noopener noreferrer">Week 12 Context Management: Guardrails for Tool Loops</a></li><li><a href="../labs/week-12-markdown-memory/" target="_blank" rel="noopener noreferrer">Week 12 Markdown Memory: Agent Loop + Structured Output</a></li><li><a href="../labs/week-12-agents/" target="_blank" rel="noopener noreferrer">Week 12 Agents: Tool Loop with Guardrails</a></li></ul>
       </article>
     </main>
   </div>

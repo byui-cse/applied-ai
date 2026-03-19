@@ -181,6 +181,11 @@ html[data-theme="light"] .siteHeader{
   transition: background 120ms ease, border-color 120ms ease;
 }
 
+/* Desktop: sidebar is already visible, so hide the hamburger button */
+#sidebarToggle{
+  display: none;
+}
+
 .pill{
   border: 1px solid var(--border);
   background: var(--pillBg);
@@ -220,19 +225,19 @@ html[data-theme="light"] .siteHeader{
 .sidebarNav{
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 .navSectionTitle{
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-top: 10px;
+  margin: 0;
 }
 .navModuleTitle{
   font-weight: 700;
   font-size: 14px;
-  margin-bottom: 6px;
+  margin: 0;
   color: var(--fg);
 }
 .navWeek{
@@ -274,47 +279,65 @@ html[data-theme="light"] .siteHeader{
   border-radius: var(--radius);
   padding: clamp(16px, 2.6vw, 24px);
   box-shadow: 0 10px 34px var(--shadow);
-  max-width: var(--max-content);
+  /* Keep reading lines in a comfortable measure (content readability) */
+  max-width: min(var(--max-content), 75ch);
   margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.75;
+  font-variant-numeric: tabular-nums;
 }
 
 .prose h1{
   font-size: clamp(26px, 3.2vw, 36px);
   line-height: 1.15;
   margin: 0 0 6px 0;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.pageSubtitle{
+  display: block;
+  font-size: 0.70em;
+  line-height: 1.25;
+  color: var(--proseMuted);
+  font-weight: 650;
+  margin-top: 6px;
 }
 .prose h2{
   font-size: clamp(18px, 2.2vw, 22px);
-  margin: 22px 0 12px 0;
+  margin: 18px 0 10px 0;
   padding: 10px 12px;
   border-radius: 14px;
   /* Warmth + wayfinding: subtle header tint (blue brand + amber warmth) */
   background: rgba(138,180,255,0.10);
   border: 1px solid rgba(255,176,32,0.22);
   scroll-margin-top: calc(var(--headerH) + 16px);
+  font-weight: 750;
+  line-height: 1.2;
 }
 .prose h3{
-  font-size: 16px;
-  margin: 18px 0 10px 0;
+  font-size: 1.05rem;
+  margin: 16px 0 8px 0;
   color: var(--fg);
+  font-weight: 700;
+  line-height: 1.25;
 }
 .prose p{
   color: var(--proseText);
-  margin: 10px 0;
+  margin: 0.85rem 0;
 }
 html[data-theme="light"] .prose p{
   color: var(--proseText);
 }
 .prose ul{
   padding-left: 22px;
-  margin: 8px 0;
+  margin: 0.85rem 0;
 }
 .prose ol{
   padding-left: 22px;
-  margin: 8px 0;
+  margin: 0.85rem 0;
 }
 .prose li{
-  margin: 10px 0;
+  margin: 0.6rem 0;
   color: var(--proseText);
 }
 html[data-theme="light"] .prose li{
@@ -323,7 +346,7 @@ html[data-theme="light"] .prose li{
 .prose hr{
   border: none;
   border-top: 1px solid var(--border);
-  margin: 18px 0;
+  margin: 1.2rem 0;
 }
 .prose code{
   background: var(--codeBg);
@@ -349,7 +372,7 @@ html[data-theme="light"] .prose li{
 }
 .prose blockquote{
   border-left: 3px solid rgba(255,176,32,0.70);
-  margin: 14px 0;
+  margin: 1rem 0;
   padding: 6px 14px;
   color: var(--muted);
   background: rgba(255,176,32,0.08);
@@ -361,14 +384,14 @@ html[data-theme="light"] .prose li{
   background: var(--surface);
   border-radius: 16px;
   padding: 12px;
-  margin: 10px 0 18px 0;
+  margin: 0.9rem 0 1.3rem 0;
 }
 .proseTocTitle{
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
   color: var(--muted);
-  margin: 0 0 10px 0;
+  margin: 0 0 0.75rem 0;
 }
 .proseTocList{
   display: flex;
@@ -390,6 +413,9 @@ html[data-theme="light"] .prose li{
 }
 
 @media (max-width: 980px){
+  #sidebarToggle{
+    display: inline-flex;
+  }
   .sidebar{
     display: none;
   }

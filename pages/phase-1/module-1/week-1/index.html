@@ -30,15 +30,11 @@
       <article class="prose">
         <h1>Week 1: Context &amp; Efficiency - Prompt Contracts and Context Budgets</h1>
 <h2>Learning objectives</h2>
-<ul><li>Design a repeatable prompt contract for development tasks</li><li>Stay under a strict context budget by choosing what to include and what to exclude</li><li>Turn &quot;LLM instructions&quot; into engineering artifacts you can reuse</li></ul>
+<ul><li>Design a repeatable prompt contract for development tasks</li><li>Stay under a strict context budget by applying various context management techniques</li><li>Turn prompts into engineering artifacts you can reuse</li></ul>
 <h2>Key ideas</h2>
 <ul><li>A context budget is a constraint you design for, not a limitation you react to</li><li>Markdown is your &quot;structured memory layer&quot; for requirements, plans, and diffs</li><li>Token optimization is mostly about scope control (not clever wording)</li></ul>
-<h2>Lab: Build a context budget + prompt contract</h2>
-<ol><li>Pick one realistic brownfield task (examples: &quot;rename a symbol safely&quot;, &quot;add a new feature flag&quot;, &quot;fix a bug in a small subsystem&quot;)</li><li>Create <code>lab/week-1/context-budget.md</code> with these sections: Task Summary, Relevant Files (initial guess), Required Outputs, Exclusions</li><li>Write a prompt contract template in <code>lab/week-1/prompt-contract.md</code> that includes: inputs you will provide, the exact output format you want, and how the model should ask for missing info</li><li>Run 2 prompt iterations: first with a conservative subset of context, then with a slightly expanded subset; record which parts mattered</li><li>Update the budget: remove anything that did not change the output quality</li></ol>
-<h2>Submission checklist</h2>
-<ul><li><code>context-budget.md</code> (final, after iteration 2)</li><li><code>prompt-contract.md</code> (versioned or clearly updated)</li><li>A short note: &quot;What I would include next time, and why&quot;</li></ul>
-<h2>Reflection questions</h2>
-<ul><li>Where did you accidentally include &quot;too much&quot; context?</li><li>What instruction or output format improved consistency the most?</li></ul>
+<h2>Labs</h2>
+<ul><li><a href="../labs/week-1-context-management/" target="_blank" rel="noopener noreferrer">Week 1 Context Management: Context Budgets</a></li><li><a href="../labs/week-1-markdown-memory/" target="_blank" rel="noopener noreferrer">Week 1 Markdown Memory: Prompt Contracts</a></li><li><a href="../labs/week-1-agents/" target="_blank" rel="noopener noreferrer">Week 1 Agents: Two-Iteration Protocol</a></li></ul>
       </article>
     </main>
   </div>

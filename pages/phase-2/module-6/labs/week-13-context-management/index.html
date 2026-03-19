@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 13 Lab: Context Management (Handoffs + Arbitration) - Applied AI for Software Development</title>
+  <link rel="stylesheet" href="../../../../../assets/styles.css" />
+  <script defer src="../../../../../assets/app.js"></script>
+</head>
+<body>
+  <a id="skipToContent" class="skipLink" href="#mainContent">Skip to content</a>
+  <header class="siteHeader">
+    <div class="headerInner">
+      <button id="sidebarToggle" class="iconBtn" type="button" aria-label="Toggle navigation" aria-controls="siteNav" aria-expanded="false">☰</button>
+      <div class="brand">
+        <a class="brandLink" href="../../../../../index.html">Applied AI for Software Development</a>
+        <span class="brandSub">A 14-week applied course for real-world engineering work</span>
+      </div>
+      <div class="headerActions">
+        <a class="pill" href="../../../../../syllabus.html">Syllabus</a>
+        <button id="themeToggle" class="pill" type="button" aria-label="Toggle theme" aria-pressed="false">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" id="siteNav">
+  <div class="sidebarNav"><a class="navLink" data-nav-link="true" href="../../../../../index.html" style="margin-bottom:6px;">Course Home</a><div class="navSectionTitle">Phase 1: Brownfield (Legacy Systems)</div><div class="navModuleTitle">1. Context &amp; Efficiency</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-1/module-1/week-1/">Week 1</a><a class="navLink" data-nav-link="true" href="../../../../phase-1/module-1/week-2/">Week 2</a></div><div class="navModuleTitle">2. Architectural State</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-1/module-2/week-3/">Week 3</a><a class="navLink" data-nav-link="true" href="../../../../phase-1/module-2/week-4/">Week 4</a></div><div class="navModuleTitle">3. Extended Tools</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-1/module-3/week-5/">Week 5</a><a class="navLink" data-nav-link="true" href="../../../../phase-1/module-3/week-6/">Week 6</a><a class="navLink" data-nav-link="true" href="../../../../phase-1/module-3/week-7/">Week 7</a></div><div class="navSectionTitle">Phase 2: Greenfield (New Systems)</div><div class="navModuleTitle">4. Foundations &amp; Skills</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../module-4/week-8/">Week 8</a><a class="navLink" data-nav-link="true" href="../../../module-4/week-9/">Week 9</a></div><div class="navModuleTitle">5. Extensibility</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../module-5/week-10/">Week 10</a><a class="navLink" data-nav-link="true" href="../../../module-5/week-11/">Week 11</a></div><div class="navModuleTitle">6. Autonomous Agents</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../week-12/">Week 12</a><a class="navLink" data-nav-link="true" href="../../week-13/">Week 13</a></div><div class="navModuleTitle">7. Advanced Workflows</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../module-7/week-14/">Week 14</a></div></div></nav>
+    <main class="content" id="mainContent">
+      <article class="prose">
+        <h1>Week 13 Lab: Context Management (Handoffs + Arbitration)</h1>
+<p>Multi-agent systems save tokens and improve safety when you enforce interface discipline: each agent receives and produces specific artifacts, and conflicts are resolved with evidence.</p>
+<h2>Context budget goals</h2>
+<ul><li>Keep each role’s context minimal but sufficient for its job</li><li>Pass verifiable artifacts instead of raw conversation history</li><li>Ensure arbitration steps have evidence requirements</li></ul>
+<h2>What to include</h2>
+<ul><li>Role boundaries: what each role receives and what it outputs</li><li>Handoff artifacts and their purpose (plan, diff summary, verification report, etc.)</li><li>The arbitration policy:</li><li>what evidence the verifier must collect</li><li>when to request human review</li><li>A trace log template for auditing decisions later</li></ul>
+<h2>What to exclude</h2>
+<ul><li>Large raw text buffers that duplicate what is already in artifacts</li><li>Conflict resolution rules that rely on opinion instead of verifiable evidence</li></ul>
+<h2>Iteration protocol</h2>
+<ol><li>Iteration 1 (conservative)</li></ol>
+<ul><li>Define roles and handoff artifacts</li><li>Draft an arbitration policy with basic evidence requirements</li></ul>
+<ol><li>Iteration 2 (tighten)</li></ol>
+<ul><li>Strengthen evidence requirements and make “human review” triggers explicit</li><li>Reduce context passed to each role to only what it needs</li></ul>
+<h2>Reflection</h2>
+<ul><li>What made disagreements detectable rather than silent?</li><li>Where did you reduce context by passing artifacts instead of raw text?</li></ul>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

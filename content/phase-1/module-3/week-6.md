@@ -10,20 +10,8 @@
 - AI changes should be reviewable: small diffs + clear intent
 - Rollback discipline is part of engineering, not just version control
 
-## Lab: Parallel refactor plan with worktrees
-1. Pick a refactor goal that can be tested (examples: extract a module, rename types, reduce coupling, introduce an adapter)
-2. Write `lab/week-6/worktree-plan.md` with:
-   - main branch strategy (what stays stable)
-   - worktree branch strategy (what experiments are isolated)
-   - verification checklist (tests/linters/builds you will run)
-3. In your lab plan, include the exact git workflow you will follow (commands as text), e.g. create worktree, make changes, run tests, record result
-4. Produce a "diff summary" section: how you will describe changes without pasting large code blocks into prompts
-
-## Submission checklist
-- `worktree-plan.md` (with commands + verification checklist)
-- Diff summary template (2-3 paragraphs)
-
-## Reflection questions
-- What failure mode did worktrees prevent for you?
-- How will you keep AI edits reviewable and bounded?
+## Labs
+- [Week 6 Context Management: Bounded Diffs with Worktrees](../labs/week-6-context-management/)
+- [Week 6 Markdown Memory: Worktree Plan + Diff Summary](../labs/week-6-markdown-memory/)
+- [Week 6 Agents: Plan Across Worktrees](../labs/week-6-agents/)
 

@@ -33,14 +33,8 @@
 <ul><li>Use git worktrees to isolate refactors and keep rollbacks safe</li><li>Maintain a clean workflow for multi-step AI-assisted edits</li><li>Reduce the risk of &quot;accidental context creep&quot; by controlling diffs</li></ul>
 <h2>Key ideas</h2>
 <ul><li>Worktrees let you run parallel experiment branches without losing your mainline</li><li>AI changes should be reviewable: small diffs + clear intent</li><li>Rollback discipline is part of engineering, not just version control</li></ul>
-<h2>Lab: Parallel refactor plan with worktrees</h2>
-<ol><li>Pick a refactor goal that can be tested (examples: extract a module, rename types, reduce coupling, introduce an adapter)</li><li>Write <code>lab/week-6/worktree-plan.md</code> with:</li></ol>
-<ul><li>main branch strategy (what stays stable)</li><li>worktree branch strategy (what experiments are isolated)</li><li>verification checklist (tests/linters/builds you will run)</li></ul>
-<ol><li>In your lab plan, include the exact git workflow you will follow (commands as text), e.g. create worktree, make changes, run tests, record result</li><li>Produce a &quot;diff summary&quot; section: how you will describe changes without pasting large code blocks into prompts</li></ol>
-<h2>Submission checklist</h2>
-<ul><li><code>worktree-plan.md</code> (with commands + verification checklist)</li><li>Diff summary template (2-3 paragraphs)</li></ul>
-<h2>Reflection questions</h2>
-<ul><li>What failure mode did worktrees prevent for you?</li><li>How will you keep AI edits reviewable and bounded?</li></ul>
+<h2>Labs</h2>
+<ul><li><a href="../labs/week-6-context-management/" target="_blank" rel="noopener noreferrer">Week 6 Context Management: Bounded Diffs with Worktrees</a></li><li><a href="../labs/week-6-markdown-memory/" target="_blank" rel="noopener noreferrer">Week 6 Markdown Memory: Worktree Plan + Diff Summary</a></li><li><a href="../labs/week-6-agents/" target="_blank" rel="noopener noreferrer">Week 6 Agents: Plan Across Worktrees</a></li></ul>
       </article>
     </main>
   </div>

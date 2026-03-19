@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 8 Lab: Markdown Memory (AI Handbook + Prompt Contract) - Applied AI for Software Development</title>
+  <link rel="stylesheet" href="../../../../../assets/styles.css" />
+  <script defer src="../../../../../assets/app.js"></script>
+</head>
+<body>
+  <a id="skipToContent" class="skipLink" href="#mainContent">Skip to content</a>
+  <header class="siteHeader">
+    <div class="headerInner">
+      <button id="sidebarToggle" class="iconBtn" type="button" aria-label="Toggle navigation" aria-controls="siteNav" aria-expanded="false">☰</button>
+      <div class="brand">
+        <a class="brandLink" href="../../../../../index.html">Applied AI for Software Development</a>
+        <span class="brandSub">A 14-week applied course for real-world engineering work</span>
+      </div>
+      <div class="headerActions">
+        <a class="pill" href="../../../../../syllabus.html">Syllabus</a>
+        <button id="themeToggle" class="pill" type="button" aria-label="Toggle theme" aria-pressed="false">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" id="siteNav">
+  <div class="sidebarNav"><a class="navLink" data-nav-link="true" href="../../../../../index.html" style="margin-bottom:6px;">Course Home</a><div class="navSectionTitle">Phase 1: Brownfield (Legacy Systems)</div><div class="navModuleTitle">1. Context &amp; Efficiency</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-1/module-1/week-1/">Week 1</a><a class="navLink" data-nav-link="true" href="../../../../phase-1/module-1/week-2/">Week 2</a></div><div class="navModuleTitle">2. Architectural State</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-1/module-2/week-3/">Week 3</a><a class="navLink" data-nav-link="true" href="../../../../phase-1/module-2/week-4/">Week 4</a></div><div class="navModuleTitle">3. Extended Tools</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-1/module-3/week-5/">Week 5</a><a class="navLink" data-nav-link="true" href="../../../../phase-1/module-3/week-6/">Week 6</a><a class="navLink" data-nav-link="true" href="../../../../phase-1/module-3/week-7/">Week 7</a></div><div class="navSectionTitle">Phase 2: Greenfield (New Systems)</div><div class="navModuleTitle">4. Foundations &amp; Skills</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../week-8/">Week 8</a><a class="navLink" data-nav-link="true" href="../../week-9/">Week 9</a></div><div class="navModuleTitle">5. Extensibility</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../module-5/week-10/">Week 10</a><a class="navLink" data-nav-link="true" href="../../../module-5/week-11/">Week 11</a></div><div class="navModuleTitle">6. Autonomous Agents</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../module-6/week-12/">Week 12</a><a class="navLink" data-nav-link="true" href="../../../module-6/week-13/">Week 13</a></div><div class="navModuleTitle">7. Advanced Workflows</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../module-7/week-14/">Week 14</a></div></div></nav>
+    <main class="content" id="mainContent">
+      <article class="prose">
+        <h1>Week 8 Lab: Markdown Memory (AI Handbook + Prompt Contract)</h1>
+<h2><code>ai-handbook.md</code> template</h2>
+<pre><code class="language-markdown"># AI Handbook
+
+## Project overview
+&lt;what it does&gt;
+
+## Architecture map
+&lt;components and boundaries&gt;
+
+## How to run
+### Requirements
+- &lt;...&gt;
+
+### Commands
+&lt;command examples&gt;
+
+### Env vars (placeholders)
+- &lt;ENV_VAR_NAME&gt;=&lt;value&gt;
+
+## How to add a feature
+Checklist:
+1. &lt;clarify feature scope / acceptance criteria&gt;
+2. &lt;find the relevant components/boundaries&gt;
+3. &lt;add/adjust tests&gt;
+4. &lt;update docs/examples&gt;
+5. &lt;verify with the acceptance checks&gt;</code></pre>
+<h2><code>acceptance-criteria.md</code> template</h2>
+<pre><code class="language-markdown"># Acceptance Criteria: &lt;Feature name&gt;
+
+## Requirements
+- &lt;bullet list&gt;
+
+## What must be true (testable)
+- &lt;criterion 1&gt;
+- &lt;criterion 2&gt;
+- &lt;criterion 3&gt;</code></pre>
+<h2>Test plan section (template)</h2>
+<pre><code class="language-markdown"># Test Plan
+
+## Unit tests
+- &lt;what you expect to cover&gt;
+
+## Integration checks
+- &lt;what you will run&gt;</code></pre>
+<h2>Prompt contract for future AI work (template)</h2>
+<pre><code class="language-markdown">[Prompt Contract: &lt;future feature task&gt;]
+
+## Inputs I will provide
+- Handbook excerpts:
+- Relevant files:
+- Acceptance criteria:
+
+## Output format (must include)
+1. Changes summary
+2. Tests to run + expected results
+3. Notes on assumptions and follow-ups
+
+## Required verification
+- Must reference the Test Plan
+- Must align with acceptance criteria</code></pre>
+<h2>Deliverables</h2>
+<ul><li><code>ai-handbook.md</code></li><li><code>acceptance-criteria.md</code></li><li>Prompt contract (short, reusable)</li></ul>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

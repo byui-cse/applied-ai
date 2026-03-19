@@ -10,25 +10,8 @@
 - Guardrails should be engineered constraints (limits, schemas, verification steps)
 - Structured outputs let you validate without reading everything manually
 
-## Lab: Agent loop + structured output schema
-1. Write `lab/week-12/agent-loop.md` describing:
-   - initial planning step
-   - tool call step(s)
-   - observation step(s)
-   - decision step (continue/stop)
-2. Add guardrails:
-   - max steps
-   - max tool calls
-   - what to do when evidence is insufficient
-3. Define a structured output schema for the agent (examples: `plan`, `evidence`, `diff_summary`, `verification_steps`, `risk_notes`)
-4. Write one sample agent run transcript (short) showing how the schema would look after success
-
-## Submission checklist
-- `agent-loop.md`
-- Structured output schema (embedded or separate)
-- One sample "success transcript"
-
-## Reflection questions
-- Which guardrail is most important for safety vs quality?
-- How will you detect infinite loops early?
+## Labs
+- [Week 12 Context Management: Guardrails for Tool Loops](../labs/week-12-context-management/)
+- [Week 12 Markdown Memory: Agent Loop + Structured Output](../labs/week-12-markdown-memory/)
+- [Week 12 Agents: Tool Loop with Guardrails](../labs/week-12-agents/)
 

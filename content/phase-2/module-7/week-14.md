@@ -10,26 +10,8 @@
 - Advanced workflows are compositional: tools + agents + memory artifacts + evaluation
 - A production workflow includes rollback/contingency plans
 
-## Lab: Capstone workflow plan (end-to-end)
-1. Choose a Greenfield MVP feature set (3-5 user stories) aligned to your Week 8 acceptance criteria
-2. Write `lab/week-14/capstone-workflow.md` with these sections:
-   - Agent roster (roles and responsibilities)
-   - MCP/tool plan (what tools each agent uses and why)
-   - Plugin integration plan (contracts + versions + fallback behavior)
-   - Memory/state plan (what artifacts are carried forward)
-   - Verification plan (tests/checks, success criteria, failure handling)
-3. Add a traceability section:
-   - how you record evidence
-   - how you summarize diffs without flooding context
-4. End with a "handoff packet" checklist:
-   - what someone needs to run and review your changes
-   - what documentation you generated during the workflow
-
-## Submission checklist
-- `capstone-workflow.md` (complete, with verification and handoff packet)
-- A short reflection (what you would refine for reliability next run)
-
-## Reflection questions
-- Which workflow component reduced risk the most (memory, caching, tools, plugins, or arbitration)?
-- Where did you still need human judgment, and why?
+## Labs
+- [Week 14 Context Management: End-to-End Workflow Context](../labs/week-14-context-management/)
+- [Week 14 Markdown Memory: Capstone Workflow Plan](../labs/week-14-markdown-memory/)
+- [Week 14 Agents: Capstone Workflow Protocol](../labs/week-14-agents/)
 

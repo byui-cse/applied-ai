@@ -10,22 +10,8 @@
 - Versioning is how you keep an ecosystem stable as prompts evolve
 - Safety boundaries should be explicit, testable, and enforced in workflow
 
-## Lab: Design a plugin (tool) contract
-1. Pick one new capability you want (examples: "code search adapter", "schema validator", "test runner wrapper", "diff summarizer")
-2. Write `lab/week-10/plugin-contract.md` with:
-   - plugin name and purpose
-   - input schema (what arguments it accepts)
-   - output schema (what structured result it returns)
-   - error modes and how the agent should respond
-   - safety constraints (what it must never do)
-3. Add a "versioning policy" section: how breaking changes are introduced
-4. Define one "fallback behavior" when the plugin fails (what the agent does next)
-
-## Submission checklist
-- `plugin-contract.md`
-- One paragraph describing how this plugin reduces tokens or improves reliability
-
-## Reflection questions
-- What would you treat as "non-negotiable" plugin guarantees?
-- How will you test plugin correctness in your workflow?
+## Labs
+- [Week 10 Context Management: Plugin Contract Boundaries](../labs/week-10-context-management/)
+- [Week 10 Markdown Memory: Plugin Contract Spec](../labs/week-10-markdown-memory/)
+- [Week 10 Agents: Contract Draft + Sanity Check](../labs/week-10-agents/)
 

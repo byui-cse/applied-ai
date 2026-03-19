@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 1 Lab: Markdown Memory (Prompt Contracts) - Applied AI for Software Development</title>
+  <link rel="stylesheet" href="../../../../../assets/styles.css" />
+  <script defer src="../../../../../assets/app.js"></script>
+</head>
+<body>
+  <a id="skipToContent" class="skipLink" href="#mainContent">Skip to content</a>
+  <header class="siteHeader">
+    <div class="headerInner">
+      <button id="sidebarToggle" class="iconBtn" type="button" aria-label="Toggle navigation" aria-controls="siteNav" aria-expanded="false">☰</button>
+      <div class="brand">
+        <a class="brandLink" href="../../../../../index.html">Applied AI for Software Development</a>
+        <span class="brandSub">A 14-week applied course for real-world engineering work</span>
+      </div>
+      <div class="headerActions">
+        <a class="pill" href="../../../../../syllabus.html">Syllabus</a>
+        <button id="themeToggle" class="pill" type="button" aria-label="Toggle theme" aria-pressed="false">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" id="siteNav">
+  <div class="sidebarNav"><a class="navLink" data-nav-link="true" href="../../../../../index.html" style="margin-bottom:6px;">Course Home</a><div class="navSectionTitle">Phase 1: Brownfield (Legacy Systems)</div><div class="navModuleTitle">1. Context &amp; Efficiency</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../week-1/">Week 1</a><a class="navLink" data-nav-link="true" href="../../week-2/">Week 2</a></div><div class="navModuleTitle">2. Architectural State</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../module-2/week-3/">Week 3</a><a class="navLink" data-nav-link="true" href="../../../module-2/week-4/">Week 4</a></div><div class="navModuleTitle">3. Extended Tools</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../module-3/week-5/">Week 5</a><a class="navLink" data-nav-link="true" href="../../../module-3/week-6/">Week 6</a><a class="navLink" data-nav-link="true" href="../../../module-3/week-7/">Week 7</a></div><div class="navSectionTitle">Phase 2: Greenfield (New Systems)</div><div class="navModuleTitle">4. Foundations &amp; Skills</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-4/week-8/">Week 8</a><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-4/week-9/">Week 9</a></div><div class="navModuleTitle">5. Extensibility</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-5/week-10/">Week 10</a><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-5/week-11/">Week 11</a></div><div class="navModuleTitle">6. Autonomous Agents</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-6/week-12/">Week 12</a><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-6/week-13/">Week 13</a></div><div class="navModuleTitle">7. Advanced Workflows</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-7/week-14/">Week 14</a></div></div></nav>
+    <main class="content" id="mainContent">
+      <article class="prose">
+        <h1>Week 1 Lab: Markdown Memory (Prompt Contracts)</h1>
+<p>Markdown is your &quot;structured memory layer&quot; for requirements, plans, and diffs.</p>
+<h2>Goal</h2>
+<p>Turn your informal instructions into an engineering artifact you can reuse: a prompt contract.</p>
+<h2>Step-by-step</h2>
+<ol><li>Turn your context budget into markdown</li></ol>
+<ul><li>Copy <code>Task Summary</code>, <code>Relevant Files</code>, <code>Required Outputs</code>, and <code>Exclusions</code> into markdown headings.</li></ul>
+<ol><li>Write a prompt contract template that contains:</li></ol>
+<ul><li>Inputs you will provide (exact list)</li><li>The exact output format you want</li><li>Missing-info protocol (how the model should ask questions before proceeding)</li></ul>
+<ol><li>Run iteration 1 using only the markdown artifacts from steps 1-2.</li><li>Record:</li></ol>
+<ul><li>Which parts of the contract improved consistency</li><li>What the model misunderstood (and which contract field would prevent it next time)</li></ul>
+<h2>Prompt contract template</h2>
+<pre><code class="language-markdown">[Prompt Contract: &lt;task name&gt;]
+
+## Inputs I will provide
+- [Context: files/snippets you include]
+- [Constraints / requirements]
+- [Acceptance criteria]
+
+## Context I am intentionally not providing
+- [Exclusions]
+
+## Output format (must match exactly)
+1. Assumptions
+   - ...
+2. Plan
+   - ...
+3. Changes / Answer
+   - ...
+4. Verification
+   - ...
+
+## If you are missing required information
+Ask numbered clarification questions only.
+For each question, state:
+- Why it matters for correctness
+- What specific format/choice you need from me
+Then wait for my answers before producing the final output.</code></pre>
+<h2>Deliverables</h2>
+<ul><li>A filled-in prompt contract (based on your chosen task)</li></ul>
+<h2>Reflection</h2>
+<ul><li>What instruction or output format improved consistency the most?</li></ul>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

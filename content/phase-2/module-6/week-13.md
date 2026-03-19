@@ -10,23 +10,8 @@
 - Handoffs should carry "just enough state" plus verifiable artifacts
 - Arbitration prevents hidden conflicts from compounding
 
-## Lab: Role design + conflict resolution
-1. Write `lab/week-13/multi-agent-design.md` with roles:
-   - Planner (creates task plan)
-   - Implementer (proposes changes)
-   - Verifier (checks correctness and safety)
-2. Define handoff artifacts between roles (examples: `plan.md`, `diff_summary.md`, `verification_report.md`)
-3. Create an arbitration policy for disagreements:
-   - what evidence the verifier must collect
-   - when to request human review
-4. Add a trace log template so you can audit decisions later
-
-## Submission checklist
-- `multi-agent-design.md`
-- arbitration policy (embedded section or separate)
-- trace log template
-
-## Reflection questions
-- What made disagreements detectable rather than silent?
-- Where did you reduce context by passing artifacts instead of raw text?
+## Labs
+- [Week 13 Context Management: Handoffs + Arbitration](../labs/week-13-context-management/)
+- [Week 13 Markdown Memory: Multi-Agent Design](../labs/week-13-markdown-memory/)
+- [Week 13 Agents: Role Design + Conflict Resolution](../labs/week-13-agents/)
 

@@ -33,14 +33,8 @@
 <ul><li>Define plugin/tool contracts so new capabilities are predictable</li><li>Manage versions and compatibility boundaries</li><li>Add safety constraints so plugins cannot perform unsafe actions</li></ul>
 <h2>Key ideas</h2>
 <ul><li>A plugin contract is an interface: inputs, outputs, errors, and guarantees</li><li>Versioning is how you keep an ecosystem stable as prompts evolve</li><li>Safety boundaries should be explicit, testable, and enforced in workflow</li></ul>
-<h2>Lab: Design a plugin (tool) contract</h2>
-<ol><li>Pick one new capability you want (examples: &quot;code search adapter&quot;, &quot;schema validator&quot;, &quot;test runner wrapper&quot;, &quot;diff summarizer&quot;)</li><li>Write <code>lab/week-10/plugin-contract.md</code> with:</li></ol>
-<ul><li>plugin name and purpose</li><li>input schema (what arguments it accepts)</li><li>output schema (what structured result it returns)</li><li>error modes and how the agent should respond</li><li>safety constraints (what it must never do)</li></ul>
-<ol><li>Add a &quot;versioning policy&quot; section: how breaking changes are introduced</li><li>Define one &quot;fallback behavior&quot; when the plugin fails (what the agent does next)</li></ol>
-<h2>Submission checklist</h2>
-<ul><li><code>plugin-contract.md</code></li><li>One paragraph describing how this plugin reduces tokens or improves reliability</li></ul>
-<h2>Reflection questions</h2>
-<ul><li>What would you treat as &quot;non-negotiable&quot; plugin guarantees?</li><li>How will you test plugin correctness in your workflow?</li></ul>
+<h2>Labs</h2>
+<ul><li><a href="../labs/week-10-context-management/" target="_blank" rel="noopener noreferrer">Week 10 Context Management: Plugin Contract Boundaries</a></li><li><a href="../labs/week-10-markdown-memory/" target="_blank" rel="noopener noreferrer">Week 10 Markdown Memory: Plugin Contract Spec</a></li><li><a href="../labs/week-10-agents/" target="_blank" rel="noopener noreferrer">Week 10 Agents: Contract Draft + Sanity Check</a></li></ul>
       </article>
     </main>
   </div>

@@ -48,8 +48,19 @@
       nav.appendChild(title);
       nav.appendChild(list);
 
-      const h1 = article.querySelector("h1");
-      if(h1 && h1.parentNode === article && h1.nextSibling){
+      const h1 = article.querySelector(":scope > h1");
+      const pageSubtitle = article.querySelector(":scope > .pageSubtitle");
+
+      // Insert the TOC *after* the page subtitle (if present) so the visual order is:
+      // Title -> Subtitle -> "On this page".
+      if(pageSubtitle){
+        const ref = pageSubtitle.nextSibling;
+        if(ref){
+          article.insertBefore(nav, ref);
+        }else{
+          article.appendChild(nav);
+        }
+      }else if(h1 && h1.parentNode === article && h1.nextSibling){
         article.insertBefore(nav, h1.nextSibling);
       }else{
         article.prepend(nav);

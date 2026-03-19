@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 1 Lab: Agents (Two-Iteration Protocol) - Applied AI for Software Development</title>
+  <link rel="stylesheet" href="../../../../../assets/styles.css" />
+  <script defer src="../../../../../assets/app.js"></script>
+</head>
+<body>
+  <a id="skipToContent" class="skipLink" href="#mainContent">Skip to content</a>
+  <header class="siteHeader">
+    <div class="headerInner">
+      <button id="sidebarToggle" class="iconBtn" type="button" aria-label="Toggle navigation" aria-controls="siteNav" aria-expanded="false">☰</button>
+      <div class="brand">
+        <a class="brandLink" href="../../../../../index.html">Applied AI for Software Development</a>
+        <span class="brandSub">A 14-week applied course for real-world engineering work</span>
+      </div>
+      <div class="headerActions">
+        <a class="pill" href="../../../../../syllabus.html">Syllabus</a>
+        <button id="themeToggle" class="pill" type="button" aria-label="Toggle theme" aria-pressed="false">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" id="siteNav">
+  <div class="sidebarNav"><a class="navLink" data-nav-link="true" href="../../../../../index.html" style="margin-bottom:6px;">Course Home</a><div class="navSectionTitle">Phase 1: Brownfield (Legacy Systems)</div><div class="navModuleTitle">1. Context &amp; Efficiency</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../week-1/">Week 1</a><a class="navLink" data-nav-link="true" href="../../week-2/">Week 2</a></div><div class="navModuleTitle">2. Architectural State</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../module-2/week-3/">Week 3</a><a class="navLink" data-nav-link="true" href="../../../module-2/week-4/">Week 4</a></div><div class="navModuleTitle">3. Extended Tools</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../module-3/week-5/">Week 5</a><a class="navLink" data-nav-link="true" href="../../../module-3/week-6/">Week 6</a><a class="navLink" data-nav-link="true" href="../../../module-3/week-7/">Week 7</a></div><div class="navSectionTitle">Phase 2: Greenfield (New Systems)</div><div class="navModuleTitle">4. Foundations &amp; Skills</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-4/week-8/">Week 8</a><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-4/week-9/">Week 9</a></div><div class="navModuleTitle">5. Extensibility</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-5/week-10/">Week 10</a><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-5/week-11/">Week 11</a></div><div class="navModuleTitle">6. Autonomous Agents</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-6/week-12/">Week 12</a><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-6/week-13/">Week 13</a></div><div class="navModuleTitle">7. Advanced Workflows</div><div class="navWeek"><a class="navLink" data-nav-link="true" href="../../../../phase-2/module-7/week-14/">Week 14</a></div></div></nav>
+    <main class="content" id="mainContent">
+      <article class="prose">
+        <h1>Week 1 Lab: Agents (Two-Iteration Protocol)</h1>
+<p>Even if you are not using tools yet, &quot;agents&quot; show up as a workflow: repeat attempts with a defined interface and measurable constraints.</p>
+<h2>What this lab is</h2>
+<ul><li>Use the prompt contract + context budget as the interface between you and the model/agent</li><li>Run two agent-style iterations:</li></ul>
+<ol><li>conservative context</li><li>slightly expanded context</li></ol>
+<ul><li>Update the budget based on what changed output quality</li></ul>
+<h2>Step-by-step</h2>
+<ol><li>Define the agent protocol (use this checklist every time)</li></ol>
+<ul><li>First, confirm you understand the task summary</li><li>If required information is missing, ask clarification questions using the missing-info protocol from your prompt contract</li><li>Produce output that matches the exact output format</li></ul>
+<ol><li>Iteration 1 (agent run with conservative context)</li></ol>
+<ul><li>Provide only your conservative <code>Relevant Files</code></li><li>Keep <code>Exclusions</code> enforced</li><li>Record what the agent produced and what assumptions it had to make</li></ul>
+<ol><li>Iteration 2 (agent run with expanded context)</li></ol>
+<ul><li>Add a small amount of additional relevant context</li><li>Keep <code>Required Outputs</code> unchanged</li><li>Record differences versus iteration 1:</li><li>Did quality improve?</li><li>Did the agent make fewer assumptions?</li><li>Did the output align better with your expected format?</li></ul>
+<ol><li>Update the context budget</li></ol>
+<ul><li>Remove any context that did not change output quality</li><li>Add any new context that proved necessary</li></ul>
+<h2>Submission checklist</h2>
+<ul><li><code>week-1-context-management.md</code> (final context budget after iteration 2)</li><li><code>week-1-markdown-memory.md</code> (updated prompt contract)</li><li>A short note: &quot;What I would include next time, and why&quot;</li></ul>
+<h2>Reflection questions</h2>
+<ul><li>Where did you accidentally include &quot;too much&quot; context?</li><li>What instruction or output format improved consistency the most?</li></ul>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

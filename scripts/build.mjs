@@ -247,6 +247,17 @@ function markdownRelToOutputDir(relPath){
   return path.join(PAGES_DIR, phase, module, outDirName);
 }
 
+function markdownRelToLabOutput(relPath){
+  // content/phase-1/module-1/labs/week-1-context-management.md
+  // => pages/phase-1/module-1/labs/week-1-context-management/index.html
+  const parts = relPath.split(path.sep);
+  const phase = parts[0];
+  const module = parts[1];
+  const file = parts[3]; // week-*.md
+  const outDirName = file.replace(/\.md$/,"");
+  return path.join(PAGES_DIR, phase, module, "labs", outDirName, "index.html");
+}
+
 function renderPage({ fromOutputFile, title, contentHtml, navHtml }){
   const stylesHref = relUrl(fromOutputFile, path.join(ROOT, "assets", "styles.css"));
   const appHref = relUrl(fromOutputFile, path.join(ROOT, "assets", "app.js"));
@@ -375,6 +386,7 @@ async function main(){
 
   // Week markdown: phase-* / module-* / week-*.md
   const weekFiles = [];
+  const labFiles = [];
   for(const p of allMd){
     const rel = path.relative(CONTENT_DIR, p);
     const parts = rel.split(path.sep);
@@ -383,6 +395,18 @@ async function main(){
     if(!parts[1].startsWith("module-")) continue;
     if(!/^week-\d+\.md$/.test(parts[2])) continue;
     weekFiles.push({ absPath: p, relPath: rel });
+  }
+
+  // Lab markdown: phase-* / module-* / labs / week-*.md
+  for(const p of allMd){
+    const rel = path.relative(CONTENT_DIR, p);
+    const parts = rel.split(path.sep);
+    if(parts.length !== 4) continue;
+    if(!parts[0].startsWith("phase-")) continue;
+    if(!parts[1].startsWith("module-")) continue;
+    if(parts[2] !== "labs") continue;
+    if(!/^week-\d+.*\.md$/.test(parts[3])) continue;
+    labFiles.push({ absPath: p, relPath: rel });
   }
 
   if(weekFiles.length === 0){
@@ -399,6 +423,26 @@ async function main(){
     const html = markdownToHtml(md);
 
     const outFile = markdownRelToOutput(wf.relPath);
+    ensureDir(path.dirname(outFile));
+
+    const navHtml = buildNavHtml({ fromOutputFile: outFile, navData });
+    const pageHtml = renderPage({
+      fromOutputFile: outFile,
+      title: pageTitle,
+      contentHtml: html,
+      navHtml
+    });
+    fs.writeFileSync(outFile, pageHtml, "utf-8");
+  }
+
+  // Generate lab pages (not included in sidebar nav)
+  for(const lf of labFiles){
+    const md = fs.readFileSync(lf.absPath, "utf-8");
+    const heading = getFirstHeading(md);
+    const pageTitle = heading ? `${heading} - ${COURSE_TITLE}` : COURSE_TITLE;
+    const html = markdownToHtml(md);
+
+    const outFile = markdownRelToLabOutput(lf.relPath);
     ensureDir(path.dirname(outFile));
 
     const navHtml = buildNavHtml({ fromOutputFile: outFile, navData });
