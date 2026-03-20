@@ -1,0 +1,44 @@
+{
+  "title": "MCP, tokens, and project terms",
+  "intro": "Quick check on the definitions above.",
+  "feedbackCorrect": "Right.",
+  "feedbackIncorrect": "Review the definitions — try again on the next page if needed.",
+  "questions": [
+    {
+      "prompt": "Which best describes MCP (Model Context Protocol) in this course?",
+      "choices": [
+        "A system that structures, manages, and transmits context between you, your codebase, and an AI model so assistance can be accurate and context-aware",
+        "A file format for packaging trained neural network weights for deployment",
+        "A GitHub feature that automatically resolves merge conflicts in pull requests"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "What is a personal access token (PAT) primarily for?",
+      "choices": [
+        "Authenticating to services like GitHub from external tools or scripts without sharing your real password, often with limited scope and the ability to revoke",
+        "Encrypting all web traffic between your computer and GitHub by default",
+        "Storing your repository’s source code offline on a USB drive"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "In project management, what best describes a project?",
+      "choices": [
+        "A temporary endeavor with defined objectives, scope, and resources, with a clear beginning and end, undertaken to produce a unique result",
+        "Any ongoing team activity that continues indefinitely without a planned finish",
+        "The complete history of every bug fix ever shipped in a product"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "What best describes a story in project management?",
+      "choices": [
+        "A concise, user-centered description of desired functionality—often from the user’s perspective—that breaks work into actionable, value-focused pieces",
+        "A mandatory legal agreement between the client and the development vendor",
+        "A technical document that specifies exact database schemas and API latency targets only"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}

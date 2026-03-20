@@ -100,5 +100,6 @@ No production feature code in this lab—research and planning only
 <% links
 [Lab 1](../../week-1/labs/lab-1.md)
 [Lab 2](../../week-1/labs/lab-2.md)
+[Lab 4](labs/lab-4.md)
 [Day 1 — feature selection](../day-1.md)
 %>

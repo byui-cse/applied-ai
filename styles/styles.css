@@ -29,7 +29,7 @@
 
   --leading-body: 1.68;
   --max-prose: none;
-  --radius: 0;
+  --radius: 3px;
 
   --main-max-w: 120rem;
   /* Single source for main column + fixed rails (must match .main padding) */

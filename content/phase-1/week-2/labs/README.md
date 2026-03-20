@@ -1,6 +1,7 @@
 # Labs · Phase 1 Week 2 (Calendar week 2)
 
 - **[Lab 3 — Implementation research & requirements](lab-3.md)** (feature analysis, requirements, testing plan)
+- **[Lab 4 — GitHub MCP & project creation agent](lab-4.md)** (configure GitHub MCP; `agents/project-creation.md`; GitHub Project + stories)
 
 ---
 

@@ -5,8 +5,7 @@
 
 ## Preparation
 
-1. Clone **[Canvas LMS](https://github.com/instructure/canvas-lms)** locally
-2. Install your favorite IDE or CLI tool. I would recommend one of the following:
+1. Install your favorite IDE or CLI tool. I would recommend one of the following:
     - Github Copilot with [VS Code](https://code.visualstudio.com/)
     - [Claude Code](https://code.claude.com/docs/en/quickstart)
     - [Cursor](https://cursor.com/download) (IDE or `cursor agents`)
