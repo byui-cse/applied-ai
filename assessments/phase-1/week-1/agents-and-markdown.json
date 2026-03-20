@@ -1,0 +1,44 @@
+{
+  "title": "Agents and Markdown",
+  "intro": "Quick check on the definitions above.",
+  "feedbackCorrect": "Right.",
+  "feedbackIncorrect": "Review the definitions — try again on the next page if needed.",
+  "questions": [
+    {
+      "prompt": "Which best describes an AI agent in this course’s sense?",
+      "choices": [
+        "A system that perceives its environment, processes information, and acts autonomously toward goals",
+        "A human operator who only types prompts into a chat box",
+        "A database that stores training data for a model"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "Why is Markdown especially useful in LLM and prompt workflows?",
+      "choices": [
+        "It replaces the need for any programming language",
+        "It lets you structure prompts and documentation with simple markup that many tools render clearly",
+        "It is required for models to run on GPUs"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "prompt": "Which is characteristic of agent behavior as described?",
+      "choices": [
+        "Actions stay fixed regardless of new data or feedback",
+        "The system can adapt what it does based on data, feedback, and changes in the environment",
+        "The system never receives input from outside itself"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "prompt": "What is Markdown primarily?",
+      "choices": [
+        "A compiled binary format for mobile apps",
+        "A lightweight markup language for formatting text with simple symbols",
+        "A protocol for encrypting API traffic"
+      ],
+      "correctIndex": 1
+    }
+  ]
+}

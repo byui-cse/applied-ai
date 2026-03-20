@@ -1,0 +1,44 @@
+{
+  "title": "Context window & context management",
+  "intro": "Quick check after the sections above.",
+  "feedbackCorrect": "Right.",
+  "feedbackIncorrect": "Review the context window and context management sections — try again if needed.",
+  "questions": [
+    {
+      "prompt": "In LLMs, what does the term \"context window\" refer to?",
+      "choices": [
+        "The maximum amount of text (tokens) the model can take in and use at once for a turn",
+        "The physical size of the chat panel in your IDE",
+        "The number of users who can share one API key"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "What happens to content that falls outside the model's context window?",
+      "choices": [
+        "It is silently merged into the system prompt",
+        "It cannot affect the response unless you bring it back into the window",
+        "It is always retrieved later from long-term memory"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "prompt": "Context management in this course suggests aiming to use roughly how much of the available context window?",
+      "choices": [
+        "As close to 100% as possible so nothing is left unused",
+        "Between 80% and 90% for maximum coverage",
+        "Less than about 40%, keeping only what matters most in view"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "prompt": "What is a primary goal of good context management?",
+      "choices": [
+        "To prevent important details from being buried under irrelevant or outdated information",
+        "To ensure every file in the repo is pasted into every prompt",
+        "To replace the need for clear instructions in your prompts"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}

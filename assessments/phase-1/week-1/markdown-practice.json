@@ -1,0 +1,20 @@
+{
+  "title": "Markdown practice",
+  "intro": "Recreate what you see in the target preview using markdown. Your answer is scored by character closeness to the reference after normalizing line endings. Each challenge passes at 80% or higher.",
+  "reportTitle": "Practice results",
+  "matchTolerancePercent": 80,
+  "challenges": [
+    {
+      "prompt": "Write a level-2 heading with the exact text: Quick start",
+      "expectedMarkdown": "## Quick start"
+    },
+    {
+      "prompt": "Write one sentence that contains the word important in bold (use ** around the word).",
+      "expectedMarkdown": "This is **important** for the team."
+    },
+    {
+      "prompt": "Create a bullet list with exactly two items: First item and Second item (use - for bullets, one item per line).",
+      "expectedMarkdown": "- First item\n- Second item"
+    }
+  ]
+}

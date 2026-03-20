@@ -1,0 +1,44 @@
+{
+  "title": "Greenfield vs brownfield",
+  "intro": "Quick check after the definitions above.",
+  "feedbackCorrect": "Right.",
+  "feedbackIncorrect": "Review the definitions — try again on the next page if needed.",
+  "questions": [
+    {
+      "prompt": "Which best describes a brownfield project?",
+      "choices": [
+        "Building on top of an existing production system and its constraints",
+        "Starting from a blank repository with no legacy code",
+        "A project that only uses brown as the primary brand color"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "Which is most characteristic of greenfield work?",
+      "choices": [
+        "You must preserve every existing API for backward compatibility",
+        "You choose stack and architecture without inheriting an old codebase",
+        "You are forbidden from using new frameworks"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "prompt": "Which is typically a stronger constraint in brownfield projects?",
+      "choices": [
+        "Legacy code, existing APIs, and uptime expectations",
+        "Choosing a brand color from scratch",
+        "Having no stakeholders or users yet"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "In greenfield development, you often have more freedom to:",
+      "choices": [
+        "Postpone security until after launch",
+        "Define stack and project structure from a clean slate",
+        "Skip tests entirely"
+      ],
+      "correctIndex": 1
+    }
+  ]
+}
