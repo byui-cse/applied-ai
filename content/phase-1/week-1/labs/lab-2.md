@@ -64,6 +64,28 @@ Utilizing the task markdown file, you can start with a strong structure for your
 
 There is **no** official prompt text in this lab. You must author the instructions your agent follows while satisfying indexing, context limits, and scripted preprocessing/postprocessing yourself.
 
+## Rubric
+
+### Lab 2 Grading Rubric (30 points)
+
+| Criteria                                                                                           | Points |
+|----------------------------------------------------------------------------------------------------|--------|
+| **1. `agents/analyze-repo.md` exists and includes agent's role, inputs, outputs, and constraints** |   6    |
+| **2. Index files (or equivalent) are specified: when built/refreshed and how the agent uses them** |   6    |
+| **3. Context management section: explicit, targets ≤ 40% usable context for a defined “typical” run** |   6    |
+| **4. Scripts for deterministic/automation steps are referenced, documented, and included**          |   6    |
+| **5. Supporting files/limitations (if any) match description in analyze-repo.md**                   |   3    |
+| **6. Overall clarity, organization, and completeness of agent docs and scripts**                    |   3    |
+
+**Total:** 30 points
+
+#### Evaluation Notes:
+- Points may be partially awarded per item at instructor’s discretion.
+- Rubric aligns with minimum requirements and checklist above; full credit requires meeting all requirements with clear evidence in files, docs, and scripts referenced from `agents/analyze-repo.md`.
+
+
+
+
 <% checklist
 `agents/analyze-repo.md` committed in your fork with role, I/O, and constraints
 Index files (or equivalent) specified: when built, how refreshed, how the agent uses them

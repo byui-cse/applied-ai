@@ -10,6 +10,10 @@
     - [Claude Code](https://code.claude.com/docs/en/quickstart)
     - [Cursor](https://cursor.com/download) (IDE or `cursor agents`)
 
+## Slides
+
+<% slides content/phase-1/week-1/slides/day-1.json %>
+
 ## Definitions
 
 Please review the following definitions

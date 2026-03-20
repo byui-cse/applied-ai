@@ -119,6 +119,9 @@ html[data-theme="dark"] body {
 }
 
 .site-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   font-family: var(--font-display);
   font-size: 1.2rem;
   font-weight: 700;
@@ -129,8 +132,20 @@ html[data-theme="dark"] body {
   text-transform: none;
 }
 
+.site-nav__logo {
+  display: block;
+  flex-shrink: 0;
+  height: 2.25rem;
+  width: auto;
+  object-fit: contain;
+}
+
 .site-nav__brand:hover {
   color: var(--accent);
+}
+
+.site-nav__brand:hover .site-nav__logo {
+  opacity: 0.92;
 }
 
 .site-nav__links {

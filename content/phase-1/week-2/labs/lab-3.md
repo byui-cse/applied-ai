@@ -88,6 +88,27 @@ You may start from this outline and replace the placeholders.
 
 There is **no** implementation of the Canvas feature or the Lab 4 MCP in this lab. You are producing the **research and requirements** package that makes implementation and automated planning tractable later.
 
+## Rubric
+
+## Grading Rubric
+
+| Criteria                                                                                                         | Points |
+|------------------------------------------------------------------------------------------------------------------|--------|
+| **1. implementation-research.md includes feature brief/link, design considerations, and Lab 4 handoff**          |   5    |
+| **2. Functional requirements are clear, testable, with explicit in-scope/out-of-scope sections**                 |   5    |
+| **3. Non-functional requirements are addressed (including security, performance, accessibility, and operability)**|   5    |
+| **4. Codebase analysis demonstrates Lab 2 agent usage: clear hypotheses, findings, and open questions**           |   7    |
+| **5. Testing and verification plan: covers unit, integration, manual/exploratory, and maps to acceptance criteria** |   6    |
+| **6. Overall organization, clarity, and completeness (planning/research only, no production code)**               |   2    |
+
+**Total:** 30 points
+
+#### Evaluation Notes:
+- Partial credit may be awarded per section at the instructor’s discretion.
+- Full credit requires evidence of using the Lab 2 agent, clear traceability from requirements to planned work, and thoughtful, organized documentation.
+- No actual feature implementation is expected or required for this lab.
+
+
 <% checklist
 `implementation-research.md` exists with design considerations and Lab 4 planning handoff (GitHub Projects / MCP) noted
 Functional requirements are testable; in/out of scope is explicit
@@ -100,6 +121,6 @@ No production feature code in this lab—research and planning only
 <% links
 [Lab 1](../../week-1/labs/lab-1.md)
 [Lab 2](../../week-1/labs/lab-2.md)
-[Lab 4](labs/lab-4.md)
+[Lab 4](lab-4.md)
 [Day 1 — feature selection](../day-1.md)
 %>

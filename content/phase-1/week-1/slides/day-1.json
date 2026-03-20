@@ -1,0 +1,38 @@
+{
+  "title": "Week 1 · Day 1",
+  "subtitle": "Hooks & metaphors — details stay on the page",
+  "slides": [
+    {
+      "title": "Today",
+      "markdown": "## Three threads\n\n- **You** steer and verify; the model does the heavy typing.\n- **Vocabulary** you’ll reuse all term: brownfield / greenfield, context.\n- **Labs** connect that vocabulary to a real fork and environment."
+    },
+    {
+      "title": "The course rule",
+      "markdown": "## Conductor, not every violin\n\n- You’re **not** graded on hand-writing implementation line by line.\n- You **are** graded on prompts, markdown, approved commands, and critique.\n- Think: **score + rehearsal notes**, not playing every note yourself."
+    },
+    {
+      "title": "Your toolbox",
+      "markdown": "## Pick one lane and get fluent\n\n- **Copilot + VS Code**, **Claude Code**, or **Cursor** — any is fine.\n- Goal is **repeatable** sessions in a real editor or CLI agent.\n- Brand matters less than **muscle memory** by week three."
+    },
+    {
+      "title": "Brownfield vs greenfield",
+      "markdown": "## Renovate vs new build\n\n- **Brownfield:** working **inside** walls, wiring, and habits that already exist.\n- **Greenfield:** empty lot — freedom, but you invent every convention.\n- Industry spends most time in **brownfield**; this course leans that way too."
+    },
+    {
+      "title": "Context window",
+      "markdown": "## Desk space, not a warehouse\n\n- The model only “sees” what fits on the **desk** at once (tokens).\n- What’s **off the desk** doesn’t vote on the answer until you bring it back.\n- Bigger desk helps; **curating** what sits on it still wins.\n\n![Metaphor: only a few volumes are open at once](images/context-metaphor.svg)"
+    },
+    {
+      "title": "Context management",
+      "markdown": "## Leave the desk ~60% clear\n\n- **~40% full** ≈ room to think; jam-packed ≈ noise drowns signal.\n- Prefer **indexes and summaries** over pasting whole trees.\n- Same idea whether you measure tokens or **estimate** — stay disciplined."
+    },
+    {
+      "title": "Lab 1 (direction)",
+      "markdown": "## Your copy, your cloud bench\n\n- **Fork** = your own copy of the course repo on GitHub — steps live on the lab page.\n- **Learner Lab + EC2** = a small **workbench in the cloud**, not your laptop as build farm.\n- **SSH / Remote SSH** = **sit at that bench** from your machine."
+    },
+    {
+      "title": "Lab 2 (teaser)",
+      "markdown": "## Repo analyst agent — three pillars\n\n- **Index** = **map** so you don’t re-walk the whole forest every time.\n- **Context cap** = same “desk space” rule, but for repo dives.\n- **Scripts** = **power tools**; the LLM holds the **blueprint**, not the saw."
+    }
+  ]
+}

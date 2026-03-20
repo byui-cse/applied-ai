@@ -74,6 +74,17 @@
     return true;
   }
 
+  /** Slide deck JSON under content/…/slides/ (GitHub Pages). */
+  function isAllowedSlidesPath(p) {
+    if (!p || typeof p !== "string") return false;
+    const n = p.replace(/\\/g, "/").trim();
+    if (n.includes("..") || n.includes("//")) return false;
+    if (!n.startsWith("content/")) return false;
+    if (!n.includes("/slides/")) return false;
+    if (!n.endsWith(".json")) return false;
+    return true;
+  }
+
   function escapeAttr(s) {
     return String(s)
       .replace(/&/g, "&amp;")
@@ -113,6 +124,7 @@
   /**
    * <% component_name args %>
    * Example: <% quiz assessments/phase-1/week-1/green-brown.json %>
+   * Slides: <% slides content/phase-1/week-1/slides/day-1.json %>
    */
   const MD_COMPONENT_RE = /<%\s*(\w+)\s+([\s\S]*?)\s*%>/g;
 
@@ -158,6 +170,16 @@
         return (
           '<div class="md-component md-component--links" data-md-component="links" data-items="' +
           escapeAttr(JSON.stringify(items)) +
+          '"></div>'
+        );
+      }
+      if (name === "slides") {
+        if (!trimmed || !isAllowedSlidesPath(trimmed)) {
+          return '<p class="prose prose--error">Invalid or missing slides path.</p>';
+        }
+        return (
+          '<div class="md-component md-component--slides" data-md-component="slides" data-json="' +
+          escapeAttr(trimmed) +
           '"></div>'
         );
       }
@@ -214,6 +236,7 @@
 
   let quizScriptPromise = null;
   let editorScriptPromise = null;
+  let slidesScriptPromise = null;
 
   function ensureQuizCss() {
     if (document.querySelector("link[data-applied-ai-quiz-css]")) {
@@ -295,6 +318,47 @@
       });
     }
     return editorScriptPromise;
+  }
+
+  function ensureSlidesCss() {
+    if (document.querySelector("link[data-applied-ai-slides-css]")) {
+      return Promise.resolve();
+    }
+    return new Promise(function (resolve) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = new URL("styles/slides.css", INDEX_DIR).href;
+      link.setAttribute("data-applied-ai-slides-css", "");
+      link.onload = function () {
+        resolve();
+      };
+      link.onerror = function () {
+        resolve();
+      };
+      document.head.appendChild(link);
+    });
+  }
+
+  function ensureSlidesScript() {
+    if (typeof window.AppliedAISlides !== "undefined" && window.AppliedAISlides.mount) {
+      return Promise.resolve();
+    }
+    if (!slidesScriptPromise) {
+      slidesScriptPromise = new Promise(function (resolve, reject) {
+        const s = document.createElement("script");
+        s.src = new URL("js/slides.js", INDEX_DIR).href;
+        s.async = true;
+        s.onload = function () {
+          resolve();
+        };
+        s.onerror = function () {
+          slidesScriptPromise = null;
+          reject(new Error("Failed to load slides.js"));
+        };
+        document.head.appendChild(s);
+      });
+    }
+    return slidesScriptPromise;
   }
 
   function readChecklistState(pagePath) {
@@ -504,10 +568,12 @@
   async function hydrateMarkdownComponents(root, seq) {
     const quizNodes = root.querySelectorAll('[data-md-component="quiz"]');
     const editorNodes = root.querySelectorAll('[data-md-component="editor"]');
-    if (!quizNodes.length && !editorNodes.length) return;
+    const slideNodes = root.querySelectorAll('[data-md-component="slides"]');
+    if (!quizNodes.length && !editorNodes.length && !slideNodes.length) return;
 
     let quizOk = true;
     let editorOk = true;
+    let slidesOk = true;
     if (quizNodes.length) {
       try {
         await Promise.all([ensureQuizCss(), ensureQuizScript()]);
@@ -520,6 +586,13 @@
         await Promise.all([ensureEditorCss(), ensureEditorScript()]);
       } catch {
         editorOk = false;
+      }
+    }
+    if (slideNodes.length) {
+      try {
+        await Promise.all([ensureSlidesCss(), ensureSlidesScript()]);
+      } catch {
+        slidesOk = false;
       }
     }
     if (seq !== loadPageSeq) return;
@@ -558,6 +631,22 @@
           return;
         }
         window.AppliedAIEditor.mount(el, jsonPath, INDEX_DIR, variant);
+      });
+    }
+
+    if (!slidesOk) {
+      slideNodes.forEach(function (el) {
+        el.innerHTML = '<p class="prose prose--error">Slides module failed to load.</p>';
+      });
+    } else if (window.AppliedAISlides && window.AppliedAISlides.mount) {
+      slideNodes.forEach(function (el) {
+        if (seq !== loadPageSeq) return;
+        const jsonPath = el.getAttribute("data-json");
+        if (!jsonPath || !isAllowedSlidesPath(jsonPath)) {
+          el.innerHTML = '<p class="prose prose--error">Invalid slides path.</p>';
+          return;
+        }
+        window.AppliedAISlides.mount(el, jsonPath, INDEX_DIR);
       });
     }
   }

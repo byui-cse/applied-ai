@@ -153,6 +153,29 @@ You may start from this outline and replace the placeholders.
 
 There is **no** requirement to implement your Canvas feature in this lab—only to **materialize the plan** in GitHub using MCP-backed automation. You also do **not** need to write a custom MCP server; use the **official** [GitHub MCP Server](https://github.com/github/github-mcp-server).
 
+## Rubric
+
+## Grading Rubric
+
+| Criteria                                                                                                                    | Points |
+|-----------------------------------------------------------------------------------------------------------------------------|--------|
+| **1. `agents/project-creation.md` specifies a clear agent role, input paths, and correct target repository**                |   4    |
+| **2. Constraints section prevents wrong repo modifications and exclusion of secrets in files**                              |   4    |
+| **3. Explicit, repeatable steps for using GitHub MCP tools (project creation, issue/user story generation, assignment)**    |   5    |
+| **4. Clear procedure for mapping Lab 3 functional requirements to user stories/issues in the GitHub Project**               |   5    |
+| **5. Includes at least one link between Lab 2 codebase findings and stories/milestones (codebase analysis traceability)**   |   4    |
+| **6. Explicit handling of story dependencies, testing/verification tasks, and acceptance criteria mapping ("done" = provable)|   4    |
+| **7. Concrete verification procedure/checklist so a human can confirm correct Project/Issues and criterion mapping**         |   2    |
+| **8. Evidence of a successful run included (screenshots, URLs) per instructions, with no secrets exposed**                  |   2    |
+
+**Total:** 30 points
+
+#### Evaluation Notes:
+- Partial credit may be awarded for incomplete or partial fulfillment within each rubric item.
+- Maximum credit requires documentation that follows all minimum requirements, links to Lab 2 and Lab 3 work, and alignment of project artifacts/outputs to the course objectives.
+- No implementation code or Canvas feature delivery is required in this lab; focus is on agent spec and project/issue setup and documentation.
+
+
 <% checklist
 GitHub MCP configured in Cursor, Claude Code, and GitHub Copilot (per README); PAT scopes minimized and token not committed
 `projects` (and related) toolsets understood; GitHub tools visible in the host
