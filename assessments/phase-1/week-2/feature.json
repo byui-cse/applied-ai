@@ -1,0 +1,53 @@
+{
+  "title": "Features, scope, and planning",
+  "intro": "Quick check on the definitions above.",
+  "feedbackCorrect": "Right.",
+  "feedbackIncorrect": "Review the definitions — try again on the next page if needed.",
+  "questions": [
+    {
+      "prompt": "In software product development, what best describes a feature?",
+      "choices": [
+        "A distinct, user-facing capability or functionality that adds value by addressing needs or improving experience",
+        "Any internal refactor or dependency upgrade, regardless of user impact",
+        "A document that lists every bug ever reported in the product"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "When you describe a feature for planning or communication, what should you emphasize?",
+      "choices": [
+        "What it does and why it matters—not the details of how it will be implemented",
+        "The specific programming language and hosting provider you will use",
+        "Only the database indexes and API latency targets"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "What is scope creep?",
+      "choices": [
+        "Unplanned or additional tasks and requirements added after the initial scope is set",
+        "The approved list of goals and deliverables agreed at kickoff",
+        "The practice of removing features to ship faster"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "How do product owners typically decide which feature to prioritize next?",
+      "choices": [
+        "Solely by which one has the most lines of planned code",
+        "By analyzing user needs, business goals, impact, feedback, market trends, and technical feasibility—aligned with the product vision",
+        "By always choosing the feature that was requested most recently, regardless of strategy"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "prompt": "What does FERPA (Family Educational Rights and Privacy Act) primarily protect?",
+      "choices": [
+        "The privacy of student education records, including rights to access and amend them, with limits on disclosing personally identifiable information without written permission except where allowed",
+        "Copyright and patent rights for software developed in university research labs",
+        "Minimum technical standards for learning management systems and gradebook APIs"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}

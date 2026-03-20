@@ -353,9 +353,47 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
 
 .bento-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
+  grid-template-columns: 1fr;
   gap: var(--layout-gap);
   align-items: start;
+}
+
+/* Layout tiers: small <40rem (phone, 1 col) · medium 40rem–1499px (tablet/laptop, 2 col) · large ≥1500px (wide, 3 fixed rails) */
+@media (min-width: 40rem) and (max-width: 1599px) {
+  .bento-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(12rem, min(22rem, 40vw));
+  }
+
+  .card--hero {
+    grid-column: 1;
+    grid-row: 1;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .bento-grid.has-sidebar-checklist .card--hero {
+    grid-row: 1 / -1;
+    margin-right: 0;
+  }
+
+  .sidebar-stack {
+    position: static;
+    width: auto;
+    max-height: none;
+    overflow: visible;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .sidebar-checklist-rail {
+    position: static;
+    width: auto;
+    max-height: none;
+    overflow: visible;
+    grid-column: 2;
+    grid-row: 2;
+  }
+
 }
 
 /* Left sidebar: TOC + Browse */
@@ -374,8 +412,12 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
   align-items: stretch;
 }
 
-/* Desktop: fixed left nav + optional fixed right checklist; hero margins reserve space */
-@media (min-width: 961px) {
+.sidebar-checklist-rail[hidden] {
+  display: none !important;
+}
+
+/* Large: fixed left nav + optional fixed right checklist; hero margins reserve space */
+@media (min-width: 1600px) {
   .bento-grid {
     /* Match former grid column: minmax(16rem, 22rem), shrink if viewport is tight */
     --sidebar-w: min(22rem,
@@ -434,7 +476,8 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
   }
 }
 
-@media (max-width: 960px) {
+/* Small: single column — natural DOM order (article, then sidebars) */
+@media (max-width: 39.99rem) {
   .bento-grid {
     grid-template-columns: 1fr;
   }
@@ -967,7 +1010,7 @@ html[data-theme="dark"] .prose pre {
   padding-right: 0.25rem;
 }
 
-@media (min-width: 961px) {
+@media (min-width: 1600px) {
   .card--secondary .toc {
     max-height: none;
     overflow-y: visible;
@@ -1124,7 +1167,7 @@ html[data-theme="dark"] .status-bar {
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 39.99rem) {
   .fab {
     display: flex;
   }

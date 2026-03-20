@@ -1,4 +1,4 @@
-# Introduction - Day 2
+# Week 1 - Day 2
 ## Your First Agent
 
 > **Markdown Review:** review the [Markdown Cheatsheet](https://www.markdownguide.org/basic-syntax/) for tips and tricks on how to create markdown.

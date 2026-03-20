@@ -1,4 +1,4 @@
-# Introduction - Day 1
+# Week 1 - Day 1
 ## Getting Started with the Course
 
 > **Course goal:** Students **do not** write the implementation code by hand. You may type prompts, edit markdown, run approved commands, and critique outputs, but not the code.

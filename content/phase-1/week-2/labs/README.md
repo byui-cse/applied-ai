@@ -1,4 +1,9 @@
-# Lab · Phase 1 Week 2 (Calendar week 2)
+# Labs · Phase 1 Week 2 (Calendar week 2)
+
+- **[Lab 3 — Implementation research & requirements](lab-3.md)** (feature analysis, requirements, testing plan)
+
+---
+
 ## Token optimization & the ~20% context rule
 
 **Codebase:** [Canvas LMS](https://github.com/instructure/canvas-lms) · [`../../brownfield-project.md`](../../brownfield-project.md)
