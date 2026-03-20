@@ -14,3 +14,11 @@ Finalize **Greenfield MVP demo** with orchestrated workflow write-up.
 ### Definition of done
 Faculty/peers can run your AI README to reproduce a subset of the workflow.
 
+<% checklist
+Default orchestration documented (agents/tools for a feature addition)
+One full slice run with redacted traces
+Production checklist complete; N/A items explained
+Demo script AI-generated, human-edited; dry-run successful
+AI README reproduces a subset of the workflow for reviewers
+%>
+

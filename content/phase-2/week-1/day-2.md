@@ -21,3 +21,10 @@
 ## Instructor notes (optional)
 - Keep critiques focused on *verification discipline* and *context hygiene*.
 - Encourage students to log prompts major outputs for portfolio evidence.
+
+<% checklist
+AI-generated layout, conventions, and task runners reviewed (not hand-typed)
+Lint/format/test hooks planned via prompts you approve
+README for humans + README-for-AI stub created or updated
+MVP one-pager + AI README stub submitted
+%>

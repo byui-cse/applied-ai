@@ -21,3 +21,10 @@
 ## Instructor notes (optional)
 - Keep critiques focused on *verification discipline* and *context hygiene*.
 - Encourage students to log prompts major outputs for portfolio evidence.
+
+<% checklist
+Runbook: when to spin an agent vs stay in chat
+Artifacts required from each run (logs, summaries, tickets)
+Evaluation criteria for agent output without writing code yourself
+Single-agent runbook for one chore completed
+%>

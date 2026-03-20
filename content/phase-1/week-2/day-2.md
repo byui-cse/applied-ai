@@ -23,3 +23,10 @@
 ## Instructor notes (optional)
 - Keep critiques focused on *verification discipline* and *context hygiene*.
 - Encourage students to log prompts major outputs for portfolio evidence.
+
+<% checklist
+Practiced forest → tree → leaf questioning on a Canvas-sized question
+Hypotheses + falsification steps drafted before asking for deep file reads
+State capsule template created or updated
+One worked state capsule example grounded in Canvas paths
+%>

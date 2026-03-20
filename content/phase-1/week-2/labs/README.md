@@ -16,3 +16,11 @@ Cut a bloated prompt + attachment set by ~80% without losing task clarity.
 ### Definition of done
 Written before/after with a short rationale tied to token/context budget.
 
+<% checklist
+Verbose baseline prompt captured for one real Canvas question
+AI audit classified essential vs nice-to-have content
+Bulk pastes replaced with path + line range + question pointers
+Compared verbose vs optimized runs; noted which answer was more actionable
+Before/after write-up ties choices to your context budget
+%>
+

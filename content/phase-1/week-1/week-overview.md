@@ -19,3 +19,11 @@ By the end of this week, students should be able to:
 4. **Author** (via AI collaboration) a small set of living markdown artifacts for **Canvas** (course-local notes, not necessarily upstream PRs) with clear headings, glossary, invariants, and stated non-goals.
 5. **Produce** a v0 **context pack** for **Canvas LMS** and **trim** it toward a high-signal slice (targeting roughly ~20% of a naïve paste of repo context for the same task).
 6. **Define** three explicit rules for how the Canvas context pack will be updated and verified over time.
+
+<% checklist
+Opened both class sessions (`day-1.md`, `day-2.md`) and the week’s labs
+Can explain brownfield vs greenfield and why Canvas needs a map before deep dives
+Context pack v0 started or updated with glossary, invariants, and non-goals
+Three explicit rules documented for updating and verifying the context pack
+Labs for Week 1 (Canvas LMS setup + repository agent) planned or in progress
+%>

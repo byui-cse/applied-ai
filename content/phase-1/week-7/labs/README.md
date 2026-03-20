@@ -15,3 +15,11 @@ Deliver a **Canvas LMS integration & refactor plan** (AI-generated, human-verifi
 
 ### Definition of done
 Plan readable by a tech lead in 10 minutes; includes unknowns and next actions; grounded in paths under [instructure/canvas-lms](https://github.com/instructure/canvas-lms).
+
+<% checklist
+AI-drafted map covers relevant Canvas areas and dependencies
+Top 5 failure modes for your slice with verification steps each
+Phased rollout includes rollback triggers
+Optional: MCP + worktrees used for evidence on your clone
+10-minute tech-lead read: unknowns, next actions, path-grounded
+%>

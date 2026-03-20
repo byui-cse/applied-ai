@@ -18,3 +18,9 @@ By the end of this week, students should be able to:
 4. **Specify** stable interfaces for a plugin surface: schemas, versioning, and deprecation expectations.
 5. **Draft** (with AI assistance) a plugin specification covering inputs, outputs, and error cases.
 6. **Deliver** a **plugin spec v0**, including a JSON-schema (or equivalent) sketch produced via AI collaboration.
+
+<% checklist
+Plugin shapes and trust model clear for your MVP
+Plugin spec v0 with schema sketch checked against reality
+Week 3 Phase 2 lab steps engaged (`labs/README.md`)
+%>

@@ -18,3 +18,10 @@ By the end of this week, students should be able to:
 4. **Apply** a production checklist (auth, secrets, logging, backups, etc.) to the greenfield MVP at an appropriate level of rigor.
 5. **Deliver** a coherent **demo narrative**: problem → MVP → limitations → next steps.
 6. **Assemble** a **Phase 2 final package** per rubric: prompts log, architecture snapshot, rules pack, and reproducible workflow notes for a subset of the work.
+
+<% checklist
+MCP/orchestration and incident docs reviewed at “scale” for your project
+Production checklist applied at appropriate rigor for the MVP
+Final demo narrative and Phase 2 package ready for submission
+Week 7 Phase 2 lab workflow reproducible from AI README (`labs/README.md`)
+%>

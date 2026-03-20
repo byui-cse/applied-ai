@@ -23,3 +23,10 @@
 ## Instructor notes (optional)
 - Keep critiques focused on *verification discipline* and *context hygiene*.
 - Encourage students to log prompts major outputs for portfolio evidence.
+
+<% checklist
+Cross-cutting Canvas investigation chosen (multi-directory or multi-doc)
+MCP inventory documented: servers, exposed data, risk notes
+Guardrails considered (logging, allowlists, dry-runs)
+Failure modes noted (tool errors, over-broad access)
+%>

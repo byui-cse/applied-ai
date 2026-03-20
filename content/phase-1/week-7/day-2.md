@@ -24,3 +24,10 @@
 ## Instructor notes (optional)
 - Keep critiques focused on *verification discipline* and *context hygiene*.
 - Encourage students to log prompts major outputs for portfolio evidence.
+
+<% checklist
+Refactor/migration plan includes scope, risks, and test strategy as text
+Stakeholder-ready summary covers milestones and unknowns
+Peer critique incorporated; context pack updated for portfolio checkpoint
+Phase 1 portfolio checkpoint ready per instructor rubric
+%>

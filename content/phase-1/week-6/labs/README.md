@@ -16,3 +16,11 @@ Run **two parallel explorations** of the same **Canvas**-scoped task in separate
 ### Definition of done
 Short decision record: pursue / park / reject with reasons.
 
+<% checklist
+Bounded spike defined (e.g. where a change should live across app/ui/packages)
+Two worktrees with different prompt or tool strategies
+AI summarization of pros/cons reviewed; merge decision intentional
+Commands and cleanup steps documented
+Decision record: pursue / park / reject with reasons
+%>
+

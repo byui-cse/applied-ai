@@ -18,3 +18,10 @@ By the end of this week, students should be able to:
 4. **Direct** AI to generate repository layout, conventions, and task-runner scaffolding appropriate to the MVP.
 5. **Contrast** a README for humans with a **README-for-AI** that helps future sessions re-ground quickly.
 6. **Submit** an **MVP one-pager** and an initial **AI README** stub aligned to the agreed boundaries.
+
+<% checklist
+MVP boundaries and measurable success criteria are explicit
+Stack/tooling choices justified by constraints
+Repo skeleton and docs produced via AI collaboration
+Week 1 Phase 2 lab steps completed (`labs/README.md`)
+%>

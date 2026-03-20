@@ -19,3 +19,10 @@ By the end of this week, students should be able to:
 4. **Apply** hierarchical questioning (forest → tree → leaf) to structure investigations of large codebases.
 5. **Formulate** hypotheses and falsification steps before asking an AI for deep file-level analysis.
 6. **Create** a reusable **state capsule** template and produce one worked example grounded in **Canvas LMS**.
+
+<% checklist
+Can estimate token drivers and choose selective inclusion for Canvas tasks
+Uses hierarchical prompts and falsification steps before deep dives
+State capsule template exists with one Canvas-grounded example
+Week 2 labs and readings reviewed (`labs/README.md`)
+%>

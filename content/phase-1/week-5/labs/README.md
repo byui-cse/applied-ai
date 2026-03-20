@@ -16,3 +16,11 @@ Complete one **real Canvas LMS investigation** faster using MCP-backed tools tha
 ### Definition of done
 Comparison table + one concrete improvement to your workflow.
 
+<% checklist
+Cross-cutting Canvas question spans multiple dirs or doc types
+Baseline vs MCP-assisted runs completed (time-boxed); prompts logged
+Tool calls redacted where needed; outputs compared
+Half-page retrospective: real wins vs theater
+Comparison table + one workflow improvement captured
+%>
+

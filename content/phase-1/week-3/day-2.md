@@ -23,3 +23,9 @@
 ## Instructor notes (optional)
 - Keep critiques focused on *verification discipline* and *context hygiene*.
 - Encourage students to log prompts major outputs for portfolio evidence.
+
+<% checklist
+Debt radar draft covers coupling, tests, and ops with prioritization (not a laundry list)
+Human verification gate defined for what counts as “confirmed” debt
+Debt radar v1 saved as markdown with a verification checklist section
+%>

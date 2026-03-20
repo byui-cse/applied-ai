@@ -15,3 +15,9 @@ Pick one extension idea tied to your MVP.
 ---
 
 **Next class:** [`day-2.md`](day-2.md) — Session 2 (designing a plugin surface).
+
+<% checklist
+One extension idea tied to the MVP chosen
+Compared tools, UI extensions, and MCP-style bridges at a high level
+Trust: permissions, sandboxing, secrets considered for extensibility
+%>

@@ -19,3 +19,9 @@ By the end of this week, students should be able to:
 4. **Define** branch policy when AI generates high-churn changes across a worktree.
 5. **Compare** two AI strategies on an identical spike and **summarize** tradeoffs without merging blindly.
 6. **Produce** a **worktree playbook** tailored to **Canvas LMS** (commands, conventions, teardown).
+
+<% checklist
+Worktree playbook covers parallel spikes and cleanup
+Compared two strategies on identical work; merge risks noted
+Week 6 lab completed or in progress (`labs/README.md`)
+%>

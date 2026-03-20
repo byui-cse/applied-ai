@@ -13,7 +13,10 @@
   const breadcrumbEl = document.getElementById("breadcrumb");
   const tocEl = document.getElementById("toc");
   const bentoGridEl = document.querySelector(".bento-grid");
+  const sidebarLinksMountEl = document.getElementById("sidebar-links-mount");
+  const sidebarLinksCardEl = document.getElementById("sidebar-links-card");
   const sidebarChecklistMountEl = document.getElementById("sidebar-checklist-mount");
+  const sidebarChecklistCardEl = document.getElementById("sidebar-checklist-card");
   const sidebarChecklistRailEl = document.getElementById("sidebar-checklist-rail");
   const browseEl = document.getElementById("browse");
   const fabNavEl = document.getElementById("fab-nav");
@@ -110,6 +113,22 @@
         return (
           '<div class="md-component md-component--checklist" data-md-component="checklist" data-items="' +
           escapeAttr(JSON.stringify(lines)) +
+          '"></div>'
+        );
+      }
+      if (name === "links") {
+        const linkRe = /\[([^\]]*)\]\(([^)]+)\)/g;
+        const items = [];
+        let m;
+        while ((m = linkRe.exec(String(trimmed))) !== null) {
+          items.push({ label: m[1].trim(), href: m[2].trim() });
+        }
+        if (!items.length) {
+          return '<p class="prose prose--error">Links component is empty.</p>';
+        }
+        return (
+          '<div class="md-component md-component--links" data-md-component="links" data-items="' +
+          escapeAttr(JSON.stringify(items)) +
           '"></div>'
         );
       }
@@ -327,15 +346,86 @@
     });
   }
 
-  function setSidebarChecklistRailVisible(show) {
+  function updateSidebarRailVisibility() {
+    const hasLinks = !!(sidebarLinksMountEl && sidebarLinksMountEl.children.length);
+    const hasChecklist = !!(sidebarChecklistMountEl && sidebarChecklistMountEl.children.length);
+    if (sidebarLinksCardEl) sidebarLinksCardEl.hidden = !hasLinks;
+    if (sidebarChecklistCardEl) sidebarChecklistCardEl.hidden = !hasChecklist;
+    const show = hasLinks || hasChecklist;
     if (sidebarChecklistRailEl) sidebarChecklistRailEl.hidden = !show;
     if (bentoGridEl) bentoGridEl.classList.toggle("has-sidebar-checklist", !!show);
   }
 
-  function clearSidebarChecklist() {
-    if (!sidebarChecklistMountEl) return;
-    sidebarChecklistMountEl.innerHTML = "";
-    setSidebarChecklistRailVisible(false);
+  function clearSidebarRail() {
+    if (sidebarLinksMountEl) sidebarLinksMountEl.innerHTML = "";
+    if (sidebarChecklistMountEl) sidebarChecklistMountEl.innerHTML = "";
+    if (sidebarLinksCardEl) sidebarLinksCardEl.hidden = true;
+    if (sidebarChecklistCardEl) sidebarChecklistCardEl.hidden = true;
+    if (sidebarChecklistRailEl) sidebarChecklistRailEl.hidden = true;
+    if (bentoGridEl) bentoGridEl.classList.remove("has-sidebar-checklist");
+  }
+
+  function hydrateLinks(root, seq) {
+    const nodes = root.querySelectorAll('[data-md-component="links"]');
+    if (!nodes.length) return;
+
+    nodes.forEach(function (el) {
+      if (seq !== loadPageSeq) return;
+      let items;
+      try {
+        items = JSON.parse(el.getAttribute("data-items") || "[]");
+      } catch {
+        el.innerHTML = '<p class="prose prose--error">Invalid links.</p>';
+        return;
+      }
+      if (!Array.isArray(items) || !items.length) {
+        el.innerHTML = '<p class="prose prose--error">Links are empty.</p>';
+        return;
+      }
+
+      const ul = document.createElement("ul");
+      ul.className = "sidebar-links";
+      ul.setAttribute("role", "list");
+
+      items.forEach(function (item) {
+        const li = document.createElement("li");
+        li.className = "sidebar-links__item";
+        const a = document.createElement("a");
+        a.className = "sidebar-links__link";
+        a.href = String(item.href || "#");
+        a.innerHTML = renderChecklistLabelHtml(String(item.label || item.href || ""));
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+
+      el.innerHTML = "";
+      el.removeAttribute("data-items");
+      el.appendChild(ul);
+    });
+  }
+
+  /**
+   * Moves link lists from the article into the right-hand rail (above the checklist).
+   * Strips a leading “Links” heading and optional hr so the main column does not show gaps.
+   */
+  function moveLinksToSidebar(articleRoot, seq) {
+    if (!sidebarLinksMountEl) return;
+
+    const nodes = articleRoot.querySelectorAll(".md-component--links");
+    if (!nodes.length) return;
+
+    nodes.forEach(function (el) {
+      if (seq !== loadPageSeq) return;
+      let prev = el.previousElementSibling;
+      if (prev && prev.tagName === "H2" && /^links$/i.test((prev.textContent || "").trim())) {
+        prev.remove();
+      }
+      prev = el.previousElementSibling;
+      if (prev && prev.tagName === "HR") {
+        prev.remove();
+      }
+      sidebarLinksMountEl.appendChild(el);
+    });
   }
 
   /**
@@ -344,7 +434,6 @@
    */
   function moveChecklistsToSidebar(articleRoot, seq) {
     if (!sidebarChecklistMountEl) return;
-    clearSidebarChecklist();
 
     const nodes = articleRoot.querySelectorAll(".md-component--checklist");
     if (!nodes.length) return;
@@ -361,11 +450,6 @@
       }
       sidebarChecklistMountEl.appendChild(el);
     });
-
-    if (seq !== loadPageSeq) return;
-    if (sidebarChecklistMountEl.querySelector(".md-component--checklist")) {
-      setSidebarChecklistRailVisible(true);
-    }
   }
 
   async function hydrateMarkdownComponents(root, seq) {
@@ -1105,7 +1189,7 @@
     renderBreadcrumb(path);
     titleEl.textContent = "Loading…";
     articleEl.innerHTML = "";
-    clearSidebarChecklist();
+    clearSidebarRail();
 
     if (!isAllowedPath(path)) {
       articleEl.innerHTML =
@@ -1147,9 +1231,17 @@
     applyArticleLinkTargets(articleEl);
     await hydrateMarkdownComponents(articleEl, seq);
     if (seq !== loadPageSeq) return;
+    hydrateLinks(articleEl, seq);
+    if (seq !== loadPageSeq) return;
+    applyArticleLinkTargets(articleEl);
+    if (seq !== loadPageSeq) return;
+    moveLinksToSidebar(articleEl, seq);
+    if (seq !== loadPageSeq) return;
     hydrateChecklists(articleEl, seq);
     if (seq !== loadPageSeq) return;
     moveChecklistsToSidebar(articleEl, seq);
+    if (seq !== loadPageSeq) return;
+    updateSidebarRailVisibility();
     if (seq !== loadPageSeq) return;
 
     const h1 = articleEl.querySelector("h1");
@@ -1184,6 +1276,7 @@
       window.history.replaceState({ page: path }, "", u.pathname + u.search);
     }
     articleEl.addEventListener("click", onArticleClick);
+    if (sidebarChecklistRailEl) sidebarChecklistRailEl.addEventListener("click", onArticleClick);
     window.addEventListener("popstate", function () {
       const p = getQueryPage();
       loadPage(p && isAllowedPath(p) ? p : DEFAULT_PAGE);

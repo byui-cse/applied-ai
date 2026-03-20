@@ -19,3 +19,9 @@ By the end of this week, students should be able to:
 4. **Identify** tasks in a repo the size of **Canvas** that benefit from MCP (cross-cutting search, schema/doc bridges, etc.).
 5. **Propose** guardrails for tool use (logging, allowlists, dry-runs) appropriate to a campus or org policy.
 6. **Document** an **MCP inventory**: enabled servers, exposed surfaces, and explicit risk notes.
+
+<% checklist
+MCP mental model clear; trust boundaries articulated for your setup
+MCP inventory completed with risks and guardrails
+Week 5 lab: baseline vs MCP-assisted comparison documented (`labs/README.md`)
+%>

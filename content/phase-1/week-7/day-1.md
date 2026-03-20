@@ -15,3 +15,9 @@ Identify the **Canvas LMS** areas your feature or fix touches (e.g. Rails `app/`
 ---
 
 **Next class:** [`day-2.md`](day-2.md) — Session 2 (refactor or migration plan without hand-coding).
+
+<% checklist
+Canvas areas touched by your story identified (app, ui, packages, gems, …)
+Subsystem map or integration sketch started with AI
+Contract truth located (docs/wiki/code) for APIs or integrations you need
+%>

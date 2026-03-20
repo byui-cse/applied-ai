@@ -1,6 +1,6 @@
 # Lab 2 — Repository analysis agent
 
-You will design an **LLM agent** that helps someone understand a codebase by scanning and summarizing a repository. This lab does **not** give you a copy-paste system prompt. You write your own agent specification and supporting artifacts so they match your workflow and your course’s tooling.
+You will design an **LLM agent** that helps someone understand a codebase by scanning and summarizing a repository. This lab does **not** give you a copy-paste system prompt. You write your own agent specification and supporting artifacts.
 
 **Prerequisite:** Complete the setup in [`lab-1.md`](lab-1.md) (fork the course repo, EC2, Remote SSH) so you have a GitHub fork and a place to run commands.
 
@@ -8,7 +8,7 @@ You will design an **LLM agent** that helps someone understand a codebase by sca
 
 ## Goal
 
-Produce a documented agent plus supporting files so that a user (or an automation) can point the agent at a repository and get structured, repeatable analysis—without blowing the context window on every run.
+Produce an AI agent so that a user (or an automation) can point the agent at a repository and get structured, repeatable analysis, without blowing the context window on every run.
 
 ---
 
@@ -55,3 +55,15 @@ Your instructor may ask for a demo or PR against your fork; follow their submiss
 ## What we intentionally omit
 
 There is **no** official prompt text in this lab. You must author the instructions your agent follows while satisfying indexing, context limits, and scripted preprocessing/postprocessing yourself.
+
+<% checklist
+`agents/analyze-repo.md` committed in your fork with role, I/O, and constraints
+Index files (or equivalent) specified: when built, how refreshed, how the agent uses them
+Context management section targets **40% or less** of usable context for a defined “typical” run
+Scripts for deterministic steps referenced and documented (how to invoke or assume them)
+Supporting files and limitations (if any) match what you describe in the spec
+%>
+
+<% links
+ [Lab 1](labs/lab-1.md)
+%>

@@ -16,3 +16,11 @@ Create a **Debt Radar** and a **Last Verified** ritual.
 ### Definition of done
 10–20 high-signal items max; each has evidence or is marked 'unverified'.
 
+<% checklist
+Debt items tagged (reliability, security, maintainability, performance) where applicable
+Each item cites evidence (path, test, metric, ticket) or is dropped
+Last verified fields added to architecture note sections
+Optional onboarding test: classmate can name top 3 risks from your pack
+Item count within 10–20 with evidence or explicit unverified labels
+%>
+

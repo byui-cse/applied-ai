@@ -9,8 +9,7 @@ The following are definitions in context to LLMs, AI, and software engineering f
 
 ### Agents
 
-An AI agent is a system that perceives its environment, processes information, and acts autonomously to achieve specific goals. These agents can adapt their actions based on data, feedback, and changes in their surroundings. AI agents are commonly found in applications like virtual assistants, robotics, and automated systems.  
-[Source: IBM — AI Agents](https://www.ibm.com/think/topics/ai-agents)
+An **AI agent** is a system that can perceive its environment, process information, make decisions, and take actions autonomously to accomplish specific goals. According to Google Cloud, "AI agents are software programs that use artificial intelligence to observe their environment, reason about what they see, and act independently to achieve objectives—often by interacting with other systems and users" ([source](https://cloud.google.com/discover/what-are-ai-agents?hl=en)). In the context of LLMs and software engineering, agents may interpret prompts, analyze data, or automate code tasks based on their understanding and programming.
 
 ### Markdown
 
@@ -24,6 +23,14 @@ Markdown is a lightweight markup language used to format text with simple symbol
 
 ---
 
-## Lab 2 — Repository analysis agent
+<% links 
+ [Lab 2](labs/lab-2.md)
+%>
 
-**Lab instructions:** [`labs/lab-2.md`](labs/lab-2.md) — you will define an LLM agent that scans a repository (what it reads, how it chunks work, and how it records findings). In your fork, create an `agents` folder and add a markdown file named `analyze-repo.md` that documents your agent: how it behaves, what tools or scripts it relies on, and how you keep context use efficient. **Minimum requirements** (your spec must cover all of these): **(1)** create or maintain **index files** so the agent can navigate the repo quickly without re-reading everything; **(2)** follow **context-management** practices so the agent targets **40% or less** of the available context budget for typical runs; **(3)** provide **agent scripts** for steps that should run **outside** the LLM (shell, search, indexing, etc.). The lab does **not** include a ready-made prompt—you decide the wording while meeting those requirements.
+<% checklist
+Reviewed Markdown basics (cheatsheet) for prompts and docs
+Completed agents & markdown quiz
+Finished markdown practice in the embedded editor
+Read Lab 2 instructions and minimum requirements for `agents/analyze-repo.md`
+Drafted or outlined how index files, context budget, and scripts fit your agent
+%>

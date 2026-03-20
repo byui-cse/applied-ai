@@ -15,3 +15,10 @@ Bring a large file or noisy log example (redacted) from **Canvas LMS** if possib
 ---
 
 **Next class:** [`day-2.md`](day-2.md) — Session 2 (prompt patterns for big codebases).
+
+<% checklist
+Canvas LMS clone ready; optional noisy example prepared (redacted)
+Can name what consumes tokens in a session (files, tools, chat history)
+Selection strategies in mind: symbols, path lists, line ranges vs whole files
+Aware of anti-patterns: unbounded logs and giant stack traces in prompts
+%>

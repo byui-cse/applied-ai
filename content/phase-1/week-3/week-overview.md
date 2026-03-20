@@ -19,3 +19,10 @@ By the end of this week, students should be able to:
 4. **Prompt** an AI to produce a structured **debt radar** across coupling, tests, operations, and similar dimensions.
 5. **Prioritize** debt items using impact × uncertainty and **avoid** unprioritized laundry lists.
 6. **Specify** a human verification gate: what evidence is required before treating a debt item as confirmed.
+
+<% checklist
+Distinguishes chat vs git vs durable docs; re-grounding triggers identified
+Debt radar v1 with evidence links and prioritization (impact × uncertainty)
+Verification gate documented for confirming debt items
+Week 3 lab steps engaged (`labs/README.md`)
+%>

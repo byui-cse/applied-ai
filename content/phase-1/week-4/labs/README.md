@@ -16,3 +16,11 @@ Design a lightweight **knowledge cache** (not necessarily RAG)—rules for write
 ### Definition of done
 One-page policy + one worked summary card.
 
+<% checklist
+Repeating Canvas question chosen and grounded in README, doc/, or docker-compose
+Canonical location + summary card + source links drafted with AI
+Invalidate-on events defined (releases, config changes, etc.)
+Role-play noted gaps a new teammate would hit
+One-page policy + worked summary card finished
+%>
+

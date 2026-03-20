@@ -15,3 +15,10 @@ Skim your **Canvas LMS** context pack; list 3 areas you still don't trust. Repo:
 ---
 
 **Next class:** [`day-2.md`](day-2.md) — Session 2 (debt inventories with AI).
+
+<% checklist
+Context pack skimmed; three uncertain areas listed
+Can contrast chat memory, git history, and durable markdown docs
+Know when to re-ground (merges, incidents, refactors) and what to refresh
+Plan for dated “last verified” notes on architecture claims
+%>

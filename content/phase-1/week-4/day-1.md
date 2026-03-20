@@ -15,3 +15,9 @@ Pick one **Canvas LMS** subsystem or vertical slice you’ll hypothetically impr
 ---
 
 **Next class:** [`day-2.md`](day-2.md) — Session 2 (technical debt workflows).
+
+<% checklist
+Chose one Canvas subsystem or vertical slice for the month
+Can compare embeddings/RAG, search, and hand-maintained indexes
+Refresh triggers identified for when summaries or docs go stale
+%>

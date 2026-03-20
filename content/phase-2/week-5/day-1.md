@@ -15,3 +15,10 @@ Identify 3 recurring chores in your MVP work.
 ---
 
 **Next class:** [`day-2.md`](day-2.md) — Session 2 (operationalizing agents in the team).
+
+<% checklist
+Three recurring MVP chores identified
+Planner vs executor vs reviewer patterns mapped for one agent
+Stop conditions and budgets (time, tokens, files) drafted
+Human-in-the-loop checkpoints listed
+%>

@@ -21,3 +21,9 @@
 ## Instructor notes (optional)
 - Keep critiques focused on *verification discipline* and *context hygiene*.
 - Encourage students to log prompts major outputs for portfolio evidence.
+
+<% checklist
+Critiqued AI-generated tests for value vs brittleness
+Security / a11y / performance gates defined for your MVP
+Rules/skills pack v1 + review checklist delivered
+%>

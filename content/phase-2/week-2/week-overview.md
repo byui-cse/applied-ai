@@ -18,3 +18,10 @@ By the end of this week, students should be able to:
 4. **Critique** AI-generated tests for value versus brittle coverage—without personally writing implementation code.
 5. **Apply** review checklists (security, accessibility, performance, etc.) as **gates** on AI output.
 6. **Produce** a **rules/skills pack v1** and a reusable **review checklist** for the greenfield MVP.
+
+<% checklist
+Repeatable habits encoded in rules/skills (or equivalent)
+Stale-rule review cadence planned
+Rules/skills pack v1 + review checklist saved for the greenfield repo
+Week 2 Phase 2 lab in progress or done (`labs/README.md`)
+%>

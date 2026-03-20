@@ -21,3 +21,10 @@
 ## Instructor notes (optional)
 - Keep critiques focused on *verification discipline* and *context hygiene*.
 - Encourage students to log prompts major outputs for portfolio evidence.
+
+<% checklist
+Plugin spec covers stable interfaces, versioning, and deprecation
+Inputs/outputs/errors documented with AI assistance
+User and developer error stories considered
+Plugin spec v0 + JSON-schema sketch delivered
+%>

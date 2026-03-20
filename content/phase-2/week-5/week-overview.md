@@ -18,3 +18,9 @@ By the end of this week, students should be able to:
 4. **Decide** when to spin an agent versus staying in interactive chat for a given chore.
 5. **List** artifacts agents must leave behind (logs, summaries, tickets) for auditability.
 6. **Author** a **single-agent runbook** for one recurring MVP chore, including evaluation criteria for outputs.
+
+<% checklist
+Roles, budgets, checkpoints, and artifacts defined for one chore
+Single-agent runbook saved and aligned with MVP workflow
+Week 5 Phase 2 lab: repeatable prompt + checklist (`labs/README.md`)
+%>

@@ -21,3 +21,9 @@
 ## Instructor notes (optional)
 - Keep critiques focused on *verification discipline* and *context hygiene*.
 - Encourage students to log prompts major outputs for portfolio evidence.
+
+<% checklist
+Dogfooded plugin path with AI-generated scenarios; failures recorded
+Prompt versioning aligned with release notes (you audit)
+Integration storyboard (flow or diagram) completed
+%>

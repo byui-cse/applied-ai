@@ -37,6 +37,14 @@ Greenfield development refers to starting a project from scratch, without any co
 
 ---
 
-## Lab 1 - Set up Canvas-LMS
+<% links
+[Lab 1](labs/lab-1.md)
+%>
 
-**Lab Instructions:** [`labs/lab-1.md`](labs/lab-1.md) — fork the course repo, AWS Academy EC2, and Remote SSH. Session 2 (markdown systems for teams): [`day-2.md`](day-2.md).
+<% checklist
+Confirmed course rule: judgment and verification, not hand-authored implementation
+IDE or CLI agent tooling installed (Copilot, Claude Code, Cursor, or equivalent)
+Local clone of Canvas LMS available for Phase 1
+Completed brownfield vs greenfield and context-window quizzes in this session
+Opened Lab 1 and know where Week 1 labs live (`labs/lab-1.md`)
+%>

@@ -13,3 +13,10 @@ Execute a **two-agent** workflow on one MVP task (e.g., spec agent → builder a
 ### Definition of done
 Handoff template reusable for a second task with <30% edit overhead.
 
+<% checklist
+Handoff template: state, assumptions, questions, next commands
+Agent A output frozen and fed to B without re-explaining the world
+Rework from corrections measured
+Second task reuses template with <30% edit overhead
+%>
+

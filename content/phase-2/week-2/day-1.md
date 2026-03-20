@@ -15,3 +15,9 @@ Bring tool-specific docs for rules/skills if needed.
 ---
 
 **Next class:** [`day-2.md`](day-2.md) — Session 2 (quality without manual coding).
+
+<% checklist
+Tool docs for rules/skills/memories reviewed for your IDE
+Plan for central vs per-task instructions
+Review cadence for pruning stale rules
+%>

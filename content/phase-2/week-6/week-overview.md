@@ -18,3 +18,8 @@ By the end of this week, students should be able to:
 4. **Contrast** orchestrator-led multi-agent setups with peer-style agent topologies.
 5. **Mitigate** stalls and circular debates with timeouts, escalation paths, and least-privilege roles per agent.
 6. **Produce** a **multi-agent protocol**: roles, handoff artifacts, and communication rules for their MVP workflow.
+
+<% checklist
+Multi-agent protocol covers handoffs, disagreements, and security boundaries
+Week 6 Phase 2 lab handoff template exercised (`labs/README.md`)
+%>

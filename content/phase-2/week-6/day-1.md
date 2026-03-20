@@ -15,3 +15,9 @@ Read your single-agent runbook; note bottlenecks.
 ---
 
 **Next class:** [`day-2.md`](day-2.md) — Session 2 (patterns & pitfalls).
+
+<% checklist
+Single-agent runbook reviewed; bottlenecks noted
+Compared shared artifacts vs message passing for handoffs
+Conflict resolution strategy when agents disagree
+%>

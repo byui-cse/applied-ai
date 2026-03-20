@@ -15,3 +15,10 @@ Approved greenfield idea; empty org/repo or local folder.
 ---
 
 **Next class:** [`day-2.md`](day-2.md) — Session 2 (scaffolding without typing implementation).
+
+<% checklist
+Greenfield idea approved; empty repo or folder ready
+MVP slice sized to fit the remaining term window
+In/out scope and success criteria drafted
+Stack constraints gathered (not “vibes-only”)
+%>

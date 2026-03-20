@@ -24,3 +24,11 @@ Canvas LMS is a **large, real-world brownfield** codebase: Ruby and Rails–back
 ## Relationship to course content
 
 All Phase 1 weekly plans (`phase-1/week-*`) and labs assume this repository unless otherwise noted. Greenfield work in Phase 2 is **separate** from Canvas unless you explicitly tie them for a portfolio.
+
+<% checklist
+Cloned Canvas LMS and know your fork/branch policy
+Scoped work matches instructor-approved issues or features
+Read upstream README, CONTRIBUTING, and wiki enough to respect setup norms
+No production secrets or private data in prompts; using public/local dev context only
+Chose a vertical slice for context packs and labs (bounded area of the tree)
+%>

@@ -14,3 +14,11 @@ Draft a **plugin or tool integration** spec for your MVP.
 ### Definition of done
 Another team could implement from spec without guessing your intent.
 
+<% checklist
+User-visible behavior captured in ~5 bullets
+Schema/OpenAPI-style descriptions validated against the real MVP
+Abuse cases listed; guardrails added
+Test plan outlined with AI execution and human approval gates
+Spec is implementable without guessing intent
+%>
+

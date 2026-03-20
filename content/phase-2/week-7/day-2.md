@@ -21,3 +21,9 @@
 ## Instructor notes (optional)
 - Keep critiques focused on *verification discipline* and *context hygiene*.
 - Encourage students to log prompts major outputs for portfolio evidence.
+
+<% checklist
+Production checklist addressed (auth, secrets, logging, backups as applicable)
+Demo narrative: problem → MVP → limits → next
+Phase 2 final package assembled per rubric (prompts log, architecture, rules pack)
+%>

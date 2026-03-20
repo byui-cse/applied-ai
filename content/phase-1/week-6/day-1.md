@@ -15,3 +15,9 @@ Ensure you can create worktrees locally on your **Canvas LMS** clone; read campu
 ---
 
 **Next class:** [`day-2.md`](day-2.md) — Session 2 (safe parallelism).
+
+<% checklist
+Can create worktrees on your Canvas clone (per campus git policy)
+Understand worktrees vs long-lived stashes for AI spikes
+Naming, cleanup, and disk hygiene plan sketched
+%>

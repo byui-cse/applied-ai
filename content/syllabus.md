@@ -112,3 +112,11 @@ All work in weeks 1–7 uses **Canvas LMS** as the shared legacy codebase. Stude
 ---
 
 *Syllabus version aligned to 14-week, twice-weekly schedule. Edit dates, policies, and grading to match your catalog.*
+
+<% checklist
+Understand the course premise (AI collaboration, not hand-authored implementation)
+Located the weekly index and know how calendar weeks map to `phase-1/week-*` and `phase-2/week-*`
+Phase 1: Canvas LMS clone and brownfield expectations are clear
+Phase 2: greenfield product direction approved by the stated milestone (e.g. week 8)
+Will cite AI use and verify commands/changes per academic integrity and safety notes
+%>

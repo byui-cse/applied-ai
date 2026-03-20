@@ -19,3 +19,9 @@ By the end of this week, students should be able to:
 4. **Run** an AI-assisted triage conversation that yields agenda, options, and tradeoffs as markdown suitable for a team review.
 5. **Evaluate** AI-drafted migration paths against stated constraints (time, risk, compatibility).
 6. **Produce** a **triage memo** for one subsystem and a **cache/refresh plan** for their project documentation set.
+
+<% checklist
+Compares cache strategies and knows when summaries mislead
+Triage memo + cache/refresh plan delivered for one Canvas subsystem
+Week 4 lab completed or in progress (`labs/README.md`)
+%>

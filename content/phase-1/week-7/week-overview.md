@@ -19,3 +19,10 @@ By the end of this week, students should be able to:
 4. **Produce** a refactor or migration **plan as text**: scope, milestones, risks, and test strategy—without hand-authoring implementation.
 5. **Summarize** the plan for stakeholders (scope, unknowns, next steps) at an appropriate level of abstraction.
 6. **Participate** in peer critique to find gaps in others’ plans and **deliver** a Phase 1 portfolio checkpoint: Canvas-scoped plan plus an updated **context pack**.
+
+<% checklist
+Monorepo boundaries and failure modes addressed for your Canvas slice
+Integration/refactor plan is text-only, scoped, and grounded in repo paths
+Portfolio checkpoint: plan + updated context pack submitted per rubric
+Week 7 lab aligned with capstone expectations (`labs/README.md`)
+%>

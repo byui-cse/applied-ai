@@ -14,3 +14,10 @@ Author a **Rules/Skills Pack** tailored to your greenfield MVP.
 ### Definition of done
 Pack fits on ~2–3 screens; task completes with fewer follow-up corrections than baseline.
 
+<% checklist
+Five recurring AI tasks listed with short rules (inputs, outputs, constraints, verify)
+AI self-critique of rules reviewed; you adjudicated conflicts
+One real task run end-to-end using pack + prompts
+Pack length ~2–3 screens; fewer corrections than baseline
+%>
+

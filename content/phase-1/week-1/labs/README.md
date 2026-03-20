@@ -16,3 +16,11 @@ Produce a **Context Pack v0** for **Canvas LMS** entirely through AI dialogue.
 ### Definition of done
 Pack is <800 words OR fits your self-imposed context slice; a peer can orient in 5 minutes.
 
+<% checklist
+Used top-level Canvas docs and paths—not full-file pastes—to steer the model
+System map covers entrypoints, configs, boundaries, and top risks
+Pack compressed: glossary, invariants, no duplicate noise
+Optional folder-index table or equivalent navigation aid attempted
+Definition of done met: length target + 5-minute peer orientation test
+%>
+

@@ -18,3 +18,9 @@ By the end of this week, students should be able to:
 4. **Dogfood** a plugin path using AI-generated scenarios and **record** failure modes.
 5. **Align** prompt versioning with application releases so behavior stays auditable.
 6. **Produce** an **integration storyboard** (diagram or numbered flow) for a vertical slice that exercises the plugin/tool path.
+
+<% checklist
+Wiring, observability, and graceful degradation addressed for tools/plugins
+Integration storyboard delivered for a vertical slice
+Week 4 Phase 2 lab demo script in good shape (`labs/README.md`)
+%>

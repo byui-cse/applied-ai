@@ -15,3 +15,9 @@ Enable MCP in your environment; have admin docs handy if campus-managed. Work ag
 ---
 
 **Next class:** [`day-2.md`](day-2.md) — Session 2 (Canvas tasks that benefit from MCP).
+
+<% checklist
+MCP enabled per environment policy; Canvas clone ready for exercises
+High-level map of tools vs resources vs prompts (per your host)
+Trust boundaries considered: what an MCP server can read or touch
+%>

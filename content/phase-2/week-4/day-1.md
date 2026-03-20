@@ -15,3 +15,9 @@ Have a minimal vertical slice of MVP running.
 ---
 
 **Next class:** [`day-2.md`](day-2.md) — Session 2 (iteration loops).
+
+<% checklist
+Minimal vertical slice of MVP running
+Registration/discovery and failure handling concepts mapped
+Observability plan for tool calls (no secrets in logs)
+%>

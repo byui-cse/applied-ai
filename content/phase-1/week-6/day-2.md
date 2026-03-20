@@ -23,3 +23,9 @@
 ## Instructor notes (optional)
 - Keep critiques focused on *verification discipline* and *context hygiene*.
 - Encourage students to log prompts major outputs for portfolio evidence.
+
+<% checklist
+Branch policy defined for high-churn AI-generated changes
+Compared two AI strategies on the same bounded spike
+Worktree playbook drafted for Canvas: commands, conventions, teardown
+%>

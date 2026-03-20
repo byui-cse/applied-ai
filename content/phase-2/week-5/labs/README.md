@@ -13,3 +13,11 @@ Automate (via agent) one **bounded** dev chore end-to-end with checkpoints.
 ### Definition of done
 Repeatable prompt + checklist that works on a second attempt.
 
+<% checklist
+Inputs, outputs, and forbidden actions explicit for the chore
+Agent run completed; artifacts collected
+Post-mortem: failures and rule updates noted
+Second attempt succeeds with <30% edit overhead on prompt/checklist
+Repeatable prompt + checklist verified on retry
+%>
+

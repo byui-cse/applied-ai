@@ -21,3 +21,10 @@
 ## Instructor notes (optional)
 - Keep critiques focused on *verification discipline* and *context hygiene*.
 - Encourage students to log prompts major outputs for portfolio evidence.
+
+<% checklist
+Orchestrator vs peer topologies chosen for your workflow
+Timeouts and escalation paths for stalls or circular debates
+Least-privilege roles per agent documented
+Multi-agent protocol (roles, artifacts, comms rules) delivered
+%>

@@ -23,3 +23,9 @@
 ## Instructor notes (optional)
 - Keep critiques focused on *verification discipline* and *context hygiene*.
 - Encourage students to log prompts major outputs for portfolio evidence.
+
+<% checklist
+Triage memo drafted for chosen subsystem (agenda, options, tradeoffs)
+Cache/refresh plan written for your doc set
+AI-assisted triage outputs reviewed against your constraints
+%>

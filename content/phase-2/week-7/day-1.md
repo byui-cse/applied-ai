@@ -15,3 +15,9 @@ Rehearse demo; freeze scope 48h before final unless critical.
 ---
 
 **Next class:** [`day-2.md`](day-2.md) — Session 2 (final demo & hardening story).
+
+<% checklist
+Demo rehearsed; scope frozen per instructor window
+Multiple MCP servers: naming, ownership, overlap reviewed
+Incident-ready doc plan for AI-originated changes
+%>
