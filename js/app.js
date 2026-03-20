@@ -12,6 +12,9 @@
   const titleEl = document.getElementById("doc-title");
   const breadcrumbEl = document.getElementById("breadcrumb");
   const tocEl = document.getElementById("toc");
+  const bentoGridEl = document.querySelector(".bento-grid");
+  const sidebarChecklistMountEl = document.getElementById("sidebar-checklist-mount");
+  const sidebarChecklistRailEl = document.getElementById("sidebar-checklist-rail");
   const browseEl = document.getElementById("browse");
   const fabNavEl = document.getElementById("fab-nav");
   const statusEl = document.getElementById("status");
@@ -322,6 +325,47 @@
       el.removeAttribute("data-items");
       el.appendChild(ul);
     });
+  }
+
+  function setSidebarChecklistRailVisible(show) {
+    if (sidebarChecklistRailEl) sidebarChecklistRailEl.hidden = !show;
+    if (bentoGridEl) bentoGridEl.classList.toggle("has-sidebar-checklist", !!show);
+  }
+
+  function clearSidebarChecklist() {
+    if (!sidebarChecklistMountEl) return;
+    sidebarChecklistMountEl.innerHTML = "";
+    setSidebarChecklistRailVisible(false);
+  }
+
+  /**
+   * Moves interactive checklists from the article into the right-hand checklist rail.
+   * Strips a leading “Checklist” heading and optional hr so the main column does not show gaps.
+   */
+  function moveChecklistsToSidebar(articleRoot, seq) {
+    if (!sidebarChecklistMountEl) return;
+    clearSidebarChecklist();
+
+    const nodes = articleRoot.querySelectorAll(".md-component--checklist");
+    if (!nodes.length) return;
+
+    nodes.forEach(function (el) {
+      if (seq !== loadPageSeq) return;
+      let prev = el.previousElementSibling;
+      if (prev && prev.tagName === "H2" && /^checklist$/i.test((prev.textContent || "").trim())) {
+        prev.remove();
+      }
+      prev = el.previousElementSibling;
+      if (prev && prev.tagName === "HR") {
+        prev.remove();
+      }
+      sidebarChecklistMountEl.appendChild(el);
+    });
+
+    if (seq !== loadPageSeq) return;
+    if (sidebarChecklistMountEl.querySelector(".md-component--checklist")) {
+      setSidebarChecklistRailVisible(true);
+    }
   }
 
   async function hydrateMarkdownComponents(root, seq) {
@@ -1061,6 +1105,7 @@
     renderBreadcrumb(path);
     titleEl.textContent = "Loading…";
     articleEl.innerHTML = "";
+    clearSidebarChecklist();
 
     if (!isAllowedPath(path)) {
       articleEl.innerHTML =
@@ -1103,6 +1148,8 @@
     await hydrateMarkdownComponents(articleEl, seq);
     if (seq !== loadPageSeq) return;
     hydrateChecklists(articleEl, seq);
+    if (seq !== loadPageSeq) return;
+    moveChecklistsToSidebar(articleEl, seq);
     if (seq !== loadPageSeq) return;
 
     const h1 = articleEl.querySelector("h1");

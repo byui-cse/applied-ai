@@ -102,10 +102,6 @@ cd <repo-name>
 
 Use a **personal access token** or **SSH keys** for GitHub if HTTPS or SSH push is required — follow GitHub’s docs and your instructor’s preference.
 
----
-
-## Checklist
-
 <% checklist
 Forked course repo under your GitHub account
 Learner Lab started; EC2 Ubuntu running with SSH allowed

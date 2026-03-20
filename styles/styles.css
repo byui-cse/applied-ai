@@ -339,7 +339,23 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
   align-items: start;
 }
 
-/* Desktop: fixed sidebar — reserve width on hero; aside is viewport-fixed */
+/* Left sidebar: TOC + Browse */
+.sidebar-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap);
+  align-items: stretch;
+}
+
+/* Right rail: lab checklist (when present) */
+.sidebar-checklist-rail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap);
+  align-items: stretch;
+}
+
+/* Desktop: fixed left nav + optional fixed right checklist; hero margins reserve space */
 @media (min-width: 961px) {
   .bento-grid {
     /* Match former grid column: minmax(16rem, 22rem), shrink if viewport is tight */
@@ -350,19 +366,52 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
   }
 
   .card--hero {
+    margin-left: calc(var(--sidebar-w) + var(--layout-gap));
+    margin-right: 0;
+  }
+
+  .bento-grid.has-sidebar-checklist .card--hero {
     margin-right: calc(var(--sidebar-w) + var(--layout-gap));
   }
 
-  .card--secondary {
+  .sidebar-stack {
     position: fixed;
     top: var(--sidebar-fixed-top);
-    right: calc((100vw - min(var(--main-max-w), 100vw)) / 2 + var(--main-pad-x));
+    left: calc((100vw - min(var(--main-max-w), 100vw)) / 2 + var(--main-pad-x));
+    right: auto;
     width: var(--sidebar-w);
     max-height: calc(100vh - var(--sidebar-fixed-top) - 1rem);
     overflow-x: hidden;
     overflow-y: auto;
     z-index: 25;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .sidebar-stack .card--secondary {
+    position: static;
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .sidebar-checklist-rail {
+    position: fixed;
+    top: var(--sidebar-fixed-top);
+    right: calc((100vw - min(var(--main-max-w), 100vw)) / 2 + var(--main-pad-x));
+    left: auto;
+    width: var(--sidebar-w);
+    max-height: calc(100vh - var(--sidebar-fixed-top) - 1rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 25;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sidebar-checklist-rail .card--secondary {
+    position: static;
+    width: 100%;
+    max-height: none;
+    overflow: visible;
   }
 }
 
@@ -372,10 +421,22 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
   }
 
   .card--hero {
+    margin-left: 0;
     margin-right: 0;
   }
 
-  .card--secondary {
+  .bento-grid.has-sidebar-checklist .card--hero {
+    margin-right: 0;
+  }
+
+  .sidebar-stack {
+    position: static;
+    width: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .sidebar-checklist-rail {
     position: static;
     width: auto;
     max-height: none;
@@ -683,6 +744,11 @@ html[data-theme="dark"] .prose pre {
   flex-direction: column;
   gap: 0.5rem;
   max-width: 52rem;
+}
+
+.sidebar-checklist-mount .interactive-checklist {
+  max-width: none;
+  margin: 0.35rem 0 0;
 }
 
 .interactive-checklist__item {

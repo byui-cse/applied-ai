@@ -65,12 +65,22 @@
         <h1 class="display-title" id="doc-title">Course content</h1>
         <div class="prose" id="article"></div>
       </article>
-      <aside class="card card--secondary" aria-label="On this page">
-        <h2 class="card__heading">On this page</h2>
-        <nav class="toc" id="toc" aria-label="Table of contents"></nav>
-        <div class="card__divider"></div>
-        <h2 class="card__heading">Browse</h2>
-        <div class="browse" id="browse"></div>
+      <aside class="sidebar-stack" aria-label="Page navigation">
+        <div class="card card--secondary sidebar-stack__card">
+          <h2 class="card__heading">On this page</h2>
+          <nav class="toc" id="toc" aria-label="Table of contents"></nav>
+        </div>
+        <div class="card card--secondary sidebar-stack__card">
+          <h2 class="card__heading">Browse</h2>
+          <div class="browse" id="browse"></div>
+        </div>
+      </aside>
+      <aside class="sidebar-checklist-rail" id="sidebar-checklist-rail" hidden
+        aria-labelledby="sidebar-checklist-heading">
+        <div class="card card--secondary sidebar-checklist-rail__card" id="sidebar-checklist-card">
+          <h2 class="card__heading" id="sidebar-checklist-heading">Checklist</h2>
+          <div id="sidebar-checklist-mount" class="sidebar-checklist-mount"></div>
+        </div>
       </aside>
     </div>
   </main>
