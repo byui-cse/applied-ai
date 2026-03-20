@@ -1,4 +1,4 @@
-# Lab 2 — Repository analysis agent
+# Lab 2 — Repository Analysis Agent
 
 You will design an **LLM agent** that helps someone understand a codebase by scanning and summarizing a repository. This lab does **not** give you a copy-paste system prompt. You write your own agent specification and supporting artifacts.
 
@@ -49,6 +49,14 @@ Identify work that should **not** be done inside the LLM (search, listing, hashi
 - Optional: a short note in the same file on **limitations** (what the agent is not designed to do).
 
 Your instructor may ask for a demo or PR against your fork; follow their submission steps.
+
+---
+
+## Template Agent
+
+Utilizing the task markdown file, you can start with a strong structure for your agents.
+
+<% editor markdown "# Role\n\n# Task\n\n# Steps\n\n# Analysis\n\n# Examples" %>
 
 ---
 

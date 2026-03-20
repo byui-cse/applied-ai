@@ -1,6 +1,7 @@
 /**
- * Markdown editor + preview: mount into a container, fetch JSON under assessments/.
- * Variant "markdown-with-preview": split editor, compare to expected markdown (character-based).
+ * Markdown editor + preview: mount into a container.
+ * Variant "markdown": textarea + live preview, initial text from data-initial-markdown (no fetch).
+ * Variant "markdown-with-preview": fetch JSON under assessments/, split editor, compare to expected markdown.
  */
 (function () {
   "use strict";
@@ -277,8 +278,70 @@
     showChallenge(0);
   }
 
+  /** Simple markdown editor + preview; default text only (course templates, scratch space). */
+  function renderMarkdownSandbox(container) {
+    var raw = container.getAttribute("data-initial-markdown");
+    var initial = "";
+    if (raw != null && raw !== "") {
+      try {
+        var parsed = JSON.parse(raw);
+        if (typeof parsed === "string") initial = parsed;
+      } catch (e) {
+        container.innerHTML =
+          '<p class="prose prose--error">Invalid editor content.</p>';
+        return;
+      }
+    }
+
+    var html = "";
+    html +=
+      '<div class="md-editor md-editor--sandbox" role="region" aria-label="Markdown editor">';
+    html += '<div class="md-editor__head">';
+    html += '<p class="md-editor__label">Template</p>';
+    html += '<p class="md-editor__title">Edit markdown</p>';
+    html +=
+      '<p class="md-editor__intro">Your preview updates as you type. Copy from here into your agent spec.</p>';
+    html += "</div>";
+    html += '<div class="md-editor__stage">';
+    html += '<div class="md-editor__split">';
+    html += '<div class="md-editor__pane md-editor__pane--input">';
+    html +=
+      '<label class="md-editor__pane-label" for="md-editor-sandbox-ta">Markdown</label>';
+    html +=
+      '<textarea id="md-editor-sandbox-ta" class="md-editor__textarea" rows="14" spellcheck="false" aria-describedby="md-editor-sandbox-hint"></textarea>';
+    html +=
+      '<p id="md-editor-sandbox-hint" class="md-editor__hint">Use headings, lists, and code fences as needed.</p>';
+    html += "</div>";
+    html += '<div class="md-editor__pane md-editor__pane--preview">';
+    html += '<p class="md-editor__pane-label">Preview</p>';
+    html += '<div class="md-editor__live-preview prose"></div>';
+    html += "</div>";
+    html += "</div>";
+    html += "</div>";
+    html += "</div>";
+
+    container.innerHTML = html;
+
+    var ta = container.querySelector(".md-editor__textarea");
+    var live = container.querySelector(".md-editor__live-preview");
+    function updatePreview() {
+      if (!live) return;
+      live.innerHTML = parseMarkdown(ta ? ta.value : "");
+    }
+    if (ta) {
+      ta.value = initial;
+      ta.addEventListener("input", updatePreview);
+      updatePreview();
+    }
+  }
+
   function mount(container, jsonPath, indexDir, variant) {
-    if (!container || !jsonPath) return;
+    if (!container) return;
+    if (variant === "markdown") {
+      renderMarkdownSandbox(container);
+      return;
+    }
+    if (!jsonPath) return;
     if (variant !== "markdown-with-preview") {
       container.innerHTML =
         '<p class="prose prose--error">Unknown editor variant.</p>';

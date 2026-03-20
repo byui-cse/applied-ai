@@ -81,6 +81,35 @@
       .replace(/</g, "&lt;");
   }
 
+  /** Parse a leading "..." string with \\n, \\t, \\", \\\\ escapes; trailing text after closing " is invalid. */
+  function parseDoubleQuotedString(s) {
+    const t = String(s).trim();
+    if (!t.startsWith('"')) return null;
+    let i = 1;
+    let out = "";
+    while (i < t.length) {
+      const c = t[i];
+      if (c === "\\") {
+        if (i + 1 >= t.length) return null;
+        const n = t[++i];
+        if (n === "n") out += "\n";
+        else if (n === "r") out += "\r";
+        else if (n === "t") out += "\t";
+        else if (n === '"' || n === "\\") out += n;
+        else out += n;
+        i++;
+        continue;
+      }
+      if (c === '"') {
+        if (t.slice(i + 1).trim() !== "") return null;
+        return out;
+      }
+      out += c;
+      i++;
+    }
+    return null;
+  }
+
   /**
    * <% component_name args %>
    * Example: <% quiz assessments/phase-1/week-1/green-brown.json %>
@@ -139,10 +168,30 @@
             return t.trim();
           })
           .filter(Boolean);
+        if (tokens.length < 1) {
+          return '<p class="prose prose--error">Invalid editor: need a variant.</p>';
+        }
+        const variant = tokens[0];
+        if (variant === "markdown") {
+          const afterVariant = String(trimmed).replace(/^\s*markdown\s+/, "");
+          const defaultText = parseDoubleQuotedString(afterVariant.trim());
+          if (defaultText === null) {
+            return (
+              '<p class="prose prose--error">Invalid editor: markdown needs a quoted default string (e.g. ' +
+              '<code>&lt;% editor markdown &quot;# Line\\n&quot; %&gt;</code>).</p>'
+            );
+          }
+          return (
+            '<div class="md-component md-component--editor" data-md-component="editor" data-variant="' +
+            escapeAttr(variant) +
+            '" data-initial-markdown="' +
+            escapeAttr(JSON.stringify(defaultText)) +
+            '"></div>'
+          );
+        }
         if (tokens.length < 2) {
           return '<p class="prose prose--error">Invalid editor: need a variant and a JSON path.</p>';
         }
-        const variant = tokens[0];
         const jsonPath = tokens.slice(1).join(" ");
         if (!isAllowedAssessmentPath(jsonPath)) {
           return '<p class="prose prose--error">Invalid or missing editor JSON path.</p>';
@@ -500,6 +549,10 @@
         if (seq !== loadPageSeq) return;
         const jsonPath = el.getAttribute("data-json");
         const variant = el.getAttribute("data-variant") || "";
+        if (variant === "markdown") {
+          window.AppliedAIEditor.mount(el, null, INDEX_DIR, variant);
+          return;
+        }
         if (!jsonPath || !isAllowedAssessmentPath(jsonPath)) {
           el.innerHTML = '<p class="prose prose--error">Invalid editor path.</p>';
           return;
