@@ -138,3 +138,14 @@ For markdown systems for teams, see **[`day-2.md`](../day-2.md)**.
 - Partial credit per item may be awarded at instructor discretion.
 - Rubric aligns with checklists and instructions above; all steps must be performed on EC2 (*not just locally*).
 
+---
+
+<% links
+#### Labs
+[Lab 1](lab-1.md)
+[Lab 2](lab-2.md)
+
+#### Classes
+[Day 1](../day-1.md)
+[Day 2](../day-2.md)
+%>

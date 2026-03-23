@@ -40,6 +40,21 @@
   /* Sticky nav block height — tuned so rails line up with .card--hero top */
   --site-nav-h: 4.1rem;
   --sidebar-fixed-top: calc(var(--site-nav-h) + var(--main-pad-y));
+  --sidebar-slide-dur: 0.38s;
+  --sidebar-slide-ease: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --sidebar-slide-dur: 0.01ms;
+  }
+}
+
+/* First paint only: app.js removes this after initial loadPage() so margins/rails don’t animate from “empty” state */
+.layout--no-sidebar-transition .card--hero,
+.layout--no-sidebar-transition .sidebar-stack,
+.layout--no-sidebar-transition .sidebar-checklist-rail {
+  transition: none !important;
 }
 
 html[data-theme="dark"] {
@@ -359,6 +374,104 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
   display: block;
 }
 
+/* Header: page layout (sidebars) */
+.layout-menu {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.layout-menu__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  font-family: var(--font-sans);
+  border: 1px solid var(--rule-hairline);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.layout-menu__trigger:hover {
+  color: var(--accent);
+  border-color: var(--accent-soft);
+  background: var(--bg-card);
+}
+
+.layout-menu__trigger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.layout-menu__trigger-icon {
+  display: block;
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.layout-menu__panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.35rem);
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.5rem;
+  min-width: 9.5rem;
+  border: 1px solid var(--rule-hairline);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
+}
+
+.layout-menu__panel[hidden] {
+  display: none !important;
+}
+
+.layout-menu__toggle {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.4rem 0.55rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--ink);
+  background: var(--bg-card);
+  border: 1px solid var(--rule-hairline);
+  border-radius: calc(var(--radius) - 2px);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.layout-menu__toggle:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--rule-hairline));
+}
+
+.layout-menu__toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.layout-menu__toggle[aria-checked="true"] {
+  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--rule-hairline));
+  color: var(--ink);
+}
+
+.layout-menu__toggle.is-off {
+  color: var(--ink-muted);
+  background: transparent;
+  opacity: 0.85;
+}
+
 /* ——— Layout ——— */
 .main {
   max-width: var(--main-max-w);
@@ -409,6 +522,46 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
     grid-row: 2;
   }
 
+  /* Slide sidebars (layout toggles) — medium: TOC column sits right of article */
+  .sidebar-stack {
+    transform: translateX(0);
+    opacity: 1;
+    max-height: 5000px;
+    overflow: visible;
+    transition:
+      transform var(--sidebar-slide-dur) var(--sidebar-slide-ease),
+      opacity var(--sidebar-slide-dur) var(--sidebar-slide-ease),
+      max-height var(--sidebar-slide-dur) var(--sidebar-slide-ease);
+  }
+
+  .layout--hide-left .sidebar-stack {
+    transform: translateX(calc(100% + var(--layout-gap)));
+    opacity: 0;
+    max-height: 0;
+    margin-block: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .sidebar-checklist-rail:not([hidden]) {
+    transform: translateX(0);
+    opacity: 1;
+    max-height: 5000px;
+    overflow: visible;
+    transition:
+      transform var(--sidebar-slide-dur) var(--sidebar-slide-ease),
+      opacity var(--sidebar-slide-dur) var(--sidebar-slide-ease),
+      max-height var(--sidebar-slide-dur) var(--sidebar-slide-ease);
+  }
+
+  .layout--hide-right .sidebar-checklist-rail:not([hidden]) {
+    transform: translateX(calc(100% + var(--layout-gap)));
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
 }
 
 /* Left sidebar: TOC + Browse */
@@ -444,6 +597,13 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
   .card--hero {
     margin-left: calc(var(--sidebar-w) + var(--layout-gap));
     margin-right: 0;
+    transition:
+      margin-left var(--sidebar-slide-dur) var(--sidebar-slide-ease),
+      margin-right var(--sidebar-slide-dur) var(--sidebar-slide-ease);
+  }
+
+  .layout--hide-left .card--hero {
+    margin-left: 0;
   }
 
   .bento-grid.has-sidebar-checklist .card--hero {
@@ -461,6 +621,17 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
     overflow-y: auto;
     z-index: 25;
     -webkit-overflow-scrolling: touch;
+    transform: translateX(0);
+    opacity: 1;
+    transition:
+      transform var(--sidebar-slide-dur) var(--sidebar-slide-ease),
+      opacity var(--sidebar-slide-dur) var(--sidebar-slide-ease);
+  }
+
+  .layout--hide-left .sidebar-stack {
+    transform: translateX(calc(-100% - var(--layout-gap)));
+    opacity: 0;
+    pointer-events: none;
   }
 
   .sidebar-stack .card--secondary {
@@ -481,6 +652,17 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
     overflow-y: auto;
     z-index: 25;
     -webkit-overflow-scrolling: touch;
+    transform: translateX(0);
+    opacity: 1;
+    transition:
+      transform var(--sidebar-slide-dur) var(--sidebar-slide-ease),
+      opacity var(--sidebar-slide-dur) var(--sidebar-slide-ease);
+  }
+
+  .layout--hide-right .sidebar-checklist-rail:not([hidden]) {
+    transform: translateX(calc(100% + var(--layout-gap)));
+    opacity: 0;
+    pointer-events: none;
   }
 
   .sidebar-checklist-rail .card--secondary {
@@ -509,8 +691,23 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
   .sidebar-stack {
     position: static;
     width: auto;
-    max-height: none;
+    max-height: 5000px;
     overflow: visible;
+    transform: translateX(0);
+    opacity: 1;
+    transition:
+      transform var(--sidebar-slide-dur) var(--sidebar-slide-ease),
+      opacity var(--sidebar-slide-dur) var(--sidebar-slide-ease),
+      max-height var(--sidebar-slide-dur) var(--sidebar-slide-ease);
+  }
+
+  .layout--hide-left .sidebar-stack {
+    transform: translateX(-100%);
+    opacity: 0;
+    max-height: 0;
+    margin-block: 0;
+    overflow: hidden;
+    pointer-events: none;
   }
 
   .sidebar-checklist-rail {
@@ -518,6 +715,24 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
     width: auto;
     max-height: none;
     overflow: visible;
+  }
+
+  .sidebar-checklist-rail:not([hidden]) {
+    transform: translateX(0);
+    opacity: 1;
+    max-height: 5000px;
+    transition:
+      transform var(--sidebar-slide-dur) var(--sidebar-slide-ease),
+      opacity var(--sidebar-slide-dur) var(--sidebar-slide-ease),
+      max-height var(--sidebar-slide-dur) var(--sidebar-slide-ease);
+  }
+
+  .layout--hide-right .sidebar-checklist-rail:not([hidden]) {
+    transform: translateX(100%);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
   }
 }
 

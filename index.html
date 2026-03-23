@@ -21,6 +21,18 @@
         }
       } catch (e) { }
     })();
+    (function () {
+      try {
+        var j = localStorage.getItem("applied-ai-layout");
+        if (!j) return;
+        var o = JSON.parse(j);
+        if (o && o.left === false) document.documentElement.classList.add("layout--hide-left");
+        if (o && o.right === false) document.documentElement.classList.add("layout--hide-right");
+      } catch (e) { }
+    })();
+    (function () {
+      document.documentElement.classList.add("layout--no-sidebar-transition");
+    })();
   </script>
 </head>
 
@@ -59,6 +71,23 @@
               d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
           </svg>
         </button>
+        <div class="layout-menu" id="layout-menu">
+          <button type="button" class="layout-menu__trigger" id="layout-menu-trigger" aria-expanded="false"
+            aria-haspopup="true" aria-controls="layout-menu-panel" title="Page layout" aria-label="Page layout">
+            <svg class="layout-menu__trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="18" height="18" x="3" y="3" rx="2" />
+              <path d="M9 3v18" />
+              <path d="M15 3v18" />
+            </svg>
+          </button>
+          <div class="layout-menu__panel" id="layout-menu-panel" hidden role="group" aria-label="Sidebar visibility">
+            <button type="button" class="layout-menu__toggle" id="layout-toggle-left" role="switch"
+              aria-checked="true" aria-label="Left sidebar">Left</button>
+            <button type="button" class="layout-menu__toggle" id="layout-toggle-right" role="switch"
+              aria-checked="true" aria-label="Right sidebar">Right</button>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -70,7 +99,7 @@
         <h1 class="display-title" id="doc-title">Course content</h1>
         <div class="prose" id="article"></div>
       </article>
-      <aside class="sidebar-stack" aria-label="Page navigation">
+      <aside class="sidebar-stack" id="sidebar-stack" aria-label="Page navigation">
         <div class="card card--secondary sidebar-stack__card">
           <h2 class="card__heading">On this page</h2>
           <nav class="toc" id="toc" aria-label="Table of contents"></nav>

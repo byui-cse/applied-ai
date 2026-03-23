@@ -25,12 +25,18 @@
   const fabPanel = document.getElementById("fab-panel");
   const fabClose = document.getElementById("fab-close");
   const themeToggle = document.getElementById("theme-toggle");
+  const layoutMenu = document.getElementById("layout-menu");
+  const layoutMenuTrigger = document.getElementById("layout-menu-trigger");
+  const layoutMenuPanel = document.getElementById("layout-menu-panel");
+  const layoutToggleLeft = document.getElementById("layout-toggle-left");
+  const layoutToggleRight = document.getElementById("layout-toggle-right");
   const searchWrap = document.getElementById("site-search");
   const searchInput = document.getElementById("site-search-input");
   const searchPanel = document.getElementById("site-search-panel");
   const searchListbox = document.getElementById("site-search-listbox");
 
   const THEME_STORAGE_KEY = "applied-ai-theme";
+  const LAYOUT_STORAGE_KEY = "applied-ai-layout";
   const CHECKLIST_STORAGE_PREFIX = "applied-ai-checklist:";
 
   let manifestPages = [];
@@ -498,9 +504,21 @@
     const hasChecklist = !!(sidebarChecklistMountEl && sidebarChecklistMountEl.children.length);
     if (sidebarLinksCardEl) sidebarLinksCardEl.hidden = !hasLinks;
     if (sidebarChecklistCardEl) sidebarChecklistCardEl.hidden = !hasChecklist;
-    const show = hasLinks || hasChecklist;
-    if (sidebarChecklistRailEl) sidebarChecklistRailEl.hidden = !show;
-    if (bentoGridEl) bentoGridEl.classList.toggle("has-sidebar-checklist", !!show);
+    const showContent = hasLinks || hasChecklist;
+    const hideRight = document.documentElement.classList.contains("layout--hide-right");
+    const showRail = showContent && !hideRight;
+    /* Keep [hidden] only when there is nothing to show; user "hide right" uses CSS so the rail can animate. */
+    if (sidebarChecklistRailEl) {
+      if (!showContent) {
+        sidebarChecklistRailEl.hidden = true;
+        sidebarChecklistRailEl.removeAttribute("aria-hidden");
+      } else {
+        sidebarChecklistRailEl.hidden = false;
+        if (hideRight) sidebarChecklistRailEl.setAttribute("aria-hidden", "true");
+        else sidebarChecklistRailEl.removeAttribute("aria-hidden");
+      }
+    }
+    if (bentoGridEl) bentoGridEl.classList.toggle("has-sidebar-checklist", !!showRail);
   }
 
   function clearSidebarRail() {
@@ -508,7 +526,10 @@
     if (sidebarChecklistMountEl) sidebarChecklistMountEl.innerHTML = "";
     if (sidebarLinksCardEl) sidebarLinksCardEl.hidden = true;
     if (sidebarChecklistCardEl) sidebarChecklistCardEl.hidden = true;
-    if (sidebarChecklistRailEl) sidebarChecklistRailEl.hidden = true;
+    if (sidebarChecklistRailEl) {
+      sidebarChecklistRailEl.hidden = true;
+      sidebarChecklistRailEl.removeAttribute("aria-hidden");
+    }
     if (bentoGridEl) bentoGridEl.classList.remove("has-sidebar-checklist");
   }
 
@@ -756,6 +777,108 @@
       } catch {
         /* ignore */
       }
+    });
+  }
+
+  function isLayoutLeftVisible() {
+    return !document.documentElement.classList.contains("layout--hide-left");
+  }
+
+  function isLayoutRightVisible() {
+    return !document.documentElement.classList.contains("layout--hide-right");
+  }
+
+  function setLayoutLeftVisible(visible) {
+    document.documentElement.classList.toggle("layout--hide-left", !visible);
+  }
+
+  function setLayoutRightVisible(visible) {
+    document.documentElement.classList.toggle("layout--hide-right", !visible);
+    updateSidebarRailVisibility();
+  }
+
+  function persistLayout() {
+    try {
+      localStorage.setItem(
+        LAYOUT_STORAGE_KEY,
+        JSON.stringify({
+          left: isLayoutLeftVisible(),
+          right: isLayoutRightVisible(),
+        })
+      );
+    } catch {
+      /* ignore */
+    }
+  }
+
+  function syncLayoutToggleUi() {
+    if (layoutToggleLeft) {
+      const on = isLayoutLeftVisible();
+      layoutToggleLeft.setAttribute("aria-checked", on ? "true" : "false");
+      layoutToggleLeft.classList.toggle("is-off", !on);
+    }
+    if (layoutToggleRight) {
+      const on = isLayoutRightVisible();
+      layoutToggleRight.setAttribute("aria-checked", on ? "true" : "false");
+      layoutToggleRight.classList.toggle("is-off", !on);
+    }
+    const sidebarStack = document.getElementById("sidebar-stack");
+    if (sidebarStack) {
+      if (!isLayoutLeftVisible()) sidebarStack.setAttribute("aria-hidden", "true");
+      else sidebarStack.removeAttribute("aria-hidden");
+    }
+  }
+
+  function initLayoutMenu() {
+    if (!layoutMenuTrigger || !layoutMenuPanel) return;
+    syncLayoutToggleUi();
+
+    function openLayoutPanel() {
+      layoutMenuPanel.hidden = false;
+      layoutMenuTrigger.setAttribute("aria-expanded", "true");
+    }
+
+    function closeLayoutPanel() {
+      layoutMenuPanel.hidden = true;
+      layoutMenuTrigger.setAttribute("aria-expanded", "false");
+    }
+
+    function toggleLayoutPanel() {
+      if (layoutMenuPanel.hidden) openLayoutPanel();
+      else closeLayoutPanel();
+    }
+
+    layoutMenuTrigger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      toggleLayoutPanel();
+    });
+
+    if (layoutToggleLeft) {
+      layoutToggleLeft.addEventListener("click", function (e) {
+        e.stopPropagation();
+        setLayoutLeftVisible(!isLayoutLeftVisible());
+        syncLayoutToggleUi();
+        persistLayout();
+      });
+    }
+
+    if (layoutToggleRight) {
+      layoutToggleRight.addEventListener("click", function (e) {
+        e.stopPropagation();
+        setLayoutRightVisible(!isLayoutRightVisible());
+        syncLayoutToggleUi();
+        persistLayout();
+      });
+    }
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && layoutMenuPanel && !layoutMenuPanel.hidden) closeLayoutPanel();
+    });
+
+    document.addEventListener("mousedown", function (e) {
+      if (!layoutMenuPanel || layoutMenuPanel.hidden) return;
+      if (layoutMenu && layoutMenu.contains(e.target)) return;
+      closeLayoutPanel();
     });
   }
 
@@ -1576,6 +1699,7 @@
 
   async function init() {
     initThemeToggle();
+    initLayoutMenu();
     await loadManifest();
     bindSiteSearch();
     const q = getQueryPage();
@@ -1606,6 +1730,12 @@
 
     bindScrollTitle();
     await loadPage(path);
+    /* Re-enable sidebar transitions after first layout + paint (avoids animating from pre-hydration state). */
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        document.documentElement.classList.remove("layout--no-sidebar-transition");
+      });
+    });
   }
 
   init();

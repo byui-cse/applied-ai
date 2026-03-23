@@ -43,8 +43,10 @@ Greenfield development refers to starting a project from scratch, without any co
 <% links
 #### Labs
 [Lab 1](labs/lab-1.md)
+[Lab 2](labs/lab-2.md)
 
 #### Classes
+[Day 1](day-1.md)
 [Day 2](day-2.md)
 %>
 
