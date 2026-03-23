@@ -3,6 +3,10 @@
 
 > **Markdown Review:** review the [Markdown Cheatsheet](https://www.markdownguide.org/basic-syntax/) for tips and tricks on how to create markdown.
 
+## Slides
+
+<% slides content/phase-1/week-1/slides/day-2.json %>
+
 ## Definitions
 
 The following are definitions in context to LLMs, AI, and software engineering for this section.
@@ -23,8 +27,14 @@ Markdown is a lightweight markup language used to format text with simple symbol
 
 ---
 
-<% links 
- [Lab 2](labs/lab-2.md)
+<% links
+#### Labs
+[Lab 1](labs/lab-1.md)
+[Lab 2](labs/lab-2.md)
+
+#### Classes
+[Day 1](day-1.md)
+[Day 2](day-2.md)
 %>
 
 <% checklist

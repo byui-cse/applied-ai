@@ -140,10 +140,12 @@
     html += "</div>";
     html += "</div>";
     html += '<div class="slides__nav">';
+    html += '<div class="slides__nav-side slides__nav-side--start">';
     html +=
-      '<button type="button" class="slides__btn slides__btn--prev" aria-label="Previous slide" hidden>';
+      '<button type="button" class="slides__btn slides__btn--prev" aria-label="Previous slide">';
     html += "Previous";
     html += "</button>";
+    html += "</div>";
     html += '<div class="slides__dots" role="tablist" aria-label="Slides">';
     slides.forEach(function (_s, di) {
       var sel = di === 0 ? ' aria-selected="true"' : ' aria-selected="false"';
@@ -157,10 +159,12 @@
         '"></button>';
     });
     html += "</div>";
+    html += '<div class="slides__nav-side slides__nav-side--end">';
     html +=
       '<button type="button" class="slides__btn slides__btn--next" aria-label="Next slide">';
     html += "Next";
     html += "</button>";
+    html += "</div>";
     html += "</div>";
     html += "</div>";
     html += "</div>";
@@ -208,7 +212,17 @@
         d.classList.toggle("is-active", j === index);
       });
       if (counterCur) counterCur.textContent = String(index + 1);
-      if (btnPrev) btnPrev.hidden = index === 0;
+      if (btnPrev) {
+        var prevConcealed = index === 0;
+        btnPrev.classList.toggle("slides__btn--visually-hidden", prevConcealed);
+        if (prevConcealed) {
+          btnPrev.setAttribute("aria-hidden", "true");
+          btnPrev.setAttribute("tabindex", "-1");
+        } else {
+          btnPrev.removeAttribute("aria-hidden");
+          btnPrev.removeAttribute("tabindex");
+        }
+      }
       if (btnNext) btnNext.hidden = index >= max;
     }
 

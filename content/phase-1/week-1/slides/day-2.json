@@ -1,0 +1,42 @@
+{
+  "title": "Week 1 · Day 2",
+  "subtitle": "Your first agent",
+  "slides": [
+    {
+      "title": "Today",
+      "markdown": "## Goals\n\n- **Agents & markdown** — vocabulary and formatting you'll reuse everywhere\n- **Quiz + practice** — lock in markdown for prompts and docs\n- **Lab 2** — design **`agents/analyze-repo.md`** (repo analyst), not a generic chat prompt"
+    },
+    {
+      "title": "Lab 2 in one sentence",
+      "markdown": "## Spec the workflow, not a wall of prose\n\n- You're writing **who** the agent is, **what** it takes in, **what** it returns, and **what** it must not do.\n- The grader reads **`analyze-repo.md`** + any scripts you point to — make the **path from reading to running** obvious."
+    },
+    {
+      "title": "Pillar 1 — Indexes",
+      "markdown": "## Map before you march\n\n- Name **concrete** index artifacts (e.g. `INDEX.md`, `manifest.json`, per-folder summaries).\n- Say **when** they're built or refreshed (clone, on change, before a pass).\n- Say **how** the agent **uses** them to pick the next file — not “it might look at a list.”"
+    },
+    {
+      "title": "Pillar 2 — Context ≤ 40%",
+      "markdown": "## Define “typical,” then defend the math\n\n- Pick a **typical run** (e.g. “first pass, repo under 500 files”) and stick to it.\n- Explain **chunking**: summaries vs. full quotes, one area at a time.\n- **≤ 40%** of **usable** context — say whether you **count tokens** or **estimate** and how."
+    },
+    {
+      "title": "Pillar 3 — Scripts",
+      "markdown": "## LLM plans; scripts grind\n\n- Offload **find, list, grep, hash, tree, build steps, formatting** to shell/Python/etc.\n- Commit the scripts; in **`analyze-repo.md`**, show **how** to run them (path, args, when).\n- One sentence that sticks: **deterministic work does not belong inside the model.**"
+    },
+    {
+      "title": "Skeleton that passes",
+      "markdown": "## Use a clear outline\n\n- **Role** → **Inputs** → **Outputs** → **Constraints**\n- Then sections for **indexes**, **context strategy**, **scripts** (each tied to the rubric).\n- The lab's embedded template is a **starting spine** — expand every heading with specifics."
+    },
+    {
+      "title": "Rubric = your checklist",
+      "markdown": "## Six boxes, six sections\n\n- Role / I/O / constraints → **one** coherent intro\n- Indexes → **when** + **how used**\n- Context → **typical run** + **≤ 40%** + chunking\n- Scripts → **referenced**, **in repo**, **documented**\n- Limitations + polish → short, honest, **matches** what you built"
+    },
+    {
+      "title": "Pitfalls to avoid",
+      "markdown": "## Easy points to lose\n\n- “We use indexes” with **no** named files or refresh rule\n- “We manage context” with **no** number and **no** definition of *typical*\n- Scripts **mentioned** but not committed or not runnable from your doc\n- Copy-pasting a **generic** prompt instead of a **repo-analysis** design"
+    },
+    {
+      "title": "Before you push",
+      "markdown": "## Final pass\n\n- Can a stranger **run** your scripts from your markdown alone?\n- Does every **claim** in `analyze-repo.md` match a **file** or **command** in the fork?\n- Markdown: headings, lists, and code fences — same skills as today's practice — keep the spec **scannable**."
+    }
+  ]
+}

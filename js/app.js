@@ -158,18 +158,52 @@
         );
       }
       if (name === "links") {
-        const linkRe = /\[([^\]]*)\]\(([^)]+)\)/g;
-        const items = [];
-        let m;
-        while ((m = linkRe.exec(String(trimmed))) !== null) {
-          items.push({ label: m[1].trim(), href: m[2].trim() });
+        const lines = String(trimmed)
+          .split(/\r?\n/)
+          .map(function (l) {
+            return l.trim();
+          })
+          .filter(Boolean);
+        const headingRe = /^(#{1,6})\s+(.+)$/;
+        const linkLineRe = /\[([^\]]*)\]\(([^)]+)\)/g;
+        const groups = [];
+        let current = { heading: null, items: [] };
+
+        function flush() {
+          if (current.items.length > 0) {
+            groups.push({
+              heading: current.heading,
+              items: current.items.slice(),
+            });
+          }
+          current = { heading: null, items: [] };
         }
-        if (!items.length) {
+
+        for (let i = 0; i < lines.length; i++) {
+          const line = lines[i];
+          const hm = headingRe.exec(line);
+          if (hm) {
+            flush();
+            current.heading = hm[2].trim();
+            continue;
+          }
+          let m;
+          linkLineRe.lastIndex = 0;
+          while ((m = linkLineRe.exec(line)) !== null) {
+            current.items.push({ label: m[1].trim(), href: m[2].trim() });
+          }
+        }
+        flush();
+
+        const totalItems = groups.reduce(function (sum, g) {
+          return sum + g.items.length;
+        }, 0);
+        if (!totalItems) {
           return '<p class="prose prose--error">Links component is empty.</p>';
         }
         return (
           '<div class="md-component md-component--links" data-md-component="links" data-items="' +
-          escapeAttr(JSON.stringify(items)) +
+          escapeAttr(JSON.stringify({ groups: groups })) +
           '"></div>'
         );
       }
@@ -484,36 +518,70 @@
 
     nodes.forEach(function (el) {
       if (seq !== loadPageSeq) return;
-      let items;
+      let parsed;
       try {
-        items = JSON.parse(el.getAttribute("data-items") || "[]");
+        parsed = JSON.parse(el.getAttribute("data-items") || "{}");
       } catch {
         el.innerHTML = '<p class="prose prose--error">Invalid links.</p>';
         return;
       }
-      if (!Array.isArray(items) || !items.length) {
+      let groups;
+      if (parsed && Array.isArray(parsed.groups)) {
+        groups = parsed.groups;
+      } else if (Array.isArray(parsed)) {
+        groups = [{ heading: null, items: parsed }];
+      } else {
+        el.innerHTML = '<p class="prose prose--error">Invalid links.</p>';
+        return;
+      }
+      const totalItems = groups.reduce(function (sum, g) {
+        return sum + (g.items && g.items.length ? g.items.length : 0);
+      }, 0);
+      if (!totalItems) {
         el.innerHTML = '<p class="prose prose--error">Links are empty.</p>';
         return;
       }
 
-      const ul = document.createElement("ul");
-      ul.className = "sidebar-links";
-      ul.setAttribute("role", "list");
+      const stack = document.createElement("div");
+      stack.className = "sidebar-links-stack";
 
-      items.forEach(function (item) {
-        const li = document.createElement("li");
-        li.className = "sidebar-links__item";
-        const a = document.createElement("a");
-        a.className = "sidebar-links__link";
-        a.href = String(item.href || "#");
-        a.innerHTML = renderChecklistLabelHtml(String(item.label || item.href || ""));
-        li.appendChild(a);
-        ul.appendChild(li);
+      groups.forEach(function (group) {
+        const items = group.items || [];
+        if (!items.length) return;
+        const heading = group.heading != null && String(group.heading).trim() !== "" ? String(group.heading).trim() : null;
+
+        const section = document.createElement("div");
+        section.className = "sidebar-links-group";
+
+        if (heading) {
+          const h = document.createElement("h3");
+          h.className = "sidebar-links__subheading";
+          h.textContent = heading;
+          section.appendChild(h);
+        }
+
+        const ul = document.createElement("ul");
+        ul.className = "sidebar-links";
+        ul.setAttribute("role", "list");
+
+        items.forEach(function (item) {
+          const li = document.createElement("li");
+          li.className = "sidebar-links__item";
+          const a = document.createElement("a");
+          a.className = "sidebar-links__link";
+          a.href = String(item.href || "#");
+          a.innerHTML = renderChecklistLabelHtml(String(item.label || item.href || ""));
+          li.appendChild(a);
+          ul.appendChild(li);
+        });
+
+        section.appendChild(ul);
+        stack.appendChild(section);
       });
 
       el.innerHTML = "";
       el.removeAttribute("data-items");
-      el.appendChild(ul);
+      el.appendChild(stack);
     });
   }
 
@@ -870,6 +938,73 @@
     return groups;
   }
 
+  /** Sort paths by manifest order (stable when building week buckets). */
+  function sortPathsByManifest(paths, orderMap) {
+    return paths.slice().sort(function (a, b) {
+      return (orderMap[a] ?? 1e9) - (orderMap[b] ?? 1e9);
+    });
+  }
+
+  /**
+   * Split a phase's pages into week sections (plus optional phase-level files like brownfield-project).
+   */
+  function sectionsForPhasePaths(phasePaths, orderMap) {
+    const byWeek = {};
+    const root = [];
+    phasePaths.forEach(function (p) {
+      const m = p.match(/^content\/phase-\d+\/week-(\d+)\//);
+      if (m) {
+        const w = m[1];
+        if (!byWeek[w]) byWeek[w] = [];
+        byWeek[w].push(p);
+      } else {
+        root.push(p);
+      }
+    });
+    const sections = [];
+    if (root.length) {
+      sections.push({ kind: "root", label: "Phase resources", paths: sortPathsByManifest(root, orderMap) });
+    }
+    Object.keys(byWeek)
+      .sort(function (a, b) {
+        return Number(a) - Number(b);
+      })
+      .forEach(function (w) {
+        sections.push({
+          kind: "week",
+          week: w,
+          label: "Week " + w,
+          paths: sortPathsByManifest(byWeek[w], orderMap),
+        });
+      });
+    return sections;
+  }
+
+  function browseLabelForPath(path) {
+    if (path === "content/syllabus.md") return "Syllabus";
+    const segs = contentPathSegments(path);
+    if (!segs.length) return labelForPath(path);
+    const phaseRe = /^phase-(\d+)$/;
+    const weekRe = /^week-(\d+)$/;
+    if (segs.length >= 3 && phaseRe.test(segs[0]) && weekRe.test(segs[1])) {
+      if (segs[2] === "labs") {
+        if (segs[3] === "README") return "Labs guide";
+        if (segs[3]) return humanizePathStem(segs[3]);
+        return "Labs";
+      }
+      return humanizePathStem(segs[2]);
+    }
+    if (segs.length === 2 && phaseRe.test(segs[0])) {
+      return humanizePathStem(segs[1]);
+    }
+    return labelForPath(path);
+  }
+
+  function phaseBrowseSummaryLabel(phaseKey) {
+    if (phaseKey === "Other") return "Course";
+    return phaseKey.replace(/^phase-/, "Phase ").replace(/-/g, " ");
+  }
+
   function labelForPath(p) {
     if (p === "content/syllabus.md") return "Syllabus";
     const base = p.replace(/^content\//, "").replace(/\.md$/, "");
@@ -1094,25 +1229,59 @@
   }
 
   function renderBrowse(groups) {
+    const orderMap = {};
+    manifestPages.forEach(function (p, i) {
+      orderMap[p] = i;
+    });
     const phaseOrder = Object.keys(groups).sort();
     let html = "";
     phaseOrder.forEach(function (phase) {
       const items = groups[phase];
-      html += "<details>";
-      html += "<summary>" + phase.replace("phase-", "Phase ").replace("-", " ") + "</summary>";
-      html += "<ul>";
-      items.forEach(function (path) {
-        const active = path === currentPagePath ? ' aria-current="page"' : "";
-        html +=
-          '<li><a href="' +
-          pageUrl(path) +
-          '"' +
-          active +
-          ">" +
-          escapeHtml(labelForPath(path)) +
-          "</a></li>";
-      });
-      html += "</ul></details>";
+      const isPhase = /^phase-\d+$/.test(phase);
+      const curPhase = currentPagePath.match(/^content\/(phase-\d+)\//);
+      const open = isPhase && curPhase && curPhase[1] === phase ? " open" : "";
+      html += "<details" + open + ">";
+      html += "<summary>" + escapeHtml(phaseBrowseSummaryLabel(phase)) + "</summary>";
+      html += '<div class="browse__phase-body">';
+      if (isPhase) {
+        sectionsForPhasePaths(items, orderMap).forEach(function (section, secIdx) {
+          html += '<section class="browse__section">';
+          html +=
+            '<p class="browse__section-label" id="browse-' +
+            escapeAttr(phase + "-" + secIdx) +
+            '">' +
+            escapeHtml(section.label) +
+            "</p>";
+          html += "<ul>";
+          section.paths.forEach(function (path) {
+            const active = path === currentPagePath ? ' aria-current="page"' : "";
+            html +=
+              '<li><a href="' +
+              pageUrl(path) +
+              '"' +
+              active +
+              ">" +
+              escapeHtml(browseLabelForPath(path)) +
+              "</a></li>";
+          });
+          html += "</ul></section>";
+        });
+      } else {
+        html += "<ul>";
+        sortPathsByManifest(items, orderMap).forEach(function (path) {
+          const active = path === currentPagePath ? ' aria-current="page"' : "";
+          html +=
+            '<li><a href="' +
+            pageUrl(path) +
+            '"' +
+            active +
+            ">" +
+            escapeHtml(browseLabelForPath(path)) +
+            "</a></li>";
+        });
+        html += "</ul>";
+      }
+      html += "</div></details>";
     });
     browseEl.innerHTML = html;
     browseEl.querySelectorAll("a").forEach(function (a) {

@@ -1,18 +1,18 @@
 {
   "title": "Week 1 · Day 1",
-  "subtitle": "Hooks & metaphors — details stay on the page",
+  "subtitle": "Introduction to the course",
   "slides": [
     {
       "title": "Today",
-      "markdown": "## Three threads\n\n- **You** steer and verify; the model does the heavy typing.\n- **Vocabulary** you’ll reuse all term: brownfield / greenfield, context.\n- **Labs** connect that vocabulary to a real fork and environment."
+      "markdown": "## Goals\n\n- Review syllabus\n- Review course goals\n- Review brownfield development\n- Review greenfield development\n- Setup Canvas LMS"
     },
     {
       "title": "The course rule",
-      "markdown": "## Conductor, not every violin\n\n- You’re **not** graded on hand-writing implementation line by line.\n- You **are** graded on prompts, markdown, approved commands, and critique.\n- Think: **score + rehearsal notes**, not playing every note yourself."
+      "markdown": "## Conductor, not every violin\n\n- You’re **not** graded on hand-writing implementation line by line.\n- You **are** graded on prompts, markdown, commands, and critique.\n- Think: **score + rehearsal notes**, not playing every note yourself."
     },
     {
       "title": "Your toolbox",
-      "markdown": "## Pick one lane and get fluent\n\n- **Copilot + VS Code**, **Claude Code**, or **Cursor** — any is fine.\n- Goal is **repeatable** sessions in a real editor or CLI agent.\n- Brand matters less than **muscle memory** by week three."
+      "markdown": "## Pick one lane and get fluent\n\n- **Copilot + VS Code**, **Claude Code**, or **Cursor** — any is fine, but it must be the pro edition.\n- Goal is **repeatable** sessions in a real editor or CLI agent.\n- Brand matters less than **muscle memory** by week three."
     },
     {
       "title": "Brownfield vs greenfield",
@@ -20,7 +20,7 @@
     },
     {
       "title": "Context window",
-      "markdown": "## Desk space, not a warehouse\n\n- The model only “sees” what fits on the **desk** at once (tokens).\n- What’s **off the desk** doesn’t vote on the answer until you bring it back.\n- Bigger desk helps; **curating** what sits on it still wins.\n\n![Metaphor: only a few volumes are open at once](images/context-metaphor.svg)"
+      "markdown": "## Desk space, not a warehouse\n\n- The model only “sees” what fits on the **desk** at once (tokens).\n- What’s **off the desk** doesn’t vote on the answer until you bring it back.\n- Bigger desk helps; **curating** what sits on it still wins."
     },
     {
       "title": "Context management",

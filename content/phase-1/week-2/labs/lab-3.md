@@ -1,4 +1,4 @@
-# Lab 3 — Feature Specifications
+# Lab 3 — A Feature
 
 You will **research** how to implement the Canvas feature you selected in [`day-1.md`](../day-1.md). This lab is about analysis, requirements, and verification planning—**not** writing production code.
 
@@ -119,8 +119,11 @@ No production feature code in this lab—research and planning only
 %>
 
 <% links
-[Lab 1](../../week-1/labs/lab-1.md)
-[Lab 2](../../week-1/labs/lab-2.md)
+#### Labs
+[Lab 3](lab-3.md)
 [Lab 4](lab-4.md)
-[Day 1 — feature selection](../day-1.md)
+
+#### Days
+[Day 3](../day-1.md)
+[Day 4](../day-2.md)
 %>

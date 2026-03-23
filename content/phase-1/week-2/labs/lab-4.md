@@ -185,8 +185,15 @@ No secrets in the repository; evidence submitted per instructor instructions
 %>
 
 <% links
+#### Labs
 [Lab 3](lab-3.md)
-[Day 2 — MCP & definitions](../day-2.md)
+[Lab 4](lab-4.md)
+
+#### Days
+[Day 3](../day-1.md)
+[Day 4](../day-2.md)
+
+#### Other Helpful Links
 [GitHub MCP Server](https://github.com/github/github-mcp-server)
 [Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 %>

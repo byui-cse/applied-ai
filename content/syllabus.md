@@ -1,18 +1,17 @@
 # Applied AI for Software Engineering
 
 **Credits:** 2 · **Format:** Two meetings per week · **Duration:** 14 weeks  
-**Audience:** Juniors and seniors in computing-related programs  
 
 ## Course premise
 
-Students **do not hand-author implementation code**. All design, exploration, refactoring, scaffolding, testing ideas, and documentation are produced **through collaboration with AI tools** (IDE assistants, chat interfaces, agents, MCP-connected tools, etc.). The course trains *judgment*: scoping work, verifying outputs, managing context, and shipping outcomes safely on brownfield and greenfield systems.
+Students **will not implement code by hand**. All design, exploration, refactoring, scaffolding, testing ideas, and documentation are produced **through collaboration with AI tools** (IDE assistants, chat interfaces, agents, MCP-connected tools, etc.). The course trains *judgment*: scoping work, verifying outputs, managing context, and shipping outcomes safely on brownfield and greenfield systems.
 
 ## Learning outcomes
 
 By the end of the term, students should be able to:
 
-1. **Budget and shape context** for large existing codebases using markdown artifacts, concise prompts, and selective file inclusion—aiming to keep high-signal context **under roughly 20%** of available window where practical.
-2. **Describe architectural and debt state** to an AI partner using structured notes, caches, and repeatable “state refresh” rituals.
+1. **Budget and shape context** for large existing codebases using markdown artifacts, concise prompts, and selective file inclusion—aiming to keep high-signal context **under roughly 40%** of available window where practical.
+2. **Describe architectural and debt state** to an AI tool using structured notes, caches, and repeatable “state refresh” rituals.
 3. **Use extended tooling** (e.g., MCP, worktrees, multi-root workspaces) to navigate, compare, and refactor **Canvas LMS** without losing track of changes.
 4. **Stand up greenfield projects** that are *AI-ready*: clear boundaries, conventions, skills/rules, and extension points—generated and iterated via AI, not typed line-by-line.
 5. **Extend LLM behavior** with plugins/tools and **orchestrate agents** (single- and multi-agent) for specialized dev tasks.
@@ -58,7 +57,7 @@ Content paths use **phase-local week numbers** (`phase-1/week-1` … `phase-2/we
 | 13 | 2 | `phase-2/week-6` | 6 |
 | 14 | 2 | `phase-2/week-7` | 7 (integration) |
 
-## Grading (suggested)
+## Grading
 
 | Component | Weight (example) | Notes |
 |-----------|------------------|--------|
@@ -69,45 +68,47 @@ Content paths use **phase-local week numbers** (`phase-1/week-1` … `phase-2/we
 
 Adjust weights to match your department template.
 
-## Academic integrity & safety
+## Late Policy
 
-- **Cite AI use** as required by your institution; retain prompts and major outputs when submitting work.
-- **Verify** AI-proposed commands, dependency changes, and refactors before they touch shared systems.
-- **Secrets:** Never paste keys, tokens, or student PII into models; use redacted examples.
+Late work will only be accepted with prior consent from the instructor or teaching assistant.
 
-## Folder layout (this repository)
+## Student Support
 
-```text
-content/
-  syllabus.md                 ← this file
-  phase-1/
-    brownfield-project.md     ← Canvas LMS (official brownfield repo)
-    week-N/
-      day-1.md                ← first class meeting (Session 1)
-      day-2.md                ← second class meeting (Session 2)
-      week-overview.md        ← week overview (activities + learning outcomes)
-      labs/
-        README.md             ← lab brief for the week
-  phase-2/
-    week-N/
-      day-1.md
-      day-2.md
-      week-overview.md
-      labs/
-        README.md
-```
+Support is available in many ways including via other class members, tutoring, and instructor student hours. In addition, help is available through [the university's academic support center](http://www.byui.edu/academic-support-centers).
 
-## Required tools (typical)
+# Dress and Grooming
 
-- AI-assisted IDE (e.g., Cursor, Copilot, or equivalent) with **project rules** / skills where supported  
-- Access to an **MCP-capable** environment for Phase 1 module 3 and Phase 2 later modules  
-- Git (worktrees emphasized in Phase 1)  
-- **Phase 1 brownfield:** clone **[Canvas LMS](https://github.com/instructure/canvas-lms)** — see [`phase-1/brownfield-project.md`](phase-1/brownfield-project.md)  
-- **Phase 2 greenfield:** a **greenfield** product idea approved by week 8  
+You are expected to follow the university's [Dress and Grooming Standards](http://www.byui.edu/student-honor-office/ces-honor-code/dress-and-grooming)
 
-## Phase 1 brownfield
+This includes any [current university requirements and/or guidelines](https://www.byui.edu/covid-19-updates) related to wearing masks and/or social distancing.
 
-All work in weeks 1–7 uses **Canvas LMS** as the shared legacy codebase. Students contribute **AI-assisted** plans, documentation, and (where your course allows) **verified** changes toward scoped issues or features—see [instructure/canvas-lms](https://github.com/instructure/canvas-lms) and the [project wiki](https://github.com/instructure/canvas-lms/wiki) for installation and contribution norms.
+# Preventing Sexual Misconduct
+
+BYU-Idaho prohibits sex discrimination by its employees and students in all of its education programs or activities. This includes all forms of sexual harassment, such as sexual assault, dating violence, domestic violence, stalking, conditioning a grade or job on participation in sexual conduct, and other forms of unwelcome sexual conduct.
+
+As an instructor, one of my responsibilities is to help create a safe learning environment for my students and for the campus as a whole. University policy requires deans and department chairs, and encourages all faculty, to report every incident of sexual harassment that comes to their attention. If you encounter or experience sexual harassment, please contact the Title IX Coordinator at titleix@byui.edu or 208-496-9209. Additional information about sex discrimination, sexual harassment, and available resources can be found at [www.byui.edu/titleix](https://byui-cse.github.io/itm310-course/course/www.byui.edu/titleix)
+
+# Disability Services
+
+BYU-Idaho does not discriminate against persons with disabilities in providing its educational and administrative services and programs and follows applicable federal and state law. This policy extends to the University’s electronic and information technologies (EIT).
+
+Students with qualifying disabilities should contact the Disability Services Office at disabilityservices@byui.edu or 208-496-9210. Additional information about Disability Services resources can be found at [http://www.byui.edu/disabilities](http://www.byui.edu/disabilities).
+
+# Academic Honesty
+
+Academic Honesty means students do their own work. This also means their instructors will evaluate that work. Students should not be dishonest—this includes all types of work in their courses. The complete Academic Honesty Policy can be found at [http://www.byui.edu/student-honor-office/ces-honor-code/academic-honesty](http://www.byui.edu/student-honor-office/ces-honor-code/academic-honesty).
+
+# Academic Grievances
+
+Students are encouraged to contact their instructors regarding course-related concerns. If concerns cannot be resolved in this way, students may contact the [BYU-Idaho Support Center](http://www.byui.edu/contact-us). to formally register a concern or grievance. [The Student Grievance Policy](https://content.byui.edu/integ/gen/d42e66fd-6e72-448f-a4c2-4d88a4ed26d2/0/Final%20Student%20Grievance%20Policy%20-%20catalog%20version.docx). can be found here.
+
+# Changes to Schedule and Assignments
+
+Schedules, assignments, and policies are subject to change. You will be notified of any changes on I-learn.
+
+# Generative AI Policy
+
+The "Generative AI Usage Policy" for the Computer Science and Engineering (CSE) Department provides guidelines for the ethical and practical use of generative AI in education and software development. It encourages students to utilize AI tools for enhancing learning, creativity, and productivity while requiring them to disclose AI assistance in their work. This policy aims to integrate generative AI into the curriculum, fostering a balanced and innovative learning environment. [The CSE Generative AI Policy](https://byui-cse.github.io/department/student-resources/generative-ai/generative-ai-policy.html) can be found here.
 
 ---
 

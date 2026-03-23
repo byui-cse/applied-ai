@@ -1,4 +1,4 @@
-# Week 2 - Feature Identification 
+# Week 2 - A Feature 
 ## Select the feature you're going to build
 
 > **Course goal:** Remember, we have a goal of not writing a single line of code.
@@ -38,7 +38,13 @@ FERPA (Family Educational Rights and Privacy Act) is a U.S. federal law that pro
 ---
 
 <% links
+#### Labs
 [Lab 3](labs/lab-3.md)
+[Lab 4](labs/lab-4.md)
+
+#### Days
+[Day 3](day-1.md)
+[Day 4](day-2.md)
 %>
 
 <% checklist

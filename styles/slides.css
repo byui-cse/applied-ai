@@ -391,9 +391,10 @@ html[data-theme="dark"] #article .md-component--slides .slides .slides__slide.pr
 }
 
 .slides__nav {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  position: relative;
   gap: 0.75rem;
   margin-top: 1rem;
   padding-top: 0.85rem;
@@ -401,12 +402,26 @@ html[data-theme="dark"] #article .md-component--slides .slides .slides__slide.pr
   flex-shrink: 0;
 }
 
-.slides__btn--prev {
-  justify-self: start;
+/* Equal halves so dots stay truly centered even when prev is visibility:hidden or next is [hidden] */
+.slides__nav-side {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
 }
 
-.slides__btn--next {
-  justify-self: end;
+.slides__nav-side--start {
+  justify-content: flex-start;
+}
+
+.slides__nav-side--end {
+  justify-content: flex-end;
+}
+
+/* Keep left rail width on slide 1; `hidden` uses display:none and collapses the cell */
+.slides__btn--prev.slides__btn--visually-hidden {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .slides__btn {
@@ -452,13 +467,18 @@ html[data-theme="dark"] #article .md-component--slides .slides .slides__slide.pr
 }
 
 .slides__dots {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
   min-width: 0;
-  justify-self: center;
+  pointer-events: auto;
 }
 
 .slides__dot {
@@ -574,22 +594,28 @@ html[data-theme="dark"] #article .md-component--slides .slides .slides__slide.pr
 
 @media (max-width: 520px) {
   .slides__nav {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
   }
 
   .slides__dots {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    z-index: auto;
     grid-column: 1 / -1;
     grid-row: 1;
   }
 
-  .slides__btn--prev {
+  .slides__nav-side--start {
     grid-column: 1;
     grid-row: 2;
     justify-self: start;
   }
 
-  .slides__btn--next {
+  .slides__nav-side--end {
     grid-column: 2;
     grid-row: 2;
     justify-self: end;

@@ -35,7 +35,13 @@ A story in project management is a concise, user-centered description of a desir
 ---
 
 <% links
+#### Labs
+[Lab 3](labs/lab-3.md)
 [Lab 4](labs/lab-4.md)
+
+#### Days
+[Day 3](day-1.md)
+[Day 4](day-2.md)
 %>
 
 <% checklist
