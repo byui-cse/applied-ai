@@ -9,7 +9,8 @@
       "choices": [
         "A system that structures, manages, and transmits context between you, your codebase, and an AI model so assistance can be accurate and context-aware",
         "A file format for packaging trained neural network weights for deployment",
-        "A GitHub feature that automatically resolves merge conflicts in pull requests"
+        "A GitHub feature that automatically resolves merge conflicts in pull requests",
+        "A browser extension that replaces the Canvas gradebook UI"
       ],
       "correctIndex": 0
     },
@@ -18,7 +19,8 @@
       "choices": [
         "Authenticating to services like GitHub from external tools or scripts without sharing your real password, often with limited scope and the ability to revoke",
         "Encrypting all web traffic between your computer and GitHub by default",
-        "Storing your repository’s source code offline on a USB drive"
+        "Storing your repository’s source code offline on a USB drive",
+        "Replacing two-factor authentication for all GitHub web logins"
       ],
       "correctIndex": 0
     },
@@ -27,7 +29,8 @@
       "choices": [
         "A temporary endeavor with defined objectives, scope, and resources, with a clear beginning and end, undertaken to produce a unique result",
         "Any ongoing team activity that continues indefinitely without a planned finish",
-        "The complete history of every bug fix ever shipped in a product"
+        "The complete history of every bug fix ever shipped in a product",
+        "A synonym for a single user story in a backlog"
       ],
       "correctIndex": 0
     },
@@ -36,7 +39,68 @@
       "choices": [
         "A concise, user-centered description of desired functionality—often from the user’s perspective—that breaks work into actionable, value-focused pieces",
         "A mandatory legal agreement between the client and the development vendor",
-        "A technical document that specifies exact database schemas and API latency targets only"
+        "A technical document that specifies exact database schemas and API latency targets only",
+        "A fixed annual budget line item for cloud hosting costs"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "Why is MCP useful when working with a large codebase and an AI assistant?",
+      "choices": [
+        "It helps gather and organize relevant context so the model sees high-signal information instead of random or overwhelming dumps",
+        "It guarantees the model will never hallucinate incorrect file paths",
+        "It automatically rewrites your entire repository to a new language",
+        "It replaces the need for version control entirely"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "Which practice best matches how you should treat a GitHub PAT?",
+      "choices": [
+        "Limit scopes to what you need, avoid sharing it, and revoke or rotate it if it may be exposed",
+        "Commit it to your repository so teammates can reuse it",
+        "Use one token for every service on the internet for simplicity",
+        "Store it only in public chat logs for easy retrieval"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "How does a project typically differ from day-to-day operations?",
+      "choices": [
+        "A project is temporary and aims at a defined outcome; operations keep the business running on an ongoing basis",
+        "Projects never have deadlines; operations always do",
+        "Operations never use software; projects always do",
+        "They are identical terms in agile practice"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "What is a common purpose of writing stories during planning?",
+      "choices": [
+        "To express user value and outcomes so work can be prioritized and broken down clearly",
+        "To replace all technical design documents permanently",
+        "To eliminate the need for acceptance criteria",
+        "To hide scope from stakeholders until launch"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "In this course’s framing, what role does MCP play relative to tools like GitHub or your editor?",
+      "choices": [
+        "It acts as structured glue—moving the right context between tools, your repo, and the model",
+        "It replaces GitHub with a local-only database",
+        "It is only used to grade assignments in Canvas",
+        "It stores your model weights on Canvas servers"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "Before using a PAT with automation or MCP, what should you confirm first?",
+      "choices": [
+        "The token has only the permissions required for the task and you know how to revoke it",
+        "The token must have admin access to every organization you belong to",
+        "The token should never expire",
+        "The token replaces your GitHub password for the website login only"
       ],
       "correctIndex": 0
     }

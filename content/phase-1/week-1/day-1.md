@@ -38,6 +38,12 @@ Greenfield development refers to starting a project from scratch, without any co
 
 <% quiz assessments/phase-1/week-1/context.json %>
 
+## What to Submit
+
+- Submit one prompt you used (or refined) to research greenfield and brownfield software development, the context window, and context management.
+- Paste your prompt in the text entry for this assignment.
+- Your submission should show how you explored these ideas—not just a single vague sentence.
+
 ---
 
 <% links

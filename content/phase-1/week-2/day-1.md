@@ -1,4 +1,5 @@
-# Week 2 - A Feature 
+# Week 2 - A Feature
+
 ## Select the feature you're going to build
 
 > **Course goal:** Remember, we have a goal of not writing a single line of code.
@@ -8,9 +9,9 @@
 1. Think of 1 medium size Canvas feature that you want to add.
 2. Brainstorm a few candidate features (e.g. Better Campus clone, AI course builder, Content to flash cards).
 3. Create an `agents/tasks/feature-1/feature-1.md` file. You will place all the relevant information inside of this file.
-3. Consider the impact and feasibility—can you describe what the feature does without specifying the implementation?
-4. Be prepared to justify why you selected this feature in class and what problem it addresses. You will be pitching this idea in class.
-5. **Do not** implement the feature yet; focus on the “what” and “why”, not the “how”.
+4. Consider the impact and feasibility—can you describe what the feature does without specifying the implementation?
+5. Be prepared to justify why you selected this feature in class and what problem it addresses. You will be pitching this idea in class.
+6. **Do not** implement the feature yet; focus on the “what” and “why”, not the “how”.
 
 ## Definitions
 
@@ -22,7 +23,7 @@ A feature in software product development is a distinct, user-facing capability 
 
 ### Feature Scope
 
-Feature scope defines the boundaries of what a feature will include—its goals, functionality, and deliverables—during product development. Clearly establishing scope helps ensure teams focus on solving the intended problem without taking on unnecessary work. Scope creep occurs when unplanned or additional tasks and requirements are added after the initial scope is set, which can delay delivery and complicate development.
+Feature scope defines the boundaries of what a feature will include—its goals, functionality, and deliverables—during product development. Clearly establishing scope helps ensure teams focus on solving the intended problem without taking on unnecessary work. Scope creep occurs when  unplanned or additional tasks and requirements are added after the initial scope is set, which can delay delivery and complicate development.
 
 ### Product Planning
 
@@ -32,17 +33,19 @@ Product owners typically prioritize features by analyzing user needs, business g
 
 FERPA (Family Educational Rights and Privacy Act) is a U.S. federal law that protects the privacy of student education records. It grants students and their parents certain rights regarding access to, and the amendment of, these records. Schools must have written permission before disclosing personally identifiable information from a student's education records, except under specific allowed circumstances.
 
-
 <% quiz assessments/phase-1/week-2/feature.json %>
 
 ---
 
 <% links
+
 #### Labs
+
 [Lab 3](labs/lab-3.md)
 [Lab 4](labs/lab-4.md)
 
 #### Days
+
 [Day 3](day-1.md)
 [Day 4](day-2.md)
 %>

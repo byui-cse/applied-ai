@@ -1,0 +1,217 @@
+{
+  "CANVAS_COURSE_ID": 406352,
+  "course_id": 406352,
+  "syllabus": {
+    "source": "content/syllabus.md",
+    "canvas_field": "syllabus_body"
+  },
+  "assignment_groups": {
+    "apply_assignment_group_weights": true,
+    "groups": [
+      {
+        "name": "Prepare",
+        "group_weight_percent": 20,
+        "canvas_assignment_group_id": 2320233
+      },
+      {
+        "name": "Class Work",
+        "group_weight_percent": 20,
+        "canvas_assignment_group_id": 2320235
+      },
+      {
+        "name": "Labs",
+        "group_weight_percent": 60,
+        "canvas_assignment_group_id": 2320237
+      }
+    ]
+  },
+  "syncs": [
+    {
+      "kind": "wiki_page",
+      "name": "Instructor Notes (Do NOT Publish)",
+      "source": ".canvas/create_instructor_notes_week1.py",
+      "canvas_page_slug": "instructor-notes-do-not-publish",
+      "canvas_module_item_id": 43919986,
+      "published": false,
+      "audience": "instructors_only",
+      "note": "Unpublished page; first item in Brownfield - Week 1 module"
+    },
+    {
+      "kind": "module_subheader",
+      "title": "Day 1 - Introduction",
+      "canvas_module_item_id": 43916534
+    },
+    {
+      "kind": "module_subheader",
+      "title": "Day 2 - Analysis",
+      "canvas_module_item_id": 43919612
+    },
+    {
+      "kind": "assignment",
+      "name": "Instruction 1.1: Context",
+      "source": "content/phase-1/week-1/day-1.md",
+      "canvas_assignment_id": 16666079,
+      "canvas_module_item_id": 43916536,
+      "due_at": "2026-04-21T23:59:00 America/Boise"
+    },
+    {
+      "kind": "assignment",
+      "name": "Lab 1.1: Setup Canvas",
+      "source": "content/phase-1/week-1/labs/lab-1.md",
+      "canvas_assignment_id": 16666081,
+      "canvas_module_item_id": 43916538,
+      "due_at": "2026-04-22T23:59:00 America/Boise",
+      "canvas_rubric_id": 3594660,
+      "rubric_note": "Two 15-pt criteria (fork URL + EC2 screenshot); see .canvas/update_lab_1_1_rubric.py"
+    },
+    {
+      "kind": "quiz",
+      "name": "Prepare: 1.1 - Green, Brown, Context",
+      "canvas_quiz_id": 5845167,
+      "canvas_assignment_id": 16666679,
+      "points_total": 10,
+      "due_at": "2026-04-21T10:15:00 America/Boise",
+      "attempts": "unlimited",
+      "scoring_policy": "keep_highest",
+      "sources": [
+        "assessments/phase-1/week-1/green-brown.json",
+        "assessments/phase-1/week-1/context.json"
+      ]
+    },
+    {
+      "kind": "wiki_page",
+      "name": "Instruction 1.2: Agents",
+      "source": "content/phase-1/week-1/day-2.md",
+      "canvas_page_slug": "instruction-1-dot-2-agents"
+    },
+    {
+      "kind": "quiz",
+      "name": "Prepare: 1.2 - Agents and Markdown",
+      "canvas_quiz_id": 5845351,
+      "canvas_assignment_id": 16667479,
+      "points_total": 10,
+      "due_at": "2026-04-23T10:15:00 America/Boise",
+      "attempts": "unlimited",
+      "scoring_policy": "keep_highest",
+      "sources": [
+        "assessments/phase-1/week-1/agents-and-markdown.json",
+        "assessments/phase-1/week-1/markdown-practice.json"
+      ]
+    },
+    {
+      "kind": "assignment",
+      "name": "Lab 1.2: Analysis Agent",
+      "source": "content/phase-1/week-1/labs/lab-2.md",
+      "canvas_assignment_id": 16667605,
+      "canvas_module_item_id": 43919804,
+      "canvas_rubric_id": 3594864,
+      "due_at": "2026-04-25T23:59:00 America/Boise",
+      "rubric_note": "4 criteria, 3 ratings each; see .canvas/update_lab_1_2_rubric.py"
+    },
+    {
+      "kind": "wiki_page",
+      "name": "Instructor Notes \u2014 Week 2 (Do NOT Publish)",
+      "source": ".canvas/create_instructor_notes_week2.py",
+      "canvas_page_slug": "instructor-notes-week-2-do-not-publish",
+      "canvas_module_item_id": 43920734,
+      "published": false,
+      "audience": "instructors_only",
+      "canvas_module_id": 4543209,
+      "note": "Unpublished page; first item in Brownfield - Week 2 module"
+    },
+    {
+      "kind": "module_subheader",
+      "title": "Day 3 - Feature Planning",
+      "canvas_module_item_id": 43920668,
+      "canvas_module_id": 4543209
+    },
+    {
+      "kind": "wiki_page",
+      "name": "Instruction 2.1: Feature Planning",
+      "source": "content/phase-1/week-2/day-1.md",
+      "canvas_page_slug": "instruction-2-dot-1-feature-planning",
+      "canvas_module_item_id": 43920670,
+      "canvas_module_id": 4543209
+    },
+    {
+      "kind": "quiz",
+      "name": "Prepare: 2.1 - Feature Planning",
+      "canvas_quiz_id": 5845695,
+      "canvas_assignment_id": 16668215,
+      "points_total": 10,
+      "due_at": "2026-04-28T10:15:00 America/Boise",
+      "attempts": "unlimited",
+      "scoring_policy": "keep_highest",
+      "sources": [
+        "assessments/phase-1/week-2/feature.json"
+      ],
+      "canvas_module_item_id": 43920674
+    },
+    {
+      "kind": "assignment",
+      "name": "Lab 2.1: Feature Agent",
+      "source": "content/phase-1/week-2/labs/lab-3.md",
+      "canvas_assignment_id": 16668221,
+      "canvas_module_item_id": 43920682,
+      "canvas_rubric_id": 3594882,
+      "due_at": "2026-04-29T23:59:00 America/Boise",
+      "points_possible": 30,
+      "rubric_note": "5 criteria, 3 ratings each; see .canvas/update_lab_2_1_rubric.py"
+    },
+    {
+      "kind": "module_subheader",
+      "title": "Day 4 - Project Planning",
+      "canvas_module_item_id": 43920716,
+      "canvas_module_id": 4543209
+    },
+    {
+      "kind": "quiz",
+      "name": "Prepare: 2.2 - Project Planning",
+      "canvas_quiz_id": 5845699,
+      "canvas_assignment_id": 16668233,
+      "points_total": 10,
+      "due_at": "2026-04-30T10:15:00 America/Boise",
+      "attempts": "unlimited",
+      "scoring_policy": "keep_highest",
+      "sources": [
+        "assessments/phase-1/week-2/mcp.json"
+      ],
+      "canvas_module_item_id": 43920720,
+      "note": "Before Instruction 2.2; quiz description links to that assignment"
+    },
+    {
+      "kind": "assignment",
+      "name": "Instruction 2.2: Project Planning",
+      "source": "content/phase-1/week-2/day-2.md",
+      "canvas_assignment_id": 16668229,
+      "canvas_module_item_id": 43920708,
+      "due_at": "2026-04-30T23:59:00 America/Boise",
+      "points_possible": 20,
+      "assignment_group": "Class Work",
+      "note": "Table pitch + peer feedback submitted in Canvas (no separate wiki page)"
+    },
+    {
+      "kind": "assignment",
+      "name": "Lab 2.2: Project Planning",
+      "source": "content/phase-1/week-2/labs/lab-4.md",
+      "canvas_assignment_id": 16668237,
+      "canvas_module_item_id": 43920724,
+      "canvas_rubric_id": 3594884,
+      "due_at": "2026-05-02T23:59:00 America/Boise",
+      "points_possible": 30,
+      "rubric_note": "5 criteria, 3 ratings each; see .canvas/update_lab_2_2_rubric.py"
+    }
+  ],
+  "modules": [
+    {
+      "name": "Brownfield - Week 1",
+      "canvas_module_id": 4542815
+    },
+    {
+      "name": "Brownfield - Week 2",
+      "canvas_module_id": 4543209,
+      "lock_until": "2026-04-25T22:00:00 America/Boise",
+      "note": "Canvas 'Lock until' \u2192 API unlock_at; module published"
+    }
+  ]
+}

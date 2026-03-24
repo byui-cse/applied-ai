@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "canvas-lms": {
+      "command": "available_tools/.venv/bin/python",
+      "args": [
+        "available_tools/server.py"
+      ]
+    }
+  }
+}

@@ -117,26 +117,10 @@ Cloned **your fork** on EC2 (not only local)
 
 For markdown systems for teams, see **[`day-2.md`](../day-2.md)**.
 
-## Rubric
+## What to Submit
 
-### Lab 1 Grading Rubric (30 points)
-
-| Criteria                                                                                  | Points |
-|-------------------------------------------------------------------------------------------|--------|
-| **1. Forked course repo under personal GitHub account**                                   |   3    |
-| **2. Ubuntu EC2 Instance: provisioned, running, with SSH access allowed**                 |   5    |
-| **3. `.pem` key downloaded, placed in correct directory, and permissions (`chmod 400`) set** |   3    |
-| **4. `~/.ssh/config` entry added as specified; correct HostName, IdentityFile, User**     |   4    |
-| **5. Connected via Remote - SSH (Cursor or VS Code) using the SSH config**                |   5    |
-| **6. Able to open folders/files on EC2 instance using IDE's remote features**              |   3    |
-| **7. Cloned own fork (not template repo) to the EC2 instance**                            |   4    |
-| **8. Follows recommended security steps (key not committed, uses personal access tokens where needed)** |   3    |
-
-**Total:** 30 points
-
-#### Evaluation Notes:
-- Partial credit per item may be awarded at instructor discretion.
-- Rubric aligns with checklists and instructions above; all steps must be performed on EC2 (*not just locally*).
+- Submit proof of the process of completing this lab (for example, screenshots, terminal output, or short notes that show each major step).
+- The lab is worth 30 points; your instructor uses the assignment rubric in Canvas (submission sidebar and SpeedGrader) for each criterion.
 
 ---
 
